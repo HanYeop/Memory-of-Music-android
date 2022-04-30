@@ -14,3 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Memory-of-Music-android"
 include ':app'
+include ':data'
+include ':presentation'
+include ':domain'
