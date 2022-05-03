@@ -8,10 +8,13 @@ import com.hanyeop.presentation.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun init() {
+        // 바텀네비게이션뷰 <-> 네비게이션 연결
         initNavigation()
+
+        // 툴바 지정
+        setSupportActionBar(binding.toolbar)
     }
 
-    // 바텀네비게이션뷰 <-> 네비게이션 연결
     private fun initNavigation(){
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container_view) as NavHostFragment
