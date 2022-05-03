@@ -27,6 +27,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -37,6 +40,13 @@ dependencies {
     implementation (AndroidX.APP_COMPAT)
     implementation (Google.MATERIAL)
     implementation (AndroidX.CONSTRAINT_LAYOUT)
+
+    // Navigation
+    implementation (NavComponent.NAVIGATION_FRAGMENT)
+    implementation (NavComponent.NAVIGATION_UI)
+    implementation (NavComponent.NAVIGATION_DYNAMIC_FEATURES_FRAGMENT)
+    androidTestImplementation (NavComponent.NAVIGATION_TESTING)
+    implementation (NavComponent.NAVIGATION_COMPOSE)
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
