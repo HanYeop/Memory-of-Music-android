@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/myListFragment">
+
+    <fragment
+        android:id="@+id/myListFragment"
+        android:name="com.hanyeop.presentation.view.MyListFragment"
+        android:label="MyListFragment" />
+    <fragment
+        android:id="@+id/otherListFragment"
+        android:name="com.hanyeop.presentation.view.OtherListFragment"
+        android:label="OtherListFragment" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.hanyeop.presentation.view.SettingFragment"
+        android:label="SettingFragment" />
+</navigation>
