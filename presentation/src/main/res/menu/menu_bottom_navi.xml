@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/myListFragment"
+        android:icon="@drawable/ic_baseline_queue_music_24"
+        android:title="내 목록"
+        android:enabled="true"/>
+
+    <item android:id="@+id/otherListFragment"
+        android:icon="@drawable/ic_baseline_featured_play_list_24"
+        android:title="둘러보기"
+        android:enabled="true"/>
+
+    <item android:id="@+id/settingFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="설정"
+        android:enabled="true"/>
+</menu>
