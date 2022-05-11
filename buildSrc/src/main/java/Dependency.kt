@@ -28,3 +28,10 @@ object NavComponent {
     const val NAVIGATION_TESTING = "androidx.navigation:navigation-testing:$NAV_VERSION"
     const val NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:2.4.0-alpha10"
 }
+
+object DaggerHilt {
+    const val DAGGER_HILT = "com.google.dagger:hilt-android:2.40.5"
+    const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:2.40.5"
+    const val DAGGER_HILT_VIEW_MODEL = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
+    const val DAGGER_HILT_ANDROIDX_COMPILER = "androidx.hilt:hilt-compiler:1.0.0"
+}
