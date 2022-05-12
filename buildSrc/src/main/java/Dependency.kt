@@ -40,6 +40,7 @@ object Retrofit {
     const val RETROFIT = "com.squareup.retrofit2:retrofit:2.9.0"
     const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:2.9.0"
     const val CONVERTER_JAXB = "com.squareup.retrofit2:converter-jaxb:2.9.0"
+    const val XMLConverter = "com.squareup.retrofit2:converter-simplexml:2.2.0"
 }
 
 object OkHttp {
