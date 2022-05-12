@@ -15,4 +15,4 @@
 local.properties
 .idea/deploymentTargetDropDown.xml
 /buildSrc/build/
-/app/src/main/java/com/hanyeop/mom/utils/ApiKey.kt
+/data/src/main/java/com/hanyeop/data/utils/ApiKey.kt
