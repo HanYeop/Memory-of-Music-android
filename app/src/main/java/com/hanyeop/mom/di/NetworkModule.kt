@@ -1,6 +1,6 @@
 package com.hanyeop.mom.di
 
-import com.hanyeop.data.remote.api.MusicApi
+import com.hanyeop.data.api.MusicApi
 import com.hanyeop.mom.utils.BASE_URL
 import dagger.Module
 import dagger.Provides

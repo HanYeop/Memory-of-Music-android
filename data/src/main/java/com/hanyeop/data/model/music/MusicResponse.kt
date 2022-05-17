@@ -1,4 +1,4 @@
-package com.hanyeop.data.remote.model
+package com.hanyeop.data.model.music
 
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementList

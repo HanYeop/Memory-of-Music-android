@@ -1,4 +1,4 @@
-package com.hanyeop.data.remote.api
+package com.hanyeop.data.api
 
 import com.hanyeop.data.remote.model.MusicResponse
 import com.hanyeop.data.utils.API_KEY
