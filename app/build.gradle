@@ -65,4 +65,9 @@ dependencies {
     // OkHttp
     implementation (OkHttp.OKHTTP)
     implementation (OkHttp.LOGGING_INTERCEPTOR)
+
+    // Room
+    implementation (Room.ROOM_RUNTIME)
+    kapt (Room.ROOM_COMPILER)
+    implementation (Room.ROOM_KTX)
 }

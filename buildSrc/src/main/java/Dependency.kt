@@ -1,7 +1,9 @@
 import Versions.NAV_VERSION
+import Versions.ROOM_VERSION
 
 object Versions {
     const val NAV_VERSION = "2.4.0-alpha10"
+    const val ROOM_VERSION = "2.4.2"
 }
 
 object Kotlin {
@@ -46,4 +48,10 @@ object Retrofit {
 object OkHttp {
     const val OKHTTP = "com.squareup.okhttp3:okhttp:4.9.1"
     const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.1"
+}
+
+object Room {
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:$ROOM_VERSION"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:$ROOM_VERSION"
+    const val ROOM_KTX  = "androidx.room:room-ktx:$ROOM_VERSION"
 }
