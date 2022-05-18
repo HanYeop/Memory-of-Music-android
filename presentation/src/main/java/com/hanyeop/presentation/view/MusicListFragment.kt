@@ -5,9 +5,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
-import com.hanyeop.presentation.databinding.FragmentMyListBinding
+import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 
-class MyListFragment : BaseFragment<FragmentMyListBinding>(R.layout.fragment_my_list) {
+class MusicListFragment : BaseFragment<FragmentMusicListBinding>(R.layout.fragment_music_list) {
     override fun init() {
         // 툴바 버튼 생성
         setHasOptionsMenu(true)
