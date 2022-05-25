@@ -1,6 +1,6 @@
 package com.hanyeop.data.api
 
-import com.hanyeop.data.remote.model.MusicResponse
+import com.hanyeop.data.model.music.MusicResponse
 import com.hanyeop.data.utils.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
