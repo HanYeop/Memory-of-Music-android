@@ -1,8 +1,7 @@
-package com.hanyeop.presentation.view
+package com.hanyeop.presentation.view.music
 
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.adapter.MusicAdapter
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 
