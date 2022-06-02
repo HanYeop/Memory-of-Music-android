@@ -23,7 +23,15 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/nav_graph" />
+            app:navGraph="@navigation/nav_main" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
 
         <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
             android:id="@+id/expandable_bottom_bar"
