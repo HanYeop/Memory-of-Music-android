@@ -28,7 +28,7 @@
         <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
             android:id="@+id/expandable_bottom_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_gravity="bottom"
             app:exb_items="@menu/menu_bottom_navi"
             app:exb_notificationBadgeTextColor="@color/black"

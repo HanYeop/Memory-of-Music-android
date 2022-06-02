@@ -1,34 +1,25 @@
 package com.hanyeop.presentation.view
 
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
+import com.hanyeop.presentation.adapter.MusicAdapter
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 
 class MusicListFragment : BaseFragment<FragmentMusicListBinding>(R.layout.fragment_music_list) {
+
+    private val musicAdapter = MusicAdapter()
+
     override fun init() {
-        // 툴바 버튼 생성
-        setHasOptionsMenu(true)
+        initAdapter()
     }
 
-    // 툴바 버튼 생성
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_toolbar, menu)
-    }
-
-    // 툴바 버튼 클릭 이벤트
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.searchButton -> {
-
-            }
-            R.id.orderButton -> {
-
-            }
+    private fun initAdapter(){
+        binding.recyclerViewMusicList.adapter = musicAdapter
+        val list = mutableListOf(Music("d","d","d","d",0f,"d","d"))
+        for(i in 0 until 10){
+            list.add(Music("d","d","d","d",0f,"d","d"))
         }
-        return super.onOptionsItemSelected(item)
+        musicAdapter.submitList(list)
     }
 }
