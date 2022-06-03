@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MusicLocalDataSource {
     suspend fun insertMusic(music : MusicEntity)
-    fun getAllMusics(): Flow<List<MusicEntity>>
+    fun getAllMusic(): Flow<List<MusicEntity>>
 }

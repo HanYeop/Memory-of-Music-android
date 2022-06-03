@@ -15,8 +15,8 @@ class MusicRepositoryImpl @Inject constructor(
 ) : MusicRepository {
     override suspend fun insertMusic(music: Music) = musicLocalDataSource.insertMusic(mapperToMusicEntity(music))
 
-    override fun getAllMusics(): Flow<List<Music>> = flow {
-        musicLocalDataSource.getAllMusics().collect {
+    override fun getAllMusic(): Flow<List<Music>> = flow {
+        musicLocalDataSource.getAllMusic().collect {
             emit(mapperToMusic(it))
         }
     }

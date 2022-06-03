@@ -16,5 +16,5 @@ interface MusicDao {
 
     // 음악 기록 불러오기
     @Query("SELECT * FROM music_table")
-    fun getAllMusics(): Flow<List<MusicEntity>>
+    fun getAllMusic(): Flow<List<MusicEntity>>
 }

@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MusicRepository {
     suspend fun insertMusic(music : Music)
-    fun getAllMusics(): Flow<List<Music>>
+    fun getAllMusic(): Flow<List<Music>>
 }
