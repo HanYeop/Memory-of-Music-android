@@ -2,10 +2,10 @@ package com.hanyeop.presentation.view.music_list
 
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.base.BaseFragment
+import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 
-class MusicListFragment : BaseFragment<FragmentMusicListBinding>(R.layout.fragment_music_list) {
+class MusicListFragment : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list) {
 
     private val musicListAdapter = MusicListAdapter()
 

@@ -2,7 +2,7 @@ import Versions.NAV_VERSION
 import Versions.ROOM_VERSION
 
 object Versions {
-    const val NAV_VERSION = "2.4.0-alpha10"
+    const val NAV_VERSION = "2.3.5"
     const val ROOM_VERSION = "2.4.2"
 }
 

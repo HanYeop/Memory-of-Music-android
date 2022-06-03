@@ -2,18 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_main"
-    app:startDestination="@id/musicListFragment">
+    app:startDestination="@id/musicListFragment"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <fragment
+    <keep_state_fragment
         android:id="@+id/musicListFragment"
         android:name="com.hanyeop.presentation.view.music_list.MusicListFragment"
-        android:label="MusicListFragment" />
-    <fragment
+        android:label="MusicListFragment"
+        tools:layout="@layout/fragment_music_list"/>
+    <keep_state_fragment
         android:id="@+id/albumListFragment"
         android:name="com.hanyeop.presentation.view.album_list.AlbumListFragment"
-        android:label="albumListFragment" />
-    <fragment
+        android:label="albumListFragment"
+        tools:layout="@layout/fragment_album_list"/>
+    <keep_state_fragment
         android:id="@+id/settingFragment"
         android:name="com.hanyeop.presentation.view.setting.SettingFragment"
-        android:label="SettingFragment" />
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting"/>
 </navigation>
