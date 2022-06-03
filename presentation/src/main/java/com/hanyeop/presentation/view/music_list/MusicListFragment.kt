@@ -1,23 +1,30 @@
 package com.hanyeop.presentation.view.music_list
 
+import androidx.fragment.app.viewModels
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MusicListFragment : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list) {
 
+    private val musicViewModel by viewModels<MusicViewModel>()
     private val musicListAdapter = MusicListAdapter()
 
     override fun init() {
         initAdapter()
+
+        musicViewModel.insertMusic(Music(title = "테스트"))
     }
 
     private fun initAdapter(){
         binding.recyclerViewMusicList.adapter = musicListAdapter
-        val list = mutableListOf(Music("d","d","d","d",0f,"d","d"))
+        val list = mutableListOf(Music(0,"d","d","d","d",0f,"d","d"))
+
         for(i in 0 until 10){
-            list.add(Music("d","d","d","d",0f,"d","d"))
+            list.add(Music(0,"d","d","d","d",0f,"d","d"))
         }
         musicListAdapter.submitList(list)
     }
