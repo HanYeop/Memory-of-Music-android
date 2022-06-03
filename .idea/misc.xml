@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/activity_main.xml" value="0.13518518518518519" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/activity_music_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_list.xml" value="0.33" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_other_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_setting.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_music_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_bottom_navi.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_toolbar.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_featured_play_list_24.xml" value="0.341" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_queue_music_24.xml" value="0.341" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_reorder_24.xml" value="0.341" />

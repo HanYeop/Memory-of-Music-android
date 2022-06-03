@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view
+package com.hanyeop.presentation.view.setting
 
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment

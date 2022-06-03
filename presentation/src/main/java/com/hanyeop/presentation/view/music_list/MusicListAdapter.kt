@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view.music
+package com.hanyeop.presentation.view.music_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.databinding.ItemMusicListBinding
 
-class MusicAdapter
-    : ListAdapter<Music, MusicAdapter.ViewHolder>(diffUtil) {
+class MusicListAdapter
+    : ListAdapter<Music, MusicListAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(music: Music){
