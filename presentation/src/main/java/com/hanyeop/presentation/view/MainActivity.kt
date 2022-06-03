@@ -1,11 +1,9 @@
 package com.hanyeop.presentation.view
 
-import android.content.Intent
 import androidx.navigation.fragment.NavHostFragment
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseActivity
 import com.hanyeop.presentation.databinding.ActivityMainBinding
-import com.hanyeop.presentation.view.music.MusicSearchActivity
 import github.com.st235.lib_expandablebottombar.navigation.ExpandableBottomBarNavigationUI
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -25,9 +23,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private fun initClickListener(){
         binding.apply {
-            fab.setOnClickListener {
-                startActivity(Intent(this@MainActivity,MusicSearchActivity::class.java))
-            }
+
         }
     }
 }

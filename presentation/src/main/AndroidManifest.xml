@@ -4,9 +4,6 @@
 
     <application>
         <activity
-            android:name=".view.music.MusicSearchActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
