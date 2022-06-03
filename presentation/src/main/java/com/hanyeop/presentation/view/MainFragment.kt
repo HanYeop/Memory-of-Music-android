@@ -9,8 +9,9 @@ import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.utils.KeepStateNavigator
 import github.com.st235.lib_expandablebottombar.navigation.ExpandableBottomBarNavigationUI
 import com.hanyeop.presentation.databinding.FragmentMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFragment : BaseFragmentMain<FragmentMainBinding>(R.layout.fragment_main) {
 
     override fun init() {
