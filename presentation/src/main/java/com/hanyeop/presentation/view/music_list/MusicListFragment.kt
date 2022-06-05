@@ -1,11 +1,15 @@
 package com.hanyeop.presentation.view.music_list
 
+import android.util.Log
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
+import com.hanyeop.presentation.utils.TAG
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class MusicListFragment : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list) {
@@ -16,16 +20,19 @@ class MusicListFragment : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fr
     override fun init() {
         initAdapter()
 
-        musicViewModel.insertMusic(Music(title = "테스트"))
+        binding.button.setOnClickListener {
+            musicViewModel.insertMusic(Music(title = "테스트2"))
+        }
     }
 
     private fun initAdapter(){
         binding.recyclerViewMusicList.adapter = musicListAdapter
-        val list = mutableListOf(Music(0,"d","d","d","d",0f,"d","d"))
 
-        for(i in 0 until 10){
-            list.add(Music(0,"d","d","d","d",0f,"d","d"))
+        lifecycleScope.launchWhenStarted {
+            musicViewModel.musicList.collectLatest {
+                musicListAdapter.submitList(musicViewModel.musicList.value)
+                Log.d(TAG, "StateFlow : $it")
+            }
         }
-        musicListAdapter.submitList(list)
     }
 }
