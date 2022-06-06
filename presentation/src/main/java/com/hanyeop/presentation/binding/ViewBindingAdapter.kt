@@ -1,8 +1,11 @@
 package com.hanyeop.presentation.binding
 
+import android.view.View
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.hanyeop.domain.utils.Result
 
 object ViewBindingAdapter {
 
@@ -14,5 +17,12 @@ object ViewBindingAdapter {
             .load(imageUrl)
             .override(100,100)
             .into(this)
+    }
+
+    // 로딩 상태 표시
+    @JvmStatic
+    @BindingAdapter("isLoading")
+    fun View.bindIsLoading(result: Result<*>) {
+        this.isVisible = result is Result.Loading
     }
 }

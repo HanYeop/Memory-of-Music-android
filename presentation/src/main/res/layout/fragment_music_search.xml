@@ -22,21 +22,34 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </SearchView>
+            app:layout_constraintTop_toTopOf="parent"></SearchView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_music_search_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:padding="10dp"
-            tools:listitem="@layout/item_music_search"
-            app:submitList="@{vm.remoteMusics}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_view_music" />
+            app:layout_constraintTop_toBottomOf="@+id/search_view_music"
+            app:submitList="@{vm.remoteMusics}"
+            tools:listitem="@layout/item_music_search" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:isLoading="@{vm.remoteMusics}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
