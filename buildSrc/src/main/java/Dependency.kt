@@ -55,3 +55,7 @@ object Room {
     const val ROOM_COMPILER = "androidx.room:room-compiler:$ROOM_VERSION"
     const val ROOM_KTX  = "androidx.room:room-ktx:$ROOM_VERSION"
 }
+
+object BottomBar{
+    const val EXPANDABLE_BOTTOM_BAR = "com.github.st235:expandablebottombar:1.4.0"
+}

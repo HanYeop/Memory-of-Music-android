@@ -62,5 +62,5 @@ dependencies {
     kapt (DaggerHilt.DAGGER_HILT_ANDROIDX_COMPILER)
 
     // Custom BottomBar
-    implementation 'com.github.st235:expandablebottombar:1.4.0'
+    implementation (BottomBar.EXPANDABLE_BOTTOM_BAR)
 }
