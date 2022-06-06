@@ -59,3 +59,8 @@ object Room {
 object BottomBar{
     const val EXPANDABLE_BOTTOM_BAR = "com.github.st235:expandablebottombar:1.4.0"
 }
+
+object Glide{
+    const val GLIDE_GLIDE = "com.github.bumptech.glide:glide:4.12.0"
+    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.12.0"
+}

@@ -63,4 +63,8 @@ dependencies {
 
     // Custom BottomBar
     implementation (BottomBar.EXPANDABLE_BOTTOM_BAR)
+
+    // Glide
+    implementation (Glide.GLIDE_GLIDE)
+    kapt (Glide.GLIDE_COMPILER)
 }
