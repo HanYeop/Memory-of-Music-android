@@ -3,9 +3,11 @@ package com.hanyeop.presentation.binding
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.view.music_list.MusicListAdapter
+import com.hanyeop.presentation.view.music_list.MusicSearchAdapter
 
 object RecyclerViewBinding {
 
@@ -16,6 +18,9 @@ object RecyclerViewBinding {
             when (view.adapter) {
                 is MusicListAdapter -> {
                     (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<Music>)
+                }
+                is MusicSearchAdapter -> {
+                    (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<DomainMusicResponse>)
                 }
             }
         } else if (result is Result.Empty) {

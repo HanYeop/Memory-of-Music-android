@@ -10,8 +10,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class MusicSearchFragment : BaseFragment<FragmentMusicSearchBinding>(R.layout.fragment_music_search) {
 
     private val musicViewModel by viewModels<MusicViewModel>()
+    private val musicSearchAdapter = MusicSearchAdapter()
 
     override fun init() {
+        binding.apply {
+            vm = musicViewModel
+            recyclerViewMusicSearchList.adapter = musicSearchAdapter
+        }
         musicViewModel.getRemoteMusics("물고기")
     }
 }
