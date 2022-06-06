@@ -15,7 +15,7 @@ object ViewBindingAdapter {
     fun ImageView.setImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(100,100)
+//            .override(100,100)
             .into(this)
     }
 

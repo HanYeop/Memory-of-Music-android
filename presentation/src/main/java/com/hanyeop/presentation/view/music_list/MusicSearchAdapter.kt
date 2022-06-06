@@ -14,6 +14,7 @@ class MusicSearchAdapter
     inner class ViewHolder(private val binding: ItemMusicSearchBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(musicInfo: DomainMusicResponse){
             binding.musicInfo = musicInfo
+            binding.imageMusic.clipToOutline = true
         }
     }
 
