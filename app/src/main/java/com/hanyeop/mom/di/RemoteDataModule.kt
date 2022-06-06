@@ -1,6 +1,8 @@
 package com.hanyeop.mom.di
 
 import com.hanyeop.data.api.MusicApi
+import com.hanyeop.data.repository.music.remote.MusicRemoteDataSource
+import com.hanyeop.data.repository.music.remote.MusicRemoteDataSourceImpl
 import com.hanyeop.mom.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,12 @@ object RemoteDataModule {
     @Singleton
     fun provideMusicApiService(retrofit: Retrofit): MusicApi {
         return retrofit.create(MusicApi::class.java)
+    }
+
+    // MusicRemoteDataSource DI
+    @Singleton
+    @Provides
+    fun provideMusicRemoteDataSource(musicApi: MusicApi): MusicRemoteDataSource {
+        return MusicRemoteDataSourceImpl(musicApi)
     }
 }
