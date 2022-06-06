@@ -1,6 +1,8 @@
 package com.hanyeop.data.mapper
 
 import com.hanyeop.data.model.music.MusicEntity
+import com.hanyeop.data.model.music.MusicResponse
+import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 
 // Domain -> Data
@@ -28,6 +30,17 @@ fun mapperToMusic(musics: List<MusicEntity>): List<Music>{
             rating = it.rating,
             summary = it.summary,
             content = it.content,
+        )
+    }
+}
+
+// Data -> Domain
+fun mapperToMusicResponse(MusicResponses: MusicResponse): List<DomainMusicResponse>{
+    return MusicResponses.channel!!.itemList!!.map {
+        DomainMusicResponse(
+            title = it.title,
+            artist = it.artist!!.name,
+            image = it.album!!.image
         )
     }
 }
