@@ -1,5 +1,6 @@
 package com.hanyeop.presentation.view.music_list
 
+import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
@@ -17,6 +18,19 @@ class MusicSearchFragment : BaseFragment<FragmentMusicSearchBinding>(R.layout.fr
             vm = musicViewModel
             recyclerViewMusicSearchList.adapter = musicSearchAdapter
         }
-        musicViewModel.getRemoteMusics("물고기")
+
+        initSearchView()
+    }
+
+    private fun initSearchView(){
+        binding.searchViewMusic.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String): Boolean {
+                musicViewModel.getRemoteMusics(query)
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 }
