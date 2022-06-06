@@ -35,7 +35,7 @@ object LocalDataModule {
         return musicDatabase.MusicDao()
     }
 
-    // LocalDataSource DI
+    // MusicLocalDataSource DI
     @Singleton
     @Provides
     fun provideMusicLocalDataSource(musicDao: MusicDao): MusicLocalDataSource{
