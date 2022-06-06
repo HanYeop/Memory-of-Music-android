@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view.music_list
+package com.hanyeop.presentation.view.music_list.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,10 +1,11 @@
-package com.hanyeop.presentation.view.music_list
+package com.hanyeop.presentation.view.music_list.list
 
 import androidx.fragment.app.viewModels
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
+import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

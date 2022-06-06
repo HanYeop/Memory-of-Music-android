@@ -1,10 +1,11 @@
-package com.hanyeop.presentation.view.music_list
+package com.hanyeop.presentation.view.music_list.search
 
 import android.widget.SearchView
 import androidx.fragment.app.viewModels
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicSearchBinding
+import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/musicSearchFragment"
-        android:name="com.hanyeop.presentation.view.music_list.MusicSearchFragment"
+        android:name="com.hanyeop.presentation.view.music_list.search.MusicSearchFragment"
         android:label="MusicSearchFragment"
         tools:layout="@layout/fragment_music_search"/>
 </navigation>

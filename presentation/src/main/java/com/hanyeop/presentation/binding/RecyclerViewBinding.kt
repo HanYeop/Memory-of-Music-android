@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.domain.utils.Result
-import com.hanyeop.presentation.view.music_list.MusicListAdapter
-import com.hanyeop.presentation.view.music_list.MusicSearchAdapter
+import com.hanyeop.presentation.view.music_list.list.MusicListAdapter
+import com.hanyeop.presentation.view.music_list.search.MusicSearchAdapter
 
 object RecyclerViewBinding {
 
+    // 리사이클러뷰 아이템 바인딩
     @JvmStatic
     @BindingAdapter("submitList")
     fun bindSubmitList(view: RecyclerView, result: Result<*>) {

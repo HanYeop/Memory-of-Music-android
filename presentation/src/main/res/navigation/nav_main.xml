@@ -7,7 +7,7 @@
 
     <keep_state_fragment
         android:id="@+id/musicListFragment"
-        android:name="com.hanyeop.presentation.view.music_list.MusicListFragment"
+        android:name="com.hanyeop.presentation.view.music_list.list.MusicListFragment"
         android:label="MusicListFragment"
         tools:layout="@layout/fragment_music_list"/>
     <keep_state_fragment
