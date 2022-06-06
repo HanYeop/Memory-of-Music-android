@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.hanyeop.domain.utils.Result
 
 @HiltViewModel
 class MusicViewModel @Inject constructor(
@@ -24,11 +25,11 @@ class MusicViewModel @Inject constructor(
         }
     }
 
-    val musicList: StateFlow<List<Music>> =
+    val musicList: StateFlow<Result<List<Music>>> =
         getAllMusicUseCase.execute()
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5000),
-                initialValue = listOf()
+                initialValue = Result.Uninitialized
             )
 }

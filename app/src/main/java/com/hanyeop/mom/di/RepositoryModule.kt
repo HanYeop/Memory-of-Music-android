@@ -13,6 +13,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
+    // MusicRepository DI
     @Provides
     @Singleton
     fun provideMusicRepository(
