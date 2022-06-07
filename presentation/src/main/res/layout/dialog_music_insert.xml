@@ -72,6 +72,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
             app:layout_constraintStart_toStartOf="@+id/input_layout_artist"
             app:layout_constraintTop_toBottomOf="@+id/input_layout_artist">
 
@@ -81,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/pen_24"
                 android:drawablePadding="10dp"
+                android:maxLength="16"
                 android:hint="한줄평"
                 android:inputType="text" />
 
