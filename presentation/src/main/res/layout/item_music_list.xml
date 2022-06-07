@@ -11,19 +11,94 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image_music"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rounded_corner_border"
+            app:searchImage="@{music.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"
             android:text="@{music.title}"
             tools:text="타이틀"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_music"
+            app:layout_constraintTop_toTopOf="@+id/image_music" />
+
+        <TextView
+            android:id="@+id/text_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="아티스트"
+            android:text="@{music.artist}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/text_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+        <TextView
+            android:id="@+id/text_summary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{music.content}"
+            android:textColor="@color/black"
+            android:layout_marginEnd="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@+id/image_other"
+            app:layout_constraintStart_toStartOf="@+id/text_artist"
+            app:layout_constraintTop_toBottomOf="@+id/text_artist"
+            tools:text="간략한 설명입니다." />
+
+        <ImageView
+            android:id="@+id/image_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/image_music"
+            app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
+        <TextView
+            android:id="@+id/text_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textSize="14sp"
+            android:text="@{String.valueOf(music.rating)}"
+            app:layout_constraintEnd_toStartOf="@+id/image_other"
+            app:layout_constraintTop_toTopOf="@+id/text_title"
+            tools:text="5.0" />
+
+        <ImageView
+            android:id="@+id/image_rating"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/text_rating"
+            app:layout_constraintEnd_toStartOf="@+id/text_rating"
+            app:layout_constraintTop_toTopOf="@+id/text_rating"
+            app:srcCompat="@drawable/star" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020/01/01"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
+            app:layout_constraintEnd_toEndOf="@+id/image_other" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
