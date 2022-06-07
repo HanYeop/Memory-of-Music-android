@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.presentation.databinding.ItemMusicSearchBinding
 
-class MusicSearchAdapter
+class MusicSearchAdapter(private val listener: MusicSearchAdapterListener)
     : ListAdapter<DomainMusicResponse, MusicSearchAdapter.ViewHolder>(diffUtil){
 
     inner class ViewHolder(private val binding: ItemMusicSearchBinding): RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.root.setOnClickListener {
+                listener.onItemClicked(getItem(adapterPosition))
+            }
+        }
         fun bind(musicInfo: DomainMusicResponse){
             binding.musicInfo = musicInfo
-            binding.imageMusic.clipToOutline = true
         }
     }
 
