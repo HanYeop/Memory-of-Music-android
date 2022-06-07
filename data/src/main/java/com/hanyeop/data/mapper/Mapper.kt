@@ -5,7 +5,7 @@ import com.hanyeop.data.model.music.MusicResponse
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 
-// Domain -> Data
+// Domain -> Data (id, time 은 자동 생성, 받지 않는다.)
 fun mapperToMusicEntity(music: Music): MusicEntity{
     return MusicEntity(
         image = music.image,
@@ -28,6 +28,7 @@ fun mapperToMusic(musics: List<MusicEntity>): List<Music>{
             rating = it.rating,
             summary = it.summary,
             content = it.content,
+            time = it.time
         )
     }
 }

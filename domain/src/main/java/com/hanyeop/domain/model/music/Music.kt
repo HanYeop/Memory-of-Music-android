@@ -8,4 +8,5 @@ data class Music(
     var rating: Float = 0f,
     var summary: String = "",
     var content: String = "",
+    var time: Long = System.currentTimeMillis()
 )

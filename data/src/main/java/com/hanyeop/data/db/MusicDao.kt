@@ -14,7 +14,7 @@ interface MusicDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMusic(music : MusicEntity)
 
-    // 음악 기록 불러오기
-    @Query("SELECT * FROM music_table")
+    // 음악 기록 불러오기 (최신 순으로, 기본값)
+    @Query("SELECT * FROM music_table ORDER BY time DESC")
     fun getAllMusic(): Flow<List<MusicEntity>>
 }

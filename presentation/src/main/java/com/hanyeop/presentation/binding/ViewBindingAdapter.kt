@@ -2,11 +2,13 @@ package com.hanyeop.presentation.binding
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
+import com.hanyeop.presentation.utils.timeFormatter
 
 object ViewBindingAdapter {
 
@@ -37,7 +39,14 @@ object ViewBindingAdapter {
     // 로딩 상태 표시
     @JvmStatic
     @BindingAdapter("isLoading")
-    fun View.bindIsLoading(result: Result<*>) {
+    fun View.setIsLoading(result: Result<*>) {
         this.isVisible = result is Result.Loading
+    }
+
+    // 시간 표시
+    @JvmStatic
+    @BindingAdapter("time")
+    fun TextView.setTime(time: Long) {
+        this.text = timeFormatter(time)
     }
 }
