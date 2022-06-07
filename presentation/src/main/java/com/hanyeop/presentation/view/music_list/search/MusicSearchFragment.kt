@@ -1,7 +1,9 @@
 package com.hanyeop.presentation.view.music_list.search
 
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
@@ -49,6 +51,8 @@ class MusicSearchFragment
 
     // 다이얼로그에서 OK 버튼 클릭 시
     override fun onOkButtonClicked(music: Music) {
+        Toast.makeText(requireContext(), "음악이 등록되었습니다.", Toast.LENGTH_SHORT).show()
         musicViewModel.insertMusic(music)
+        findNavController().popBackStack()
     }
 }

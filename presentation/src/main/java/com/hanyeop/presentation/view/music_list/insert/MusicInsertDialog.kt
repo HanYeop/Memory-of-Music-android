@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
@@ -28,7 +29,7 @@ class MusicInsertDialog(context: Context, private val listener: MusicInsertDialo
         )
         setContentView(binding.root)
 
-        context.dialogResize(this,0.8f,0.8f)
+        context.dialogResize(this,0.9f,0.9f)
 
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -40,17 +41,22 @@ class MusicInsertDialog(context: Context, private val listener: MusicInsertDialo
     private fun initClickListener(){
         binding.apply {
             btnOk.setOnClickListener {
-                listener.onOkButtonClicked(
-                    Music(
-                        image = musicInfo!!.image,
-                        title = editTitle.text.toString(),
-                        artist = editArtist.text.toString(),
-                        rating = editRating.text.toString().toFloat(),
-                        summary = editSummary.text.toString(),
-                        content = editContent.text.toString()
+                if(editTitle.text!!.isNotBlank() && editArtist.text!!.isNotBlank()
+                    && editSummary.text!!.isNotBlank() && editContent.text!!.isNotBlank()) {
+                    listener.onOkButtonClicked(
+                        Music(
+                            image = musicInfo!!.image,
+                            title = editTitle.text.toString(),
+                            artist = editArtist.text.toString(),
+                            rating = 5.0f,
+                            summary = editSummary.text.toString(),
+                            content = editContent.text.toString()
+                        )
                     )
-                )
-                dismiss()
+                    dismiss()
+                } else{
+                    Toast.makeText(context, "입력을 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
+                }
             }
             btnCancel.setOnClickListener {
                 dismiss()
