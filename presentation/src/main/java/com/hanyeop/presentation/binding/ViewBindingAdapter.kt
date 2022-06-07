@@ -18,7 +18,7 @@ object ViewBindingAdapter {
     fun ImageView.setSearchImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(80,80)
+            .override(160,160)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true
@@ -28,6 +28,18 @@ object ViewBindingAdapter {
     @BindingAdapter("detailImage")
     @JvmStatic
     fun ImageView.setDetailImage (imageUrl: Any){
+        Glide.with(this.context)
+            .load(imageUrl)
+            .override(400,400)
+            .placeholder(R.drawable.image_loading)
+            .into(this)
+        this.clipToOutline = true
+    }
+
+    // 음악 리스트 이미지 바인딩
+    @BindingAdapter("musicListImage")
+    @JvmStatic
+    fun ImageView.setMusicListImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
             .override(200,200)
@@ -49,4 +61,12 @@ object ViewBindingAdapter {
     fun TextView.setTime(time: Long) {
         this.text = timeFormatter(time)
     }
+
+    // 한줄평 표시
+    @JvmStatic
+    @BindingAdapter("summary")
+    fun TextView.setSummary(summary: String) {
+        this.text = "\"$summary\""
+    }
+
 }
