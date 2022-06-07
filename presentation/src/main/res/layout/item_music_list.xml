@@ -53,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{music.content}"
+            android:text="@{music.summary}"
             android:textColor="@color/black"
             android:layout_marginEnd="4dp"
             android:maxLines="1"
@@ -96,10 +96,11 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="2020/01/01"
-            app:time="@{music.time}"
             app:layout_constraintBottom_toBottomOf="@+id/image_music"
-            app:layout_constraintEnd_toEndOf="@+id/image_other" />
+            app:layout_constraintStart_toStartOf="@+id/text_summary"
+            app:time="@{music.time}"
+            android:textSize="12sp"
+            tools:text="2020/01/01" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
