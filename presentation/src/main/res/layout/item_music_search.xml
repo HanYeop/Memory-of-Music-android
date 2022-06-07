@@ -15,37 +15,41 @@
 
         <ImageView
             android:id="@+id/image_music"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner_border"
-            app:searchImage="@{musicInfo.image}"
+            tools:src="@tools:sample/avatars"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:searchImage="@{musicInfo.image}" />
 
         <TextView
             android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:text="@{musicInfo.title}"
             android:textColor="@color/black"
-            android:layout_marginStart="20dp"
-            android:textSize="20sp"
-            tools:text="타이틀"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintStart_toEndOf="@+id/image_music"
-            app:layout_constraintTop_toTopOf="@+id/image_music" />
+            app:layout_constraintTop_toTopOf="@+id/image_music"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="타이틀" />
 
         <TextView
             android:id="@+id/text_artist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{musicInfo.artist}"
             android:layout_marginStart="20dp"
-            android:textSize="16sp"
-            tools:text="아티스트"
+            android:text="@{musicInfo.artist}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
             app:layout_constraintStart_toEndOf="@+id/image_music"
-            app:layout_constraintTop_toBottomOf="@+id/text_title" />
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            tools:text="아티스트" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

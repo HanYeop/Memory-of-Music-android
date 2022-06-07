@@ -44,7 +44,6 @@ class MusicInsertDialog(context: Context, private val listener: MusicInsertDialo
                     Music(
                         image = musicInfo!!.image,
                         title = editTitle.text.toString(),
-                        album = "테스트",
                         artist = editArtist.text.toString(),
                         rating = editRating.text.toString().toFloat(),
                         summary = editSummary.text.toString(),

@@ -7,7 +7,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.binding.ViewBindingAdapter.setDetailImage
 
 object ViewBindingAdapter {
 
@@ -17,7 +16,7 @@ object ViewBindingAdapter {
     fun ImageView.setSearchImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(100,100)
+            .override(80,80)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true

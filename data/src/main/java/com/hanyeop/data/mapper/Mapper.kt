@@ -10,7 +10,6 @@ fun mapperToMusicEntity(music: Music): MusicEntity{
     return MusicEntity(
         image = music.image,
         title = music.title,
-        album = music.album,
         artist = music.artist,
         rating = music.rating,
         summary = music.summary,
@@ -25,7 +24,6 @@ fun mapperToMusic(musics: List<MusicEntity>): List<Music>{
             id = it.id,
             image = it.image,
             title = it.title,
-            album = it.album,
             artist = it.artist,
             rating = it.rating,
             summary = it.summary,

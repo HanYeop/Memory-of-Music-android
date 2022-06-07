@@ -26,6 +26,7 @@ class MusicSearchFragment
             recyclerViewMusicSearchList.adapter = musicSearchAdapter
         }
 
+        musicViewModel.getRemoteMusics("물고기")
         initSearchView()
     }
 

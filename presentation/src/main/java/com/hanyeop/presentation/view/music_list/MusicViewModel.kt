@@ -1,5 +1,6 @@
 package com.hanyeop.presentation.view.music_list
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.music.DomainMusicResponse
@@ -8,6 +9,7 @@ import com.hanyeop.domain.usecase.music.GetAllMusicUseCase
 import com.hanyeop.domain.usecase.music.GetRemoteMusicsUseCase
 import com.hanyeop.domain.usecase.music.InsertMusicUseCase
 import com.hanyeop.domain.utils.Result
+import com.hanyeop.presentation.utils.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -41,6 +43,7 @@ class MusicViewModel @Inject constructor(
         viewModelScope.launch {
             getRemoteMusicsUseCase.execute(keyword).collect {
                 _remoteMusics.value = it
+                Log.d(TAG, "getRemoteMusics: $it")
             }
         }
     }
