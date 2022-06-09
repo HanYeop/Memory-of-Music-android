@@ -19,5 +19,18 @@
         android:id="@+id/musicSearchFragment"
         android:name="com.hanyeop.presentation.view.music_list.search.MusicSearchFragment"
         android:label="MusicSearchFragment"
-        tools:layout="@layout/fragment_music_search"/>
+        tools:layout="@layout/fragment_music_search">
+        <action
+            android:id="@+id/action_musicSearchFragment_to_musicInsertFragment"
+            app:destination="@id/musicInsertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicInsertFragment"
+        android:name="com.hanyeop.presentation.view.music_list.insert.MusicInsertFragment"
+        android:label="fragment_music_insert"
+        tools:layout="@layout/fragment_music_insert" >
+        <argument
+            android:name="musicinfo"
+            app:argType="com.hanyeop.domain.model.music.DomainMusicResponse" />
+    </fragment>
 </navigation>

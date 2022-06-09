@@ -28,7 +28,7 @@ class MusicSearchFragment
             recyclerViewMusicSearchList.adapter = musicSearchAdapter
         }
 
-        musicViewModel.getRemoteMusics("물고기")
+//        musicViewModel.getRemoteMusics("물고기")
         initSearchView()
     }
 
@@ -46,7 +46,9 @@ class MusicSearchFragment
 
     // 리사이클러뷰 아이템 클릭 시
     override fun onItemClicked(musicInfo: DomainMusicResponse) {
-        MusicInsertDialog(requireContext(),this, musicInfo).show()
+//        MusicInsertDialog(requireContext(),this, musicInfo).show()
+        val action = MusicSearchFragmentDirections.actionMusicSearchFragmentToMusicInsertFragment(musicInfo)
+        findNavController().navigate(action)
     }
 
     // 다이얼로그에서 OK 버튼 클릭 시
