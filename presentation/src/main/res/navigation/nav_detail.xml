@@ -28,11 +28,5 @@
         android:id="@+id/musicInsertFragment"
         android:name="com.hanyeop.presentation.view.music_list.insert.MusicInsertFragment"
         android:label="fragment_music_insert"
-        tools:layout="@layout/fragment_music_insert" >
-        <action
-            android:id="@+id/action_musicInsertFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
+        tools:layout="@layout/fragment_music_insert" />
 </navigation>

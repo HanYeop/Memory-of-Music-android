@@ -39,7 +39,8 @@ class MusicInsertFragment : BaseFragment<FragmentMusicInsertBinding>(R.layout.fr
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 musicViewModel.inputSuccessEvent.collectLatest {
                     showToast(it)
-                    findNavController().navigate(R.id.action_musicInsertFragment_to_mainFragment)
+                    findNavController().popBackStack()
+                    findNavController().popBackStack()
                 }
             }
         }

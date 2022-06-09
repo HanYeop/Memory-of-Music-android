@@ -39,6 +39,8 @@ class MusicViewModel @Inject constructor(
         image.value = musicInfo.image
         title.value = musicInfo.title
         artist.value = musicInfo.artist
+        summary.value = ""
+        content.value = ""
     }
 
     fun insertMusic(){
