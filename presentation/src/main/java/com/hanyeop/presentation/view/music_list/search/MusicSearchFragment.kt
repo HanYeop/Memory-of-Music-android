@@ -38,7 +38,6 @@ class MusicSearchFragment
         })
     }
 
-    // 리사이클러뷰 아이템 클릭 시
     override fun onItemClicked(musicInfo: DomainMusicResponse) {
         musicViewModel.setMusicInfo(musicInfo)
         findNavController().navigate(R.id.action_musicSearchFragment_to_musicInsertFragment)

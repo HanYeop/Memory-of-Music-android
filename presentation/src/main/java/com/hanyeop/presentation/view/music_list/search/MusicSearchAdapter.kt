@@ -22,18 +22,15 @@ class MusicSearchAdapter(private val listener: MusicSearchAdapterListener)
         }
     }
 
-    // 어떤 xml 으로 뷰 홀더를 생성할지 지정
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemMusicSearchBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return ViewHolder(binding)
     }
 
-    // 뷰 홀더에 데이터 바인딩
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
 
-    // diffUtil 추가
     companion object{
         val diffUtil = object : DiffUtil.ItemCallback<DomainMusicResponse>(){
             override fun areItemsTheSame(oldItem: DomainMusicResponse, newItem: DomainMusicResponse): Boolean {
