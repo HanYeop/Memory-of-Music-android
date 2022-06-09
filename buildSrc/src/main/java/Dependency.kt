@@ -17,6 +17,7 @@ object AndroidX {
 
 object KTX {
     const val CORE = "androidx.core:core-ktx:1.7.0-alpha01"
+    const val LIFE_CYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-rc01"
 }
 
 object Google {
