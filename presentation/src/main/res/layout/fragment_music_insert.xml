@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="musicInfo"
-            type="com.hanyeop.domain.model.music.DomainMusicResponse" />
+            name="vm"
+            type="com.hanyeop.presentation.view.music_list.MusicViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:id="@+id/image_music"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:detailImage="@{musicInfo.image}"
+            app:detailImage="@{vm.image}"
             android:background="@drawable/rounded_corner_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -43,7 +43,7 @@
                 android:drawableLeft="@drawable/disc_24"
                 android:drawablePadding="10dp"
                 android:inputType="text"
-                android:text="@{musicInfo.title}" />
+                android:text="@={vm.title}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +63,7 @@
                 android:drawableLeft="@drawable/user_24"
                 android:drawablePadding="10dp"
                 android:inputType="text"
-                android:text="@{musicInfo.artist}" />
+                android:text="@={vm.artist}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,8 @@
                 android:drawablePadding="10dp"
                 android:maxLength="16"
                 android:hint="한줄평"
-                android:inputType="text" />
+                android:inputType="text"
+                android:text="@={vm.summary}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +107,8 @@
                 android:layout_height="match_parent"
                 android:gravity="top"
                 android:hint="내용"
-                android:background="@null" />
+                android:background="@null"
+                android:text="@={vm.content}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="등록"
+            android:onClick="@{() -> vm.insertMusic()}"
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_regular_main"
             app:layout_constraintBottom_toBottomOf="parent"
