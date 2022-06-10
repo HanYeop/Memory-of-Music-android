@@ -30,6 +30,7 @@ class MusicSearchFragment
         binding.searchViewMusic.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
                 musicViewModel.getRemoteMusics(query)
+                binding.searchViewMusic.clearFocus()
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
