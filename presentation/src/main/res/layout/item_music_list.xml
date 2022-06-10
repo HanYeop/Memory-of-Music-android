@@ -36,6 +36,7 @@
             android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/image_rating"
             app:layout_constraintStart_toEndOf="@+id/image_music"
             app:layout_constraintTop_toTopOf="@+id/image_music"
