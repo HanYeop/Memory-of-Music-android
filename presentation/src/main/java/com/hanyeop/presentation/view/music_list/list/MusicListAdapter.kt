@@ -8,10 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.databinding.ItemMusicListBinding
 
-class MusicListAdapter
+class MusicListAdapter(private val listener: MusicListAdapterListener)
     : ListAdapter<Music, MusicListAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.root.setOnClickListener {
+                listener.onItemClicked(getItem(adapterPosition))
+            }
+        }
         fun bind(music: Music){
             binding.music = music
         }
