@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 class MusicLocalDataSourceImpl @Inject constructor(private val musicDao: MusicDao)
     : MusicLocalDataSource {
-    override suspend fun insertMusic(music: MusicEntity) = musicDao.insertMusic(music)
+    override fun insertMusic(music: MusicEntity) = musicDao.insertMusic(music)
     override fun getAllMusic(): Flow<List<MusicEntity>> = musicDao.getAllMusic()
 }

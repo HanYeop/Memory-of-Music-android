@@ -1,7 +1,8 @@
 package com.hanyeop.data.repository.music.remote
 
 import com.hanyeop.data.model.music.MusicResponse
+import kotlinx.coroutines.flow.Flow
 
 interface MusicRemoteDataSource {
-    suspend fun getRemoteMusics(keyword: String): MusicResponse
+    fun getRemoteMusics(keyword: String): Flow<MusicResponse>
 }

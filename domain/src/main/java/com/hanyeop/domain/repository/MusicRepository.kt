@@ -6,7 +6,7 @@ import com.hanyeop.domain.utils.Result
 import kotlinx.coroutines.flow.Flow
 
 interface MusicRepository {
-    suspend fun insertMusic(music : Music)
+    fun insertMusic(music : Music)
     fun getAllMusic(): Flow<Result<List<Music>>>
-    suspend fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>>
+    fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>>
 }

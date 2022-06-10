@@ -19,7 +19,7 @@ class MusicRepositoryImpl @Inject constructor(
     private val musicLocalDataSource: MusicLocalDataSource,
     private val musicRemoteDataSource: MusicRemoteDataSource
 ) : MusicRepository {
-    override suspend fun insertMusic(music: Music) = musicLocalDataSource.insertMusic(mapperToMusicEntity(music))
+    override fun insertMusic(music: Music) = musicLocalDataSource.insertMusic(mapperToMusicEntity(music))
 
     override fun getAllMusic(): Flow<Result<List<Music>>> = flow {
         emit(Result.Loading)
@@ -34,10 +34,11 @@ class MusicRepositoryImpl @Inject constructor(
         emit(Result.Error(e))
     }
 
-    override suspend fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>> = flow {
+    override fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>> = flow {
         emit(Result.Loading)
-        val musics = musicRemoteDataSource.getRemoteMusics(keyword)
-        emit(Result.Success(mapperToMusicResponse(musics)))
+        musicRemoteDataSource.getRemoteMusics(keyword).collect {
+            emit(Result.Success(mapperToMusicResponse(it)))
+        }
     }.catch { e
         -> emit(Result.Error(e))
     }

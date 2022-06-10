@@ -12,7 +12,7 @@ interface MusicDao {
 
     // 음악 기록 추가
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMusic(music : MusicEntity)
+    fun insertMusic(music : MusicEntity)
 
     // 음악 기록 불러오기 (최신 순으로, 기본값)
     @Query("SELECT * FROM music_table ORDER BY time DESC")

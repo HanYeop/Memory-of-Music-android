@@ -5,5 +5,5 @@ import com.hanyeop.domain.repository.MusicRepository
 import javax.inject.Inject
 
 class InsertMusicUseCase @Inject constructor(private val musicRepository: MusicRepository) {
-    suspend fun execute(music: Music) = musicRepository.insertMusic(music)
+    fun execute(music: Music) = musicRepository.insertMusic(music)
 }
