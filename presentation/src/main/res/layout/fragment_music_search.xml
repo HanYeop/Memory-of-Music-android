@@ -12,7 +12,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.music_list.search.MusicSearchFragment">
+        tools:context=".view.music_list.search.MusicSearchFragment"
+        app:toast="@{vm.remoteMusics}">
 
         <SearchView
             android:id="@+id/search_view_music"

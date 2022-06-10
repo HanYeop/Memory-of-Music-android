@@ -3,6 +3,7 @@ package com.hanyeop.presentation.binding
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -53,6 +54,19 @@ object ViewBindingAdapter {
     @BindingAdapter("isLoading")
     fun View.setIsLoading(result: Result<*>) {
         this.isVisible = result is Result.Loading
+    }
+
+    // 에러 메세지 표시
+    @JvmStatic
+    @BindingAdapter("toast")
+    fun View.bindToast(result: Result<*>) {
+        if (result is Result.Error) {
+            if (result.isNetworkError) {
+                Toast.makeText(this.context, "인터넷 연결 상태를 확인해주세요.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this.context, "알 수 없는 오류가 발생하였습니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     // 시간 표시
