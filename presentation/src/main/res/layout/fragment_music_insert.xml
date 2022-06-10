@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="제목"
-                android:drawableLeft="@drawable/disc_24"
+                android:drawableLeft="@drawable/left_image_disc"
                 android:drawablePadding="10dp"
                 android:inputType="text"
                 android:text="@={vm.title}" />
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="가수"
-                android:drawableLeft="@drawable/user_24"
+                android:drawableLeft="@drawable/left_image_user"
                 android:drawablePadding="10dp"
                 android:inputType="text"
                 android:text="@={vm.artist}" />
@@ -81,7 +81,7 @@
                 android:id="@+id/edit_summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/pen_24"
+                android:drawableLeft="@drawable/left_image_pen"
                 android:drawablePadding="10dp"
                 android:maxLength="16"
                 android:hint="한줄평"
