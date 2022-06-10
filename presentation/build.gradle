@@ -71,4 +71,7 @@ dependencies {
 
     // lifeCycle
     implementation (KTX.LIFE_CYCLE)
+
+    // SimpleRatingBar
+    implementation (SimpleRatingBar.SIMPLE_RATING_BAR)
 }

@@ -64,3 +64,7 @@ object Glide{
     const val GLIDE_GLIDE = "com.github.bumptech.glide:glide:4.12.0"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.12.0"
 }
+
+object SimpleRatingBar{
+    const val SIMPLE_RATING_BAR = "com.github.ome450901:SimpleRatingBar:1.5.1"
+}
