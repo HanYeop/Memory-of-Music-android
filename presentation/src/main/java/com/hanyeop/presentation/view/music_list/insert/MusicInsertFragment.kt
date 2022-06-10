@@ -14,7 +14,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MusicInsertFragment : BaseFragment<FragmentMusicInsertBinding>(R.layout.fragment_music_insert) {
+class MusicInsertFragment
+    : BaseFragment<FragmentMusicInsertBinding>(R.layout.fragment_music_insert), MusicRatingListener {
 
     private val musicViewModel by activityViewModels<MusicViewModel>()
 
@@ -24,6 +25,7 @@ class MusicInsertFragment : BaseFragment<FragmentMusicInsertBinding>(R.layout.fr
         }
         
         initViewModelCallback()
+        initClickListener()
     }
     
     private fun initViewModelCallback(){
@@ -44,5 +46,20 @@ class MusicInsertFragment : BaseFragment<FragmentMusicInsertBinding>(R.layout.fr
                 }
             }
         }
+    }
+
+    private fun initClickListener(){
+        binding.apply {
+            btnOk.setOnClickListener {
+                MusicRatingDialog(requireContext(),this@MusicInsertFragment).show()
+            }
+            btnCancel.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
+    override fun onOkClick(rating: Float) {
+        musicViewModel.insertMusic(rating)
     }
 }

@@ -43,7 +43,7 @@ class MusicViewModel @Inject constructor(
         content.value = ""
     }
 
-    fun insertMusic(){
+    fun insertMusic(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
             viewModelScope.launch(Dispatchers.IO) {
                 insertMusicUseCase.execute(
@@ -51,7 +51,7 @@ class MusicViewModel @Inject constructor(
                         image = image.value,
                         title = title.value,
                         artist = artist.value,
-                        rating = 5.0f,
+                        rating = rating,
                         summary = summary.value,
                         content = content.value
                     )
@@ -60,7 +60,7 @@ class MusicViewModel @Inject constructor(
             }
         }else{
             viewModelScope.launch(Dispatchers.IO) {
-                _inputErrorEvent.emit("입력을 다시 확인해주세요.")
+                _inputErrorEvent.emit("입력되지 않은 값이 있습니다. 다시 확인해주세요.")
             }
         }
     }

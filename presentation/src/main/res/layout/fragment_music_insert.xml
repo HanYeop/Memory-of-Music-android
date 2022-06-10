@@ -130,7 +130,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="등록"
-            android:onClick="@{() -> vm.insertMusic()}"
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_regular_main"
             app:layout_constraintBottom_toBottomOf="parent"
