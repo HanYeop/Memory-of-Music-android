@@ -27,10 +27,13 @@
 
         <TextView
             android:id="@+id/text_title"
-            android:layout_marginStart="@dimen/margin_default_20"
+            android:layout_width="0dp"
             style="@style/search_title_text"
+            android:layout_marginStart="@dimen/margin_default_20"
+            android:layout_marginEnd="@dimen/margin_default_20"
             android:text="@{musicInfo.title}"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_music"
             app:layout_constraintTop_toTopOf="@+id/image_music"
             app:layout_constraintVertical_chainStyle="packed"
