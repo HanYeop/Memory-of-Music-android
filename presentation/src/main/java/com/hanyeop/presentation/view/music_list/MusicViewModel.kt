@@ -84,9 +84,9 @@ class MusicViewModel @Inject constructor(
         }
     }
 
-    fun deleteMusic(music: Music){
+    fun deleteMusic(id : Int){
         viewModelScope.launch(Dispatchers.IO) {
-            deleteMusicUseCase.execute(music)
+            deleteMusicUseCase.execute(id)
         }
     }
 }

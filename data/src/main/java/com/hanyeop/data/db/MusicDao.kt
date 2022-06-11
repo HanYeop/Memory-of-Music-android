@@ -15,11 +15,7 @@ interface MusicDao {
     @Query("SELECT * FROM music_table ORDER BY time DESC")
     fun getAllMusic(): Flow<List<MusicEntity>>
 
-//    // 음악 기록 삭제
-//    @Delete
-//    fun deleteMusic(music: MusicEntity)
-
-//    // 음악 기록 삭제
-//    @Query("DELETE FROM music_table WHERE id = :music.id")
-//    fun deleteMusic(music: MusicEntity)
+    // 음악 기록 삭제
+    @Query("DELETE FROM music_table WHERE id = :id")
+    fun deleteMusic(id: Int)
 }

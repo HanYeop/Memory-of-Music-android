@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface MusicLocalDataSource {
     fun insertMusic(music : MusicEntity)
     fun getAllMusic(): Flow<List<MusicEntity>>
-    fun deleteMusic(music : MusicEntity)
+    fun deleteMusic(id : Int)
 }
