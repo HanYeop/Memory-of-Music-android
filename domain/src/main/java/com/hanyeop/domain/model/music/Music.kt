@@ -1,5 +1,9 @@
 package com.hanyeop.domain.model.music
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Music(
     var id : Int = 0,
     var image: String = "",
@@ -9,4 +13,4 @@ data class Music(
     var summary: String = "",
     var content: String = "",
     var time: Long = System.currentTimeMillis()
-)
+): Parcelable

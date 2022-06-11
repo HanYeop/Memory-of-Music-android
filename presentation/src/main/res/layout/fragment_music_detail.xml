@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="music"
+            type="com.hanyeop.domain.model.music.Music" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +40,10 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
-            android:padding="@dimen/padding_default_10"
+            android:paddingTop="@dimen/padding_default_10"
+            android:paddingStart="@dimen/padding_20"
+            android:paddingEnd="@dimen/padding_20"
+            android:paddingBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -50,11 +55,108 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/textView"
+                <ImageView
+                    android:id="@+id/image_music"
+                    android:layout_width="@dimen/large_image_size"
+                    android:layout_height="@dimen/large_image_size"
+                    app:largeImage="@{music.image}"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corner_border"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/margin_default_20">
+
+                    <TextView
+                        android:id="@+id/image_title"
+                        style="@style/detail_header_text"
+                        android:drawableStart="@drawable/left_image_disc"
+                        android:drawablePadding="@dimen/padding_default_10"
+                        android:text="@string/music_title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_title"
+                        style="@style/detail_body_text"
+                        android:layout_margin="@dimen/margin_narrow_8"
+                        android:layout_width="0dp"
+                        android:text="@{music.title}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_title"
+                        tools:text="안녕하세요." />
+
+                    <TextView
+                        android:id="@+id/image_artist"
+                        android:layout_marginTop="@dimen/margin_10"
+                        style="@style/detail_header_text"
+                        android:drawableStart="@drawable/left_image_user"
+                        android:drawablePadding="@dimen/padding_default_10"
+                        android:text="@string/music_artist"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+                    <TextView
+                        android:id="@+id/text_artist"
+                        style="@style/detail_body_text"
+                        android:layout_width="0dp"
+                        android:layout_margin="@dimen/margin_narrow_8"
+                        android:text="@{music.artist}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_artist"
+                        tools:text="가수입니다." />
+
+                    <TextView
+                        android:id="@+id/image_summary"
+                        style="@style/detail_header_text"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:drawableStart="@drawable/left_image_pen"
+                        android:drawablePadding="@dimen/padding_default_10"
+                        android:text="@string/music_summary"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_artist" />
+
+                    <TextView
+                        android:id="@+id/text_summary"
+                        style="@style/detail_body_text"
+                        android:layout_width="0dp"
+                        android:layout_margin="@dimen/margin_narrow_8"
+                        android:text="@{music.summary}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_summary"
+                        tools:text="한줄평입니다." />
+
+                    <TextView
+                        android:id="@+id/image_content"
+                        style="@style/detail_header_text"
+                        android:layout_marginTop="@dimen/margin_24"
+                        android:text="@string/music_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_summary" />
+
+                    <TextView
+                        android:id="@+id/text_content"
+                        style="@style/detail_body_text"
+                        android:layout_width="0dp"
+                        android:layout_margin="@dimen/margin_narrow_8"
+                        android:text="@{music.content}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_content"
+                        tools:text="상세 내용입니다." />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

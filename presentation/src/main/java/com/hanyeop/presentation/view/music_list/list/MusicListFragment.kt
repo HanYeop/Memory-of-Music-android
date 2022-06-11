@@ -6,6 +6,7 @@ import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
+import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,6 @@ class MusicListFragment
     }
 
     override fun onItemClicked(music: Music) {
-        findNavController().navigate(R.id.action_mainFragment_to_musicDetailFragment)
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToMusicDetailFragment(music))
     }
 }

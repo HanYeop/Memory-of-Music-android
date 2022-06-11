@@ -8,6 +8,7 @@
     <dimen name="margin_12">12dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="padding_default_10">10dp</dimen>
+    <dimen name="padding_20">20dp</dimen>
     <dimen name="margin_narrow_8">8dp</dimen>
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_2">2dp</dimen>
@@ -23,8 +24,11 @@
     <dimen name="search_title">16sp</dimen>
     <dimen name="search_artist">14sp</dimen>
     <dimen name="toolbar_title">18sp</dimen>
+    <dimen name="detail_header">20sp</dimen>
+    <dimen name="detail_body">16sp</dimen>
 
     <!--image, icon size -->
+    <dimen name="large_image_size">300dp</dimen>
     <dimen name="detail_image_size">200dp</dimen>
     <dimen name="list_image_size">100dp</dimen>
     <dimen name="search_image_size">80dp</dimen>

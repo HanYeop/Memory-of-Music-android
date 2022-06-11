@@ -36,5 +36,9 @@
         android:id="@+id/musicDetailFragment"
         android:name="com.hanyeop.presentation.view.music_list.detail.MusicDetailFragment"
         android:label="MusicDetailFragment"
-        tools:layout="@layout/fragment_music_detail"/>
+        tools:layout="@layout/fragment_music_detail">
+        <argument
+            android:name="music"
+            app:argType="com.hanyeop.domain.model.music.Music" />
+    </fragment>
 </navigation>
