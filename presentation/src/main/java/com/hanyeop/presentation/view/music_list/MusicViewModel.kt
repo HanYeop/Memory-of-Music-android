@@ -4,10 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
-import com.hanyeop.domain.usecase.music.DeleteMusicUseCase
-import com.hanyeop.domain.usecase.music.GetAllMusicUseCase
-import com.hanyeop.domain.usecase.music.GetRemoteMusicsUseCase
-import com.hanyeop.domain.usecase.music.InsertMusicUseCase
+import com.hanyeop.domain.usecase.music.*
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +18,8 @@ class MusicViewModel @Inject constructor(
     private val insertMusicUseCase: InsertMusicUseCase,
     private val getAllMusicUseCase: GetAllMusicUseCase,
     private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
-    private val deleteMusicUseCase: DeleteMusicUseCase
+    private val deleteMusicUseCase: DeleteMusicUseCase,
+    private val updateMusicUseCase: UpdateMusicUseCase
 ) : ViewModel() {
 
     val id: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -30,6 +28,7 @@ class MusicViewModel @Inject constructor(
     val artist: MutableStateFlow<String> = MutableStateFlow("")
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
+    val time: MutableStateFlow<Long> = MutableStateFlow(0L)
 
     private val _inputErrorEvent = MutableSharedFlow<Int>()
     val inputErrorEvent = _inputErrorEvent.asSharedFlow()
@@ -54,6 +53,7 @@ class MusicViewModel @Inject constructor(
         artist.value = music.artist
         summary.value = music.summary
         content.value = music.content
+        time.value = music.time
     }
 
     fun insertMusic(rating: Float){
@@ -97,6 +97,30 @@ class MusicViewModel @Inject constructor(
     fun deleteMusic(id : Int){
         viewModelScope.launch(Dispatchers.IO) {
             deleteMusicUseCase.execute(id)
+        }
+    }
+
+    fun updateMusic(rating: Float){
+        if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
+            viewModelScope.launch(Dispatchers.IO) {
+                updateMusicUseCase.execute(
+                    Music(
+                        id = id.value,
+                        image = image.value,
+                        title = title.value,
+                        artist = artist.value,
+                        rating = rating,
+                        summary = summary.value,
+                        content = content.value,
+                        time = time.value
+                    )
+                )
+                _inputSuccessEvent.emit(R.string.insert_success)
+            }
+        }else{
+            viewModelScope.launch(Dispatchers.IO) {
+                _inputErrorEvent.emit(R.string.insert_error)
+            }
         }
     }
 }

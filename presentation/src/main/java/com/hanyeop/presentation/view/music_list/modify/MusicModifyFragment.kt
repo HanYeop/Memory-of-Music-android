@@ -65,6 +65,6 @@ class MusicModifyFragment
     }
 
     override fun onOkClick(rating: Float) {
-//        musicViewModel.insertMusic(rating)
+        musicViewModel.updateMusic(rating)
     }
 }

@@ -10,4 +10,5 @@ class MusicLocalDataSourceImpl @Inject constructor(private val musicDao: MusicDa
     override fun insertMusic(music: MusicEntity) = musicDao.insertMusic(music)
     override fun getAllMusic(): Flow<List<MusicEntity>> = musicDao.getAllMusic()
     override fun deleteMusic(id : Int) = musicDao.deleteMusic(id)
+    override fun updateMusic(music: MusicEntity) = musicDao.updateMusic(music)
 }
