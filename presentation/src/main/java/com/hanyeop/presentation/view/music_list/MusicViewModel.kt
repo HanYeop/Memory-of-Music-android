@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
+import com.hanyeop.domain.usecase.music.DeleteMusicUseCase
 import com.hanyeop.domain.usecase.music.GetAllMusicUseCase
 import com.hanyeop.domain.usecase.music.GetRemoteMusicsUseCase
 import com.hanyeop.domain.usecase.music.InsertMusicUseCase
@@ -19,7 +20,8 @@ import javax.inject.Inject
 class MusicViewModel @Inject constructor(
     private val insertMusicUseCase: InsertMusicUseCase,
     private val getAllMusicUseCase: GetAllMusicUseCase,
-    private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase
+    private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
+    private val deleteMusicUseCase: DeleteMusicUseCase
 ) : ViewModel() {
 
     val image: MutableStateFlow<String> = MutableStateFlow("")
@@ -79,6 +81,12 @@ class MusicViewModel @Inject constructor(
             getRemoteMusicsUseCase.execute(keyword).collectLatest {
                 _remoteMusics.value = it
             }
+        }
+    }
+
+    fun deleteMusic(music: Music){
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteMusicUseCase.execute(music)
         }
     }
 }

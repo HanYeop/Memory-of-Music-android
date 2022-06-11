@@ -53,7 +53,10 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
             .setTitle(resources.getString(R.string.menu_delete))
             .setMessage(resources.getString(R.string.delete_content))
             .setPositiveButton(resources.getString(R.string.ok)) { _ , _ ->
-
+                Log.d(TAG, "showDialog: ${args.music}")
+//                musicViewModel.deleteMusic(args.music)
+                showToast("기록이 삭제되었습니다.")
+//                findNavController().popBackStack()
             }
             .setNegativeButton(resources.getString(R.string.cancel)){ _, _ ->
 
