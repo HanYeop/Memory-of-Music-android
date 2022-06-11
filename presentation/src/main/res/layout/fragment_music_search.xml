@@ -23,6 +23,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/music_search_view"
             android:queryBackground="@null"
+            android:queryHint="@string/search_view_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

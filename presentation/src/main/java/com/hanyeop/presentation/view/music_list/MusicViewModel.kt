@@ -8,6 +8,7 @@ import com.hanyeop.domain.usecase.music.GetAllMusicUseCase
 import com.hanyeop.domain.usecase.music.GetRemoteMusicsUseCase
 import com.hanyeop.domain.usecase.music.InsertMusicUseCase
 import com.hanyeop.domain.utils.Result
+import com.hanyeop.presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -27,9 +28,9 @@ class MusicViewModel @Inject constructor(
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
 
-    private val _inputErrorEvent = MutableSharedFlow<String>()
+    private val _inputErrorEvent = MutableSharedFlow<Int>()
     val inputErrorEvent = _inputErrorEvent.asSharedFlow()
-    private val _inputSuccessEvent = MutableSharedFlow<String>()
+    private val _inputSuccessEvent = MutableSharedFlow<Int>()
     val inputSuccessEvent = _inputSuccessEvent.asSharedFlow()
 
     private val _remoteMusics: MutableStateFlow<Result<List<DomainMusicResponse>>> = MutableStateFlow(Result.Uninitialized)
@@ -56,11 +57,11 @@ class MusicViewModel @Inject constructor(
                         content = content.value
                     )
                 )
-                _inputSuccessEvent.emit("음악이 등록되었습니다.")
+                _inputSuccessEvent.emit(R.string.insert_success)
             }
         }else{
             viewModelScope.launch(Dispatchers.IO) {
-                _inputErrorEvent.emit("입력되지 않은 값이 있습니다. 다시 확인해주세요.")
+                _inputErrorEvent.emit(R.string.insert_error)
             }
         }
     }

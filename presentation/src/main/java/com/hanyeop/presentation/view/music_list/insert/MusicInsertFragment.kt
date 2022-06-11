@@ -23,7 +23,7 @@ class MusicInsertFragment
         binding.apply {
             vm = musicViewModel
         }
-        
+
         initViewModelCallback()
         initClickListener()
     }
@@ -32,7 +32,7 @@ class MusicInsertFragment
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 musicViewModel.inputErrorEvent.collectLatest {
-                    showToast(it)
+                    showToast(resources.getString(it))
                 }
             }
         }
@@ -40,7 +40,7 @@ class MusicInsertFragment
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 musicViewModel.inputSuccessEvent.collectLatest {
-                    showToast(it)
+                    showToast(resources.getString(it))
                     findNavController().popBackStack()
                     findNavController().popBackStack()
                 }

@@ -32,7 +32,7 @@
                 android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="음악상세"
+                android:text="@string/music_detail_text"
                 android:layout_marginStart="30dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"

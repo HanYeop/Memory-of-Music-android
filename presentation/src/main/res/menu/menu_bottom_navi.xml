@@ -3,19 +3,19 @@
 
     <item android:id="@+id/musicListFragment"
         android:icon="@drawable/ic_baseline_queue_music_24"
-        android:title="음악"
+        android:title="@string/menu_music"
         app:exb_color="#FF8888"
         android:enabled="true"/>
 
     <item android:id="@+id/albumListFragment"
         android:icon="@drawable/ic_baseline_featured_play_list_24"
-        android:title="앨범"
+        android:title="@string/menu_album"
         android:enabled="true"
         app:exb_color="#FF8888"/>
 
     <item android:id="@+id/settingFragment"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="설정"
+        android:title="@string/menu_setting"
         android:enabled="true"
         app:exb_color="#FF8888"/>
 </menu>

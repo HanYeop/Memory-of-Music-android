@@ -42,7 +42,7 @@ class MainFragment : BaseFragmentMain<FragmentMainBinding>(R.layout.fragment_mai
                 requireActivity().finish()
             } else {
                 lastPressedTime = currentTime
-                Toast.makeText(requireContext(), "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.back_btn_press, Toast.LENGTH_SHORT).show()
             }
         }
     }

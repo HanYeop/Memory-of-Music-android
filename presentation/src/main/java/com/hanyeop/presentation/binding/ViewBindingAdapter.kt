@@ -11,6 +11,7 @@ import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.utils.timeFormatter
 
+
 object ViewBindingAdapter {
 
     // 음악 검색 이미지 바인딩
@@ -62,9 +63,9 @@ object ViewBindingAdapter {
     fun View.bindToast(result: Result<*>) {
         if (result is Result.Error) {
             if (result.isNetworkError) {
-                Toast.makeText(this.context, "인터넷 연결 상태를 확인해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, R.string.error_network, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this.context, "알 수 없는 오류가 발생하였습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, R.string.error_unknown, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -80,7 +81,6 @@ object ViewBindingAdapter {
     @JvmStatic
     @BindingAdapter("summary")
     fun TextView.setSummary(summary: String) {
-        this.text = "\"$summary\""
+        this.text = String.format(resources.getString(R.string.binding_summary), summary)
     }
-
 }
