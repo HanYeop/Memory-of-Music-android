@@ -43,8 +43,8 @@ class MusicModifyFragment
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 musicViewModel.inputSuccessEvent.collectLatest {
                     showToast(resources.getString(it))
-                    findNavController().popBackStack()
-                    findNavController().popBackStack()
+                    findNavController().navigateUp()
+                    findNavController().navigateUp()
                 }
             }
         }
