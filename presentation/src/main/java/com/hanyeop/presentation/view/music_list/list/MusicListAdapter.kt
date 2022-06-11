@@ -13,8 +13,13 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
 
     inner class ViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
         init {
-            binding.root.setOnClickListener {
-                listener.onItemClicked(getItem(adapterPosition))
+            binding.apply {
+                root.setOnClickListener {
+                    listener.onItemClicked(getItem(adapterPosition))
+                }
+                imageOther.setOnClickListener {
+                    listener.onOtherButtonClicked(getItem(adapterPosition))
+                }
             }
         }
         fun bind(music: Music){

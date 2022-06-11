@@ -17,6 +17,8 @@ class MusicListFragment
     private val musicViewModel by viewModels<MusicViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
 
+    private lateinit var curMusic: Music
+
     override fun init() {
         binding.apply {
             vm = musicViewModel
@@ -27,4 +29,11 @@ class MusicListFragment
     override fun onItemClicked(music: Music) {
         findNavController().navigate(MainFragmentDirections.actionMainFragmentToMusicDetailFragment(music))
     }
+
+    override fun onOtherButtonClicked(music: Music) {
+        curMusic = music
+        val dialog = MusicBottomSheet()
+        dialog.show(childFragmentManager,dialog.tag)
+    }
+
 }

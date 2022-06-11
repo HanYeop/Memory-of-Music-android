@@ -4,4 +4,5 @@ import com.hanyeop.domain.model.music.Music
 
 interface MusicListAdapterListener {
     fun onItemClicked(music : Music)
+    fun onOtherButtonClicked(music : Music)
 }
