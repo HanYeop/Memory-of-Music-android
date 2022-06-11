@@ -29,6 +29,7 @@ class MusicSearchFragment
             recyclerViewMusicSearchList.adapter = musicSearchAdapter
         }
         initSearchView()
+        initClickListener()
     }
 
     private fun initSearchView(){
@@ -47,6 +48,14 @@ class MusicSearchFragment
                     return false
                 }
             })
+        }
+    }
+
+    private fun initClickListener(){
+        binding.apply {
+            btnBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
         }
     }
 

@@ -15,20 +15,33 @@
         tools:context=".view.music_list.search.MusicSearchFragment"
         app:toast="@{vm.remoteMusics}">
 
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10"
+            app:layout_constraintBottom_toBottomOf="@+id/search_view_music"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/search_view_music"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
         <SearchView
             android:id="@+id/search_view_music"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:layout_margin="@dimen/margin_default_20"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_default_20"
+            android:layout_marginEnd="@dimen/margin_default_20"
             android:background="@drawable/music_search_view"
+            android:iconifiedByDefault="false"
             android:queryBackground="@null"
             android:queryHint="@string/search_view_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
             app:layout_constraintTop_toTopOf="parent">
-            <requestFocus/>
+
+            <requestFocus />
         </SearchView>
 
         <androidx.recyclerview.widget.RecyclerView

@@ -50,6 +50,9 @@ class MusicInsertFragment
 
     private fun initClickListener(){
         binding.apply {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
             btnOk.setOnClickListener {
                 MusicRatingDialog(requireContext(),this@MusicInsertFragment).show()
             }

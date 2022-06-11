@@ -19,7 +19,7 @@
     <string name="music_content">내용</string>
 
     <string name="search_view_hint">음악 검색</string>
-
+    <string name="music_insert_text">음악 등록</string>
     <string name="music_detail_text">음악 상세</string>
 
     <string name="insert_success">음악이 등록되었습니다.</string>
