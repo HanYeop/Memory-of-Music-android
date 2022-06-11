@@ -9,15 +9,16 @@ import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicModifyBinding
 import com.hanyeop.presentation.view.music_list.MusicViewModel
-import com.hanyeop.presentation.view.music_list.insert.MusicRatingDialog
-import com.hanyeop.presentation.view.music_list.insert.MusicRatingListener
+import com.hanyeop.presentation.view.rating.MusicRatingDialog
+import com.hanyeop.presentation.view.rating.MusicRatingListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MusicModifyFragment
-    : BaseFragment<FragmentMusicModifyBinding>(R.layout.fragment_music_modify), MusicRatingListener {
+    : BaseFragment<FragmentMusicModifyBinding>(R.layout.fragment_music_modify),
+    MusicRatingListener {
 
     private val musicViewModel by activityViewModels<MusicViewModel>()
 

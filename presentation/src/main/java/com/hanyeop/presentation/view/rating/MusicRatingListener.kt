@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view.music_list.insert
+package com.hanyeop.presentation.view.rating
 
 interface MusicRatingListener {
     fun onOkClick(rating: Float)

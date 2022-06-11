@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view.music_list.insert
+package com.hanyeop.presentation.view.rating
 
 import android.app.Dialog
 import android.content.Context
