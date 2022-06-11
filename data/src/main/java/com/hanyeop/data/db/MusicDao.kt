@@ -18,8 +18,8 @@ interface MusicDao {
     // 음악 기록 삭제
     @Query("DELETE FROM music_table WHERE id = :id")
     fun deleteMusic(id: Int)
-
+    
     // 음악 기록 수정
-    @Update
-    fun updateMusic(music: MusicEntity)
+    @Query("UPDATE music_table SET title = :title, artist = :artist, rating = :rating, summary = :summary, content = :content WHERE id = :id")
+    fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
 }

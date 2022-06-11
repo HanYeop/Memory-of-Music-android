@@ -10,5 +10,5 @@ interface MusicRepository {
     fun getAllMusic(): Flow<Result<List<Music>>>
     fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>>
     fun deleteMusic(id : Int)
-    fun updateMusic(music : Music)
+    fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
 }

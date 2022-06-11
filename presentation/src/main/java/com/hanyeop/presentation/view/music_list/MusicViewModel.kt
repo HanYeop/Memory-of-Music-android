@@ -28,7 +28,6 @@ class MusicViewModel @Inject constructor(
     val artist: MutableStateFlow<String> = MutableStateFlow("")
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
-    val time: MutableStateFlow<Long> = MutableStateFlow(0L)
 
     private val _inputErrorEvent = MutableSharedFlow<Int>()
     val inputErrorEvent = _inputErrorEvent.asSharedFlow()
@@ -53,7 +52,6 @@ class MusicViewModel @Inject constructor(
         artist.value = music.artist
         summary.value = music.summary
         content.value = music.content
-        time.value = music.time
     }
 
     fun insertMusic(rating: Float){
@@ -103,19 +101,8 @@ class MusicViewModel @Inject constructor(
     fun updateMusic(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
             viewModelScope.launch(Dispatchers.IO) {
-                updateMusicUseCase.execute(
-                    Music(
-                        id = id.value,
-                        image = image.value,
-                        title = title.value,
-                        artist = artist.value,
-                        rating = rating,
-                        summary = summary.value,
-                        content = content.value,
-                        time = time.value
-                    )
-                )
-                _inputSuccessEvent.emit(R.string.insert_success)
+                updateMusicUseCase.execute(id.value,title.value,artist.value,rating,summary.value,content.value)
+                _inputSuccessEvent.emit(R.string.update_success)
             }
         }else{
             viewModelScope.launch(Dispatchers.IO) {

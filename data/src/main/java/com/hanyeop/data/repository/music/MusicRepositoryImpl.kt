@@ -44,5 +44,6 @@ class MusicRepositoryImpl @Inject constructor(
     }
 
     override fun deleteMusic(id : Int) = musicLocalDataSource.deleteMusic(id)
-    override fun updateMusic(music: Music) = musicLocalDataSource.updateMusic(mapperToMusicEntity(music))
+    override fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
+        = musicLocalDataSource.updateMusic(id, title, artist, rating, summary, content)
 }
