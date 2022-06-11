@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -24,7 +24,7 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
     private var _binding: DialogMusicBottomSheetBinding? = null
     val binding get() = _binding!!
 
-    private val musicViewModel by viewModels<MusicViewModel>()
+    private val musicViewModel by activityViewModels<MusicViewModel>()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return BottomSheetDialog(requireContext(),R.style.AppBottomSheetDialogTheme)
@@ -54,7 +54,11 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
             textDelete.setOnClickListener {
                 showDialog()
             }
-
+            textModify.setOnClickListener {
+                musicViewModel.setMusic(music)
+                findNavController().navigate(R.id.action_mainFragment_to_musicModifyFragment)
+                dismiss()
+            }
             textCancel.setOnClickListener {
                 dismiss()
             }

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_musicDetailFragment"
             app:destination="@id/musicDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_musicModifyFragment"
+            app:destination="@id/musicModifyFragment" />
     </fragment>
 
     <fragment
@@ -40,5 +43,13 @@
         <argument
             android:name="music"
             app:argType="com.hanyeop.domain.model.music.Music" />
+        <action
+            android:id="@+id/action_musicDetailFragment_to_musicModifyFragment"
+            app:destination="@id/musicModifyFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/musicModifyFragment"
+        android:name="com.hanyeop.presentation.view.music_list.modify.MusicModifyFragment"
+        android:label="MusicModifyFragment"
+        tools:layout="@layout/fragment_music_modify"/>
 </navigation>

@@ -24,6 +24,7 @@ class MusicViewModel @Inject constructor(
     private val deleteMusicUseCase: DeleteMusicUseCase
 ) : ViewModel() {
 
+    val id: MutableStateFlow<Int> = MutableStateFlow(0)
     val image: MutableStateFlow<String> = MutableStateFlow("")
     val title: MutableStateFlow<String> = MutableStateFlow("")
     val artist: MutableStateFlow<String> = MutableStateFlow("")
@@ -44,6 +45,15 @@ class MusicViewModel @Inject constructor(
         artist.value = musicInfo.artist
         summary.value = ""
         content.value = ""
+    }
+
+    fun setMusic(music: Music){
+        id.value = music.id
+        image.value = music.image
+        title.value = music.title
+        artist.value = music.artist
+        summary.value = music.summary
+        content.value = music.content
     }
 
     fun insertMusic(rating: Float){

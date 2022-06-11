@@ -1,14 +1,13 @@
 package com.hanyeop.presentation.view.music_list.detail
 
 import android.app.AlertDialog
-import android.util.Log
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicDetailBinding
-import com.hanyeop.presentation.utils.TAG
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fragment_music_detail) {
 
     private val args by navArgs<MusicDetailFragmentArgs>()
-    private val musicViewModel by viewModels<MusicViewModel>()
+    private val musicViewModel by activityViewModels<MusicViewModel>()
 
     override fun init() {
         binding.apply {
@@ -35,7 +34,8 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
                 setOnMenuItemClickListener { item ->
                     when(item?.itemId){
                         R.id.menu_modify -> {
-                            Log.d(TAG, "initClickListener: 1")
+                            musicViewModel.setMusic(args.music)
+                            findNavController().navigate(R.id.action_musicDetailFragment_to_musicModifyFragment)
                         }
                         R.id.menu_delete ->{
                             showDialog()

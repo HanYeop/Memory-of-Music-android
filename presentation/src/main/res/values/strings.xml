@@ -21,6 +21,7 @@
     <string name="search_view_hint">음악 검색</string>
     <string name="music_insert_text">음악 등록</string>
     <string name="music_detail_text">음악 상세</string>
+    <string name="music_modify_text">음악 수정</string>
 
     <string name="insert_success">음악이 등록되었습니다.</string>
     <string name="insert_error">입력되지 않은 값이 있습니다. 다시 확인해주세요.</string>
