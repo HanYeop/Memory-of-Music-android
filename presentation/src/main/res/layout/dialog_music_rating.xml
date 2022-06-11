@@ -16,10 +16,8 @@
 
         <TextView
             android:id="@+id/label_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/rating_text"
-            android:textSize="30sp"
+            style="@style/dialog_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,23 +38,17 @@
 
         <Button
             android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/cancel"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            style="@style/btn_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ratingBar_popup" />
 
         <Button
             android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/ok"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            style="@style/btn_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ratingBar_popup" />
     </androidx.constraintlayout.widget.ConstraintLayout>

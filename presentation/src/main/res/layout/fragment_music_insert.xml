@@ -114,9 +114,8 @@
 
         <Button
             android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/cancel"
+            style="@style/btn_text"
             android:layout_marginBottom="@dimen/margin_10"
             android:backgroundTint="@color/mainColor"
             android:background="@drawable/button_regular_main"
@@ -127,8 +126,7 @@
 
         <Button
             android:id="@+id/btn_ok"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/btn_text"
             android:text="@string/save"
             android:layout_marginBottom="@dimen/margin_10"
             android:background="@drawable/button_regular_main"

@@ -29,14 +29,11 @@
         <TextView
             android:id="@+id/text_title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_10"
             android:text="@{music.title}"
+            style="@style/list_title_text"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/image_rating"
             app:layout_constraintStart_toEndOf="@+id/image_music"
             app:layout_constraintTop_toTopOf="@+id/image_music"
@@ -44,22 +41,20 @@
 
         <TextView
             android:id="@+id/text_artist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/list_artist_text"
             tools:text="아티스트"
             android:text="@{music.artist}"
-            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@+id/text_title"
             app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
         <TextView
             android:id="@+id/text_summary"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/list_summary_text"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginBottom="@dimen/margin_4"
             app:layout_constraintBottom_toTopOf="@+id/text_time"
             app:layout_constraintEnd_toEndOf="@+id/text_rating"
             app:layout_constraintStart_toStartOf="@+id/text_artist"
@@ -78,12 +73,9 @@
 
         <TextView
             android:id="@+id/text_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_10"
-            android:gravity="center"
+            style="@style/list_rating_text"
             android:text="@{String.valueOf(music.rating)}"
-            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_rating"
             app:layout_constraintEnd_toStartOf="@+id/image_other"
             app:layout_constraintTop_toTopOf="@+id/image_rating"
@@ -91,8 +83,8 @@
 
         <ImageView
             android:id="@+id/image_rating"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
             android:layout_marginEnd="@dimen/margin_4"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintEnd_toStartOf="@+id/text_rating"
@@ -101,9 +93,7 @@
 
         <TextView
             android:id="@+id/text_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="11sp"
+            style="@style/list_time_text"
             app:layout_constraintBottom_toBottomOf="@+id/image_music"
             app:layout_constraintEnd_toEndOf="@+id/text_rating"
             app:time="@{music.time}"

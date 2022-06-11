@@ -12,10 +12,22 @@
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_2">2dp</dimen>
 
+    <!-- text size -->
+    <dimen name="default_btn_text_size">16sp</dimen>
+    <dimen name="dialog_title">24sp</dimen>
+    <dimen name="list_title">14sp</dimen>
+    <dimen name="list_artist">13sp</dimen>
+    <dimen name="list_summary">12sp</dimen>
+    <dimen name="list_rating">12sp</dimen>
+    <dimen name="list_time">11sp</dimen>
+    <dimen name="search_title">16sp</dimen>
+    <dimen name="search_artist">14sp</dimen>
+
     <!--image, icon size -->
     <dimen name="detail_image_size">200dp</dimen>
     <dimen name="list_image_size">100dp</dimen>
     <dimen name="search_image_size">80dp</dimen>
     <dimen name="fab_size">50dp</dimen>
     <dimen name="bottom_navi_size">60dp</dimen>
+    <dimen name="icon_small">16dp</dimen>
 </resources>

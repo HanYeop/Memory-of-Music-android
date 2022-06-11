@@ -27,12 +27,9 @@
 
         <TextView
             android:id="@+id/text_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default_20"
+            style="@style/search_title_text"
             android:text="@{musicInfo.title}"
-            android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintStart_toEndOf="@+id/image_music"
             app:layout_constraintTop_toTopOf="@+id/image_music"
@@ -41,11 +38,9 @@
 
         <TextView
             android:id="@+id/text_artist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default_20"
             android:text="@{musicInfo.artist}"
-            android:textSize="14sp"
+            style="@style/search_artist_text"
             app:layout_constraintBottom_toBottomOf="@+id/image_music"
             app:layout_constraintStart_toEndOf="@+id/image_music"
             app:layout_constraintTop_toBottomOf="@+id/text_title"
