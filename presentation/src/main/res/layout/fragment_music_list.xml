@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.music_list.list.MusicListFragment"
+        android:padding="@dimen/padding_default_10"
         app:toast="@{vm.musicList}">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_music_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/padding_default_10"
             app:submitList="@{vm.musicList}"
             tools:listitem="@layout/item_music_list"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
