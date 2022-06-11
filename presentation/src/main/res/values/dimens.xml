@@ -22,6 +22,7 @@
     <dimen name="list_time">11sp</dimen>
     <dimen name="search_title">16sp</dimen>
     <dimen name="search_artist">14sp</dimen>
+    <dimen name="toolbar_title">18sp</dimen>
 
     <!--image, icon size -->
     <dimen name="detail_image_size">200dp</dimen>

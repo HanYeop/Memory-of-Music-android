@@ -12,7 +12,7 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
 
     private fun initClickListener(){
         binding.apply {
-            btnBack.setOnClickListener {
+            toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
             }
         }
