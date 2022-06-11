@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:padding="10dp">
+        android:padding="@dimen/padding_default_10">
 
         <ImageView
             android:id="@+id/image_music"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/list_image_size"
+            android:layout_height="@dimen/list_image_size"
             android:background="@drawable/rounded_corner_border"
             app:musicListImage="@{music.image}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
             android:id="@+id/text_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/margin_10"
             android:text="@{music.title}"
             android:ellipsize="end"
             android:maxLines="2"
@@ -80,7 +80,7 @@
             android:id="@+id/text_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="@dimen/margin_10"
             android:gravity="center"
             android:text="@{String.valueOf(music.rating)}"
             android:textSize="12sp"
@@ -93,7 +93,7 @@
             android:id="@+id/image_rating"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="@dimen/margin_4"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintEnd_toStartOf="@+id/text_rating"
             app:layout_constraintTop_toTopOf="@+id/text_title"

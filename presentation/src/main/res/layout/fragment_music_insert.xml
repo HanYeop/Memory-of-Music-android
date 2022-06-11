@@ -12,13 +12,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
+        android:padding="@dimen/padding_default_10"
         tools:context=".view.music_list.insert.MusicInsertFragment">
 
         <ImageView
             android:id="@+id/image_music"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/detail_image_size"
+            android:layout_height="@dimen/detail_image_size"
             app:detailImage="@{vm.image}"
             android:background="@drawable/rounded_corner_border"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/music_title"
                 android:drawableStart="@drawable/left_image_disc"
-                android:drawablePadding="10dp"
+                android:drawablePadding="@dimen/padding_default_10"
                 android:inputType="text"
                 android:text="@={vm.title}" />
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/music_artist"
                 android:drawableStart="@drawable/left_image_user"
-                android:drawablePadding="10dp"
+                android:drawablePadding="@dimen/padding_default_10"
                 android:inputType="text"
                 android:text="@={vm.artist}" />
 
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/left_image_pen"
-                android:drawablePadding="10dp"
+                android:drawablePadding="@dimen/padding_default_10"
                 android:maxLength="16"
                 android:hint="@string/music_summary"
                 android:inputType="text"
@@ -95,8 +95,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_10"
             app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
             app:layout_constraintStart_toStartOf="@+id/input_layout_summary"
             app:layout_constraintTop_toBottomOf="@+id/input_layout_summary">
@@ -117,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/margin_10"
             android:backgroundTint="@color/mainColor"
             android:background="@drawable/button_regular_main"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/margin_10"
             android:background="@drawable/button_regular_main"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -20,7 +20,7 @@ object ViewBindingAdapter {
     fun ImageView.setSearchImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(160,160)
+            .override(R.dimen.search_image_size * 2,R.dimen.search_image_size * 2)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true
@@ -32,7 +32,7 @@ object ViewBindingAdapter {
     fun ImageView.setDetailImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(400,400)
+            .override(R.dimen.detail_image_size * 2,R.dimen.detail_image_size * 2)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true
@@ -44,7 +44,7 @@ object ViewBindingAdapter {
     fun ImageView.setMusicListImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(200,200)
+            .override(R.dimen.list_image_size * 2,R.dimen.list_image_size * 2)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true

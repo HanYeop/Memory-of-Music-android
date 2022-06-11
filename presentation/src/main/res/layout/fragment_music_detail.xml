@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="@dimen/margin_10"
                 app:srcCompat="@drawable/ic_baseline_more_vert_24" />
 
         </com.google.android.material.appbar.MaterialToolbar>
@@ -54,9 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
-            android:paddingTop="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:padding="@dimen/padding_default_10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
