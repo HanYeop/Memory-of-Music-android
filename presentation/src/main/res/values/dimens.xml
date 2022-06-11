@@ -26,6 +26,7 @@
     <dimen name="toolbar_title">18sp</dimen>
     <dimen name="detail_header">20sp</dimen>
     <dimen name="detail_body">16sp</dimen>
+    <dimen name="bottom_sheet_text">18sp</dimen>
 
     <!--image, icon size -->
     <dimen name="large_image_size">300dp</dimen>

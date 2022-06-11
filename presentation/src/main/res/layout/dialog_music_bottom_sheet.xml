@@ -7,30 +7,42 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp">
+        android:paddingTop="@dimen/padding_20"
+        android:paddingBottom="@dimen/padding_20"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:background="@drawable/dialog_top" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/text_start"
+            android:layout_margin="5dp"
+            style="@style/bottom_sheet_black_text"
+            android:text="@string/bottom_sheet_start" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/text_modify"
+            android:layout_margin="5dp"
+            style="@style/bottom_sheet_black_text"
+            android:text="@string/bottom_sheet_modify" />
+
+        <TextView
+            android:id="@+id/text_delete"
+            android:layout_margin="5dp"
+            style="@style/bottom_sheet_black_text"
+            android:text="@string/bottom_sheet_delete" />
+
+        <TextView
+            android:id="@+id/text_cancel"
+            android:layout_margin="5dp"
+            style="@style/bottom_sheet_red_text"
+            android:text="@string/bottom_sheet_cancel" />
+    </LinearLayout>
 </layout>

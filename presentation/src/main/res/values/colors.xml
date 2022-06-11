@@ -14,4 +14,5 @@
     <color name="black_medium_emphasis">#99000000</color>
     <color name="black_low_emphasis">#66000000</color>
     <color name="mainColor">#FFCAF0F8</color>
+    <color name="red">#E91E63</color>
 </resources>
