@@ -41,10 +41,14 @@
         <TextView
             android:id="@+id/text_artist"
             style="@style/list_artist_text"
-            tools:text="아티스트"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@{music.artist}"
+            app:layout_constraintEnd_toEndOf="@+id/text_rating"
             app:layout_constraintStart_toStartOf="@+id/text_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_title" />
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            tools:text="아티스트" />
 
         <TextView
             android:id="@+id/text_summary"
