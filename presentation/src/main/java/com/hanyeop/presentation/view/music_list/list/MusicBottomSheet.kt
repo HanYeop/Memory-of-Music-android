@@ -2,6 +2,8 @@ package com.hanyeop.presentation.view.music_list.list
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -51,6 +53,11 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
 
     private fun initClickListener(){
         binding.apply {
+            textStart.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=${music.artist} ${music.title}"))
+                requireContext().startActivity(intent)
+                dismiss()
+            }
             textDelete.setOnClickListener {
                 showDialog()
             }
