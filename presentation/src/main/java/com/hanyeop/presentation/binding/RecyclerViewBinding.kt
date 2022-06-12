@@ -17,9 +17,9 @@ object RecyclerViewBinding {
     fun bindSubmitList(view: RecyclerView, result: Result<*>) {
         if (result is Result.Success) {
             when (view.adapter) {
-                is MusicListAdapter -> {
-                    (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<Music>)
-                }
+//                is MusicListAdapter -> {
+//                    (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<Music>)
+//                }
                 is MusicSearchAdapter -> {
                     (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<DomainMusicResponse>)
                 }

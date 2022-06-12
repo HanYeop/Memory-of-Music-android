@@ -36,18 +36,32 @@
 
         </com.google.android.material.appbar.MaterialToolbar>
 
+        <SearchView
+            android:id="@+id/search_view_music"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_default_20"
+            android:background="@drawable/music_search_view"
+            android:iconifiedByDefault="false"
+            android:queryBackground="@null"
+            android:queryHint="@string/search_view_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_music_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:submitList="@{vm.musicList}"
-            tools:listitem="@layout/item_music_list"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/search_view_music"
+            tools:listitem="@layout/item_music_list" />
 
         <ProgressBar
             android:id="@+id/progressBar"
