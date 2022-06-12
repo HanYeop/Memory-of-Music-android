@@ -26,7 +26,6 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
                     }
                 }
             }
-
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 submitList(results?.values as? List<Music>)
             }

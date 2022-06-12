@@ -1,6 +1,6 @@
 package com.hanyeop.presentation.view.music_list.list
 
-import android.widget.SearchView
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -19,6 +19,7 @@ class MusicListFragment
 
     private val musicViewModel by viewModels<MusicViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
+    private var searchView : SearchView? = null
 
     override fun init() {
         binding.apply {
@@ -31,25 +32,26 @@ class MusicListFragment
     }
 
     private fun initClickListener(){
-        binding.searchViewMusic.apply {
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(query: String): Boolean {
-                    clearFocus()
-                    return true
-                }
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    musicListAdapter.filter.filter(newText)
-                    return false
-                }
-            })
-        }
+        val search = binding.toolbar.menu.findItem(R.id.menu_search)
+        searchView = search.actionView as SearchView
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String): Boolean {
+                searchView?.clearFocus()
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                musicListAdapter.filter.filter(newText)
+                return false
+            }
+        })
     }
 
     private fun initAdapter(){
         lifecycleScope.launchWhenStarted {
             musicViewModel.musicList.collect {
                 if(it is Result.Success){
-                    binding.searchViewMusic.setQuery("",false)
+                    searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
                 }
             }
