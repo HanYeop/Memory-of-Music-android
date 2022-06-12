@@ -15,6 +15,26 @@ interface MusicDao {
     @Query("SELECT * FROM music_table ORDER BY time DESC")
     fun getAllMusic(): Flow<List<MusicEntity>>
 
+    // 음악 기록 불러오기 (과거 순으로)
+    @Query("SELECT * FROM music_table ORDER BY time ASC")
+    fun getAllMusicSortByDateASC(): Flow<List<MusicEntity>>
+
+    // 음악 기록 불러오기 (제목 순으로)
+    @Query("SELECT * FROM music_table ORDER BY title ASC")
+    fun getAllMusicSortByTitleASC(): Flow<List<MusicEntity>>
+
+    // 음악 기록 불러오기 (제목 역순으로)
+    @Query("SELECT * FROM music_table ORDER BY title DESC")
+    fun getAllMusicSortByTitleDESC(): Flow<List<MusicEntity>>
+
+    // 음악 기록 불러오기 (평점 높은 순으로)
+    @Query("SELECT * FROM music_table ORDER BY rating DESC")
+    fun getAllMusicSortByRatingDESC(): Flow<List<MusicEntity>>
+
+    // 음악 기록 불러오기 (평점 낮은 순으로)
+    @Query("SELECT * FROM music_table ORDER BY rating ASC")
+    fun getAllMusicSortByRatingASC(): Flow<List<MusicEntity>>
+
     // 음악 기록 삭제
     @Query("DELETE FROM music_table WHERE id = :id")
     fun deleteMusic(id: Int)
