@@ -11,11 +11,11 @@
         android:icon="@drawable/left_image_album"
         android:title="@string/menu_album"
         android:enabled="true"
-        app:exb_color="#FF8888"/>
+        app:exb_color="#2270DE"/>
 
     <item android:id="@+id/settingFragment"
         android:icon="@drawable/left_image_setting"
         android:title="@string/menu_setting"
         android:enabled="true"
-        app:exb_color="#FF8888"/>
+        app:exb_color="#fa2"/>
 </menu>
