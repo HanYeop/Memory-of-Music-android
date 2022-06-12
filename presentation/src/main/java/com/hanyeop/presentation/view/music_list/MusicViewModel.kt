@@ -54,6 +54,14 @@ class MusicViewModel @Inject constructor(
         content.value = music.content
     }
 
+    fun initMusicInfo(){
+        image.value = ""
+        title.value = ""
+        artist.value = ""
+        summary.value = ""
+        content.value = ""
+    }
+
     fun insertMusic(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
             viewModelScope.launch(Dispatchers.IO) {

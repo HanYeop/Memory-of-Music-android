@@ -31,6 +31,8 @@
     <string name="error_network">인터넷 연결 상태를 확인해주세요.</string>
     <string name="error_unknown">검색 결과가 없습니다.</string>
     <string name="binding_summary">\"%s\"</string>
+    <string name="search_direct_text">원하시는 결과가 없나요?</string>
+    <string name="insert_direct"><u>직접 등록하기</u></string>
 
     <string name="back_btn_press">뒤로가기 버튼을 한번 더 누르면 종료됩니다.</string>
 

@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_view_music"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:submitList="@{vm.remoteMusics}"
             tools:listitem="@layout/item_music_search" />
 
@@ -71,5 +71,32 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/search_view_music"
+            app:layout_constraintStart_toStartOf="@+id/search_view_music"
+            app:layout_constraintTop_toBottomOf="@+id/search_view_music">
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/default_text"
+                android:text="@string/search_direct_text"
+                android:layout_marginEnd="@dimen/margin_narrow_8"/>
+
+            <TextView
+                android:id="@+id/text_direct"
+                style="@style/default_text"
+                android:textColor="@color/subColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_direct" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

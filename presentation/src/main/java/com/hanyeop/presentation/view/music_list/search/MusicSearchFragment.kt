@@ -56,6 +56,10 @@ class MusicSearchFragment
             btnBack.setOnClickListener {
                 findNavController().popBackStack()
             }
+            textDirect.setOnClickListener {
+                musicViewModel.initMusicInfo()
+                findNavController().navigate(R.id.action_musicSearchFragment_to_musicInsertFragment)
+            }
         }
     }
 
