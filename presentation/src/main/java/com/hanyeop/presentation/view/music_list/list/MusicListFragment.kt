@@ -53,6 +53,8 @@ class MusicListFragment
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
+                }else{
+                    musicListAdapter.setItem(mutableListOf())
                 }
             }
         }

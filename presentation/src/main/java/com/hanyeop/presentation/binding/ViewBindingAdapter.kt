@@ -69,6 +69,13 @@ object ViewBindingAdapter {
         this.isVisible = result is Result.Loading
     }
 
+    // 로딩 상태 표시
+    @JvmStatic
+    @BindingAdapter("isEmpty")
+    fun View.setEmptyImage(result: Result<*>) {
+        this.isVisible = result is Result.Empty
+    }
+
     // 에러 메세지 표시
     @JvmStatic
     @BindingAdapter("toast")
