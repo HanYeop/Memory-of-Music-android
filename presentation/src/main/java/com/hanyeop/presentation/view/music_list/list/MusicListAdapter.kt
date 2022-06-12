@@ -14,6 +14,7 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
     : ListAdapter<Music, MusicListAdapter.ViewHolder>(diffUtil),Filterable {
 
     private var originalList = arrayListOf<Music>()
+    private var filterList = arrayListOf<Music>()
 
     override fun getFilter(): Filter {
         return object : Filter(){
@@ -27,9 +28,19 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
                 }
             }
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filterList = results?.values as ArrayList<Music>
                 submitList(results?.values as? List<Music>)
             }
         }
+    }
+
+    fun order(){
+        originalList.sortBy { it.title }
+        filterList.sortBy { it.title }
+
+
+        submitList(filterList)
+        notifyDataSetChanged()
     }
 
     fun setItem(items: List<Music>){

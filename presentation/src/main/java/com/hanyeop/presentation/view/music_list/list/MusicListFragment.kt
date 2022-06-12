@@ -11,11 +11,15 @@ import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.music_list.MusicViewModel
+import com.hanyeop.presentation.view.sort.SortDialog
+import com.hanyeop.presentation.view.sort.SortListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class MusicListFragment
-    : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list), MusicListAdapterListener {
+    : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list),
+    MusicListAdapterListener, SortListener {
 
     private val musicViewModel by viewModels<MusicViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
@@ -27,11 +31,12 @@ class MusicListFragment
             recyclerViewMusicList.adapter = musicListAdapter
             toolbar.inflateMenu(R.menu.menu_music_list_option)
         }
-        initClickListener()
+        initSearchView()
         initAdapter()
+        initClickListener()
     }
 
-    private fun initClickListener(){
+    private fun initSearchView(){
         val search = binding.toolbar.menu.findItem(R.id.menu_search)
         searchView = search.actionView as SearchView
 
@@ -47,9 +52,21 @@ class MusicListFragment
         })
     }
 
+    private fun initClickListener(){
+        binding.apply {
+            toolbar.setOnMenuItemClickListener {
+                if(it.itemId == R.id.menu_sort){
+                    val dialog = SortDialog(requireContext(),this@MusicListFragment)
+                    dialog.show()
+                }
+                false
+            }
+        }
+    }
+
     private fun initAdapter(){
         lifecycleScope.launchWhenStarted {
-            musicViewModel.musicList.collect {
+            musicViewModel.musicList.collectLatest {
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
@@ -68,4 +85,6 @@ class MusicListFragment
         val dialog = MusicBottomSheet(music)
         dialog.show(childFragmentManager,dialog.tag)
     }
+
+
 }
