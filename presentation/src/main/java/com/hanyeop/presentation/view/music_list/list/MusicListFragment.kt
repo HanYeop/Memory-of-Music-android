@@ -49,6 +49,7 @@ class MusicListFragment
         lifecycleScope.launchWhenStarted {
             musicViewModel.musicList.collect {
                 if(it is Result.Success){
+                    binding.searchViewMusic.setQuery("",false)
                     musicListAdapter.setItem(it.data)
                 }
             }
