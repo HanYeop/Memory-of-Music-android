@@ -8,4 +8,10 @@
         android:enabled="true"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item android:id="@+id/menu_sort"
+        android:icon="@drawable/ic_baseline_tune_24"
+        android:title="정렬"
+        android:enabled="true"
+        app:showAsAction="ifRoom"/>
 </menu>

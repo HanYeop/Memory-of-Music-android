@@ -23,8 +23,10 @@
             android:layout_width="@dimen/fab_size"
             android:layout_height="@dimen/fab_size"
             android:layout_gravity="bottom|end"
+            app:fabCustomSize="@dimen/fab_size"
             android:layout_margin="@dimen/margin_default_20"
-            app:srcCompat="@drawable/ic_baseline_search_24" />
+            android:backgroundTint="@color/mainColor"
+            app:srcCompat="@drawable/music_search" />
 
         <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
             android:id="@+id/expandable_bottom_bar"

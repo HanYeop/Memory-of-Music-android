@@ -2,19 +2,19 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/musicListFragment"
-        android:icon="@drawable/ic_baseline_queue_music_24"
+        android:icon="@drawable/left_image_disc"
         android:title="@string/menu_music"
         app:exb_color="#FF8888"
         android:enabled="true"/>
 
     <item android:id="@+id/albumListFragment"
-        android:icon="@drawable/ic_baseline_featured_play_list_24"
+        android:icon="@drawable/left_image_album"
         android:title="@string/menu_album"
         android:enabled="true"
         app:exb_color="#FF8888"/>
 
     <item android:id="@+id/settingFragment"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/left_image_setting"
         android:title="@string/menu_setting"
         android:enabled="true"
         app:exb_color="#FF8888"/>
