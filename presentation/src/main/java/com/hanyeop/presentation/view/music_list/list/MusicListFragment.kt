@@ -9,6 +9,7 @@ import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
+import com.hanyeop.presentation.utils.*
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import com.hanyeop.presentation.view.sort.SortDialog
@@ -86,5 +87,27 @@ class MusicListFragment
         dialog.show(childFragmentManager,dialog.tag)
     }
 
+    override fun onTimeDescClicked() {
+        musicListAdapter.order(TIME_DESC)
+    }
 
+    override fun onTimeAscClicked() {
+        musicListAdapter.order(TIME_ASC)
+    }
+
+    override fun onTitleAscClicked() {
+        musicListAdapter.order(TITLE_ASC)
+    }
+
+    override fun onTitleDescClicked() {
+        musicListAdapter.order(TITLE_DESC)
+    }
+
+    override fun onRatingDescClicked() {
+        musicListAdapter.order(RATING_DESC)
+    }
+
+    override fun onRatingAscClicked() {
+        musicListAdapter.order(RATING_ASC)
+    }
 }

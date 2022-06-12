@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.databinding.ItemMusicListBinding
+import com.hanyeop.presentation.utils.*
 
 class MusicListAdapter(private val listener: MusicListAdapterListener)
     : ListAdapter<Music, MusicListAdapter.ViewHolder>(diffUtil),Filterable {
@@ -34,11 +35,38 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
         }
     }
 
-    fun order(){
-        originalList.sortBy { it.title }
-        filterList.sortBy { it.title }
+    fun order(type: Int){
+        originalList.sortBy { it.time }
+        originalList.reverse()
+        filterList.sortBy { it.time }
+        filterList.reverse()
 
-
+        when(type){
+            TIME_ASC ->{
+                originalList.sortBy { it.time }
+                filterList.sortBy { it.time }
+            }
+            TITLE_ASC ->{
+                originalList.sortBy { it.title }
+                filterList.sortBy { it.title }
+            }
+            TITLE_DESC ->{
+                originalList.sortBy { it.title }
+                originalList.reverse()
+                filterList.sortBy { it.title }
+                filterList.reverse()
+            }
+            RATING_DESC ->{
+                originalList.sortBy { it.rating }
+                originalList.reverse()
+                filterList.sortBy { it.rating }
+                filterList.reverse()
+            }
+            RATING_ASC ->{
+                originalList.sortBy { it.rating }
+                filterList.sortBy { it.rating }
+            }
+        }
         submitList(filterList)
         notifyDataSetChanged()
     }

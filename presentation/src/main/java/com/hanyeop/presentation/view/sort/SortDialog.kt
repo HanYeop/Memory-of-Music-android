@@ -25,6 +25,38 @@ class SortDialog(context: Context, private val listener: SortListener): Dialog(c
 
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-//        initClickListener()
+        initClickListener()
+    }
+
+    private fun initClickListener(){
+        binding.apply {
+            textTimeDesc.setOnClickListener {
+                listener.onTimeDescClicked()
+                dismiss()
+            }
+            textTimeAsc.setOnClickListener {
+                listener.onTimeAscClicked()
+                dismiss()
+            }
+            textTitleAsc.setOnClickListener {
+                listener.onTitleAscClicked()
+                dismiss()
+            }
+            textTitleDesc.setOnClickListener {
+                listener.onTitleDescClicked()
+                dismiss()
+            }
+            textRatingDesc.setOnClickListener {
+                listener.onRatingDescClicked()
+                dismiss()
+            }
+            textRatingAsc.setOnClickListener {
+                listener.onRatingAscClicked()
+                dismiss()
+            }
+            textCancel.setOnClickListener {
+                dismiss()
+            }
+        }
     }
 }
