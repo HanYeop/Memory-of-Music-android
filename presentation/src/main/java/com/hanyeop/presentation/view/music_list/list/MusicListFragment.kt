@@ -27,6 +27,8 @@ class MusicListFragment
     private var searchView : SearchView? = null
 
     override fun init() {
+        musicListAdapter.setHasStableIds(true)
+
         binding.apply {
             vm = musicViewModel
             recyclerViewMusicList.adapter = musicListAdapter

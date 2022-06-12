@@ -78,6 +78,10 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
         notifyDataSetChanged()
     }
 
+    override fun getItemId(position: Int): Long {
+        return getItem(position).id.toLong()
+    }
+
     inner class ViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
         init {
             binding.apply {
