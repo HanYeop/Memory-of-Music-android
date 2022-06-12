@@ -65,6 +65,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
             app:isEmpty="@{vm.musicList}"
@@ -73,20 +74,21 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="center">
+            app:layout_constraintVertical_bias="0.45"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/image_music_empty"
                 android:layout_width="@dimen/large_image_size"
-                android:layout_height="@dimen/large_image_size"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 app:srcCompat="@drawable/music_empty" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="등록된 음악이 없습니다.\n지금 음악을 등록해보세요!" />
+                style="@style/music_empty_text"
+                android:gravity="center"
+                android:text="@string/music_empty" />
 
         </LinearLayout>
 

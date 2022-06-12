@@ -43,4 +43,6 @@
     <string name="bottom_sheet_modify">기록 수정하기</string>
     <string name="bottom_sheet_delete">기록 삭제하기</string>
     <string name="bottom_sheet_cancel">닫기</string>
+
+    <string name="music_empty">등록된 음악이 없습니다.\n지금 음악을 등록해보세요!</string>
 </resources>
