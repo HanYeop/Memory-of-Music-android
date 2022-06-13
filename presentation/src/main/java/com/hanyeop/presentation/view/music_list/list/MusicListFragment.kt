@@ -64,6 +64,11 @@ class MusicListFragment
                 }
                 false
             }
+
+            // TEST
+            button.setOnClickListener {
+                musicViewModel.insertTest()
+            }
         }
     }
 

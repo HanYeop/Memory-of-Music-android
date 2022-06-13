@@ -62,6 +62,25 @@ class MusicViewModel @Inject constructor(
         content.value = ""
     }
 
+    // TEST
+    fun insertTest(){
+        for(i in 0 until 5){
+            viewModelScope.launch(Dispatchers.IO) {
+                insertMusicUseCase.execute(
+                    Music(
+                        image = "",
+                        title = "abcd",
+                        artist = "하이",
+                        rating = i.toFloat(),
+                        summary = "테스트",
+                        content = "설명"
+                    )
+                )
+                _inputSuccessEvent.emit(R.string.insert_success)
+            }
+        }
+    }
+
     fun insertMusic(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
             viewModelScope.launch(Dispatchers.IO) {
