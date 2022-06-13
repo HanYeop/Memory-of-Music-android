@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- margin, padding 값 -->
+
     <dimen name="margin_wide">32dp</dimen>
     <dimen name="margin_24">24dp</dimen>
     <dimen name="margin_default_20">20dp</dimen>
@@ -12,8 +12,9 @@
     <dimen name="margin_narrow_8">8dp</dimen>
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
 
-    <!-- text size -->
+
     <dimen name="default_btn_text_size">16sp</dimen>
     <dimen name="dialog_title">24sp</dimen>
     <dimen name="list_title">14sp</dimen>
@@ -34,7 +35,9 @@
 
     <dimen name="default_text_size">14sp</dimen>
 
-    <!--image, icon size -->
+    <dimen name="setting_header_size">15sp</dimen>
+    <dimen name="setting_text_size">17sp</dimen>
+
     <dimen name="large_image_size">300dp</dimen>
     <dimen name="detail_image_size">200dp</dimen>
     <dimen name="list_image_size">100dp</dimen>

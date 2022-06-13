@@ -23,6 +23,7 @@
     <string name="music_detail_text">음악 상세</string>
     <string name="music_modify_text">음악 수정</string>
     <string name="music_list_text">음악 목록</string>
+    <string name="setting_text">설정</string>
 
     <string name="sort_header">기록 정렬</string>
     <string name="sort_time_desc">최신 순</string>
@@ -55,4 +56,18 @@
     <string name="bottom_sheet_cancel">닫기</string>
 
     <string name="music_empty">등록된 음악이 없습니다.\n지금 음악을 등록해보세요!</string>
+
+    <string name="data_header">데이터</string>
+    <string name="data_back_up">데이터 백업하기</string>
+    <string name="data_restore">데이터 복원하기</string>
+    <string name="data_delete">데이터 전부 삭제하기</string>
+    <string name="music_count_header">등록한 음악</string>
+    <string name="music_album_header">등록한 앨범</string>
+    <string name="security_header">보안</string>
+    <string name="security_setting">잠금 설정</string>
+    <string name="etc_header">기타</string>
+    <string name="review">리뷰하기</string>
+    <string name="inquiry">문의하기</string>
+    <string name="layout_header">레이아웃</string>
+    <string name="layout_type">레이아웃 타입 변경</string>
 </resources>
