@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#FF808080</color>
     <color name="light_gray">#E2E2E2</color>
+    <color name="real_light_gray">#80E2E2E2</color>
 
     <color name="black_high_emphasis">#D9000000</color>
     <color name="black_medium_emphasis">#99000000</color>
@@ -16,4 +17,8 @@
     <color name="mainColor">#FFCAF0F8</color>
     <color name="subColor">#6C63FF</color>
     <color name="red">#E91E63</color>
+
+    <color name="music_color">#FF8888</color>
+    <color name="album_color">#2270DE</color>
+    <color name="setting_color">#fa2</color>
 </resources>
