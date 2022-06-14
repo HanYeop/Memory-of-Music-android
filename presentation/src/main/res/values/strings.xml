@@ -69,5 +69,5 @@
     <string name="review">리뷰하기</string>
     <string name="inquiry">문의하기</string>
     <string name="layout_header">레이아웃</string>
-    <string name="layout_type">레이아웃 타입 변경</string>
+    <string name="layout_type">데이터 간략히 표시</string>
 </resources>
