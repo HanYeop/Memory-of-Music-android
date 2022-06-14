@@ -62,6 +62,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:backgroundTint="@color/mainColor"
+            android:layout_margin="@dimen/margin_10"
+            app:fabCustomSize="@dimen/fab_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/music_search" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

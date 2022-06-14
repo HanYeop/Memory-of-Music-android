@@ -48,10 +48,6 @@ class MainFragment : BaseFragmentMain<FragmentMainBinding>(R.layout.fragment_mai
     }
 
     private fun initClickListener(){
-        binding.apply {
-            fab.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
-            }
-        }
+
     }
 }

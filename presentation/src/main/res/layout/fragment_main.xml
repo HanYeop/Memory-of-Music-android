@@ -7,7 +7,7 @@
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.MainFragment">
@@ -16,17 +16,12 @@
             android:id="@+id/fragment_container_view"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="@dimen/fab_size"
-            android:layout_height="@dimen/fab_size"
-            android:layout_gravity="bottom|end"
-            app:fabCustomSize="@dimen/fab_size"
-            android:layout_margin="@dimen/margin_default_20"
-            android:backgroundTint="@color/mainColor"
-            app:srcCompat="@drawable/music_search" />
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/expandable_bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
             android:id="@+id/expandable_bottom_bar"
@@ -35,10 +30,10 @@
             android:layout_gravity="bottom"
             app:exb_items="@menu/menu_bottom_navi"
             app:exb_notificationBadgeTextColor="@color/black"
-            android:layout_marginStart="@dimen/margin_default_20"
-            android:layout_marginEnd="@dimen/margin_default_20"
-            android:layout_marginBottom="@dimen/margin_narrow_8"
-            app:exb_backgroundCornerRadius="16dp"
-            app:layout_behavior="github.com.st235.lib_expandablebottombar.behavior.ExpandableBottomBarScrollableBehavior" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            app:layout_behavior="github.com.st235.lib_expandablebottombar.behavior.ExpandableBottomBarScrollableBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

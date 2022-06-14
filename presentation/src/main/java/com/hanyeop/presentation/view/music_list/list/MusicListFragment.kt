@@ -77,6 +77,10 @@ class MusicListFragment
             button.setOnClickListener {
                 musicViewModel.insertTest()
             }
+
+            fab.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
+            }
         }
     }
 
