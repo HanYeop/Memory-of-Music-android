@@ -105,10 +105,12 @@
                     android:layout_marginStart="@dimen/margin_16"
                     android:layout_marginBottom="@dimen/margin_narrow_8"/>
 
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/switch_layout_type"
                     android:layout_width="match_parent"
                     style="@style/setting_body_text"
+                    app:track="@drawable/switch_track_selector"
+                    android:thumb="@drawable/switch_thumb"
                     android:paddingStart="@dimen/padding_20"
                     android:background="@color/real_light_gray"
                     android:paddingTop="@dimen/padding_default_10"

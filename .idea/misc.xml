@@ -29,6 +29,10 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/popup_bg.xml" value="0.204" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/rounded_corner_border.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/setting_top.xml" value="0.277" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/switch_thumb.xml" value="0.325" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/switch_track_off.xml" value="0.325" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/switch_track_on.xml" value="0.325" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/switch_track_selector.xml" value="0.325" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/activity_music_search.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/dialog_msuic_bottom_sheet.xml" value="0.36614583333333334" />
