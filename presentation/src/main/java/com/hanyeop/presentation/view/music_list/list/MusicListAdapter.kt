@@ -88,6 +88,10 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
                 root.setOnClickListener {
                     listener.onItemClicked(getItem(adapterPosition))
                 }
+                root.setOnLongClickListener {
+                    listener.onOtherButtonClicked(getItem(adapterPosition))
+                    false
+                }
                 imageOther.setOnClickListener {
                     listener.onOtherButtonClicked(getItem(adapterPosition))
                 }
