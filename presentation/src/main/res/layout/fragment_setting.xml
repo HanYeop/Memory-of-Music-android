@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="mainVm"
+            type="com.hanyeop.presentation.view.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,7 +106,7 @@
                     android:layout_marginBottom="@dimen/margin_narrow_8"/>
 
                 <Switch
-                    android:id="@+id/text_layout_type"
+                    android:id="@+id/switch_layout_type"
                     android:layout_width="match_parent"
                     style="@style/setting_body_text"
                     android:paddingStart="@dimen/padding_20"

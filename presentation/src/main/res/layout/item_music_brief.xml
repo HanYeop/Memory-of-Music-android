@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="music"
+            type="com.hanyeop.domain.model.music.Music" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_music"
+            android:layout_width="@dimen/search_image_size"
+            android:layout_height="@dimen/search_image_size"
+            android:layout_margin="@dimen/margin_10"
+            android:background="@drawable/rounded_corner_border"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:searchImage="@{music.image}" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            style="@style/search_title_text"
+            android:layout_marginStart="@dimen/margin_default_20"
+            android:layout_marginEnd="@dimen/margin_default_20"
+            android:text="@{music.title}"
+            app:layout_constraintBottom_toTopOf="@+id/text_artist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_music"
+            app:layout_constraintTop_toTopOf="@+id/image_music"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="타이틀" />
+
+        <TextView
+            android:id="@+id/text_artist"
+            android:layout_marginStart="@dimen/margin_default_20"
+            android:text="@{music.artist}"
+            style="@style/search_artist_text"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
+            app:layout_constraintStart_toEndOf="@+id/image_music"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            tools:text="아티스트" />
+
+        <ImageView
+            android:id="@+id/image_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_music"
+            app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.music.Music
+import com.hanyeop.presentation.databinding.ItemMusicBriefBinding
 import com.hanyeop.presentation.databinding.ItemMusicListBinding
 import com.hanyeop.presentation.utils.*
 
 class MusicListAdapter(private val listener: MusicListAdapterListener)
-    : ListAdapter<Music, MusicListAdapter.ViewHolder>(diffUtil),Filterable {
+    : ListAdapter<Music, RecyclerView.ViewHolder>(diffUtil),Filterable {
 
     private var originalList = arrayListOf<Music>()
     private var filterList = arrayListOf<Music>()
@@ -82,7 +83,7 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
         return getItem(position).id.toLong()
     }
 
-    inner class ViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
+    inner class AllViewHolder(private val binding: ItemMusicListBinding):RecyclerView.ViewHolder(binding.root){
         init {
             binding.apply {
                 root.setOnClickListener {
@@ -102,17 +103,51 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemMusicListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return ViewHolder(binding)
+    inner class BriefViewHolder(private val binding: ItemMusicBriefBinding):RecyclerView.ViewHolder(binding.root){
+        init {
+            binding.apply {
+                root.setOnClickListener {
+                    listener.onItemClicked(getItem(adapterPosition))
+                }
+                root.setOnLongClickListener {
+                    listener.onOtherButtonClicked(getItem(adapterPosition))
+                    false
+                }
+                imageOther.setOnClickListener {
+                    listener.onOtherButtonClicked(getItem(adapterPosition))
+                }
+            }
+        }
+        fun bind(music: Music){
+            binding.music = music
+        }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if(listViewType == TYPE_ALL) {
+            val binding =
+                ItemMusicListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            AllViewHolder(binding)
+        } else {
+            val binding =
+                ItemMusicBriefBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            BriefViewHolder(binding)
+        }
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if(listViewType == TYPE_ALL) (holder as AllViewHolder).bind(getItem(position))
+        else if(listViewType == TYPE_BRIEF) (holder as BriefViewHolder).bind(getItem(position))
+    }
+
+    fun setListViewType(type: Int){
+        listViewType = type
     }
 
     companion object{
-        val diffUtil = object : DiffUtil.ItemCallback<Music>(){
+        var listViewType = 0
+
+        private val diffUtil = object : DiffUtil.ItemCallback<Music>(){
             override fun areItemsTheSame(oldItem: Music, newItem: Music): Boolean {
                 return oldItem.id == newItem.id
             }

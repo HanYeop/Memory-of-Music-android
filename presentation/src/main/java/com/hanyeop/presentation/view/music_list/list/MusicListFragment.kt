@@ -1,6 +1,8 @@
 package com.hanyeop.presentation.view.music_list.list
 
+import android.content.SharedPreferences
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -11,11 +13,13 @@ import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 import com.hanyeop.presentation.utils.*
 import com.hanyeop.presentation.view.MainFragmentDirections
+import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import com.hanyeop.presentation.view.sort.SortDialog
 import com.hanyeop.presentation.view.sort.SortListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MusicListFragment
@@ -23,20 +27,24 @@ class MusicListFragment
     MusicListAdapterListener, SortListener {
 
     private val musicViewModel by viewModels<MusicViewModel>()
+    private val mainViewModel by activityViewModels<MainViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
     private var searchView : SearchView? = null
+
+    @Inject
+    lateinit var sharedPref: SharedPreferences
 
     override fun init() {
         musicListAdapter.setHasStableIds(true)
 
         binding.apply {
             vm = musicViewModel
-            recyclerViewMusicList.adapter = musicListAdapter
             toolbar.inflateMenu(R.menu.menu_music_list_option)
         }
         initSearchView()
         initAdapter()
         initClickListener()
+        initViewModelCallback()
     }
 
     private fun initSearchView(){
@@ -73,6 +81,13 @@ class MusicListFragment
     }
 
     private fun initAdapter(){
+        musicListAdapter.setListViewType(sharedPref.getInt(LIST_TYPE,0))
+        binding.apply {
+            recyclerViewMusicList.adapter = musicListAdapter
+        }
+    }
+
+    private fun initViewModelCallback(){
         lifecycleScope.launchWhenStarted {
             musicViewModel.musicList.collectLatest {
                 if(it is Result.Success){
@@ -81,6 +96,12 @@ class MusicListFragment
                 }else{
                     musicListAdapter.setItem(mutableListOf())
                 }
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            mainViewModel.listViewType.collectLatest {
+                initAdapter()
             }
         }
     }
