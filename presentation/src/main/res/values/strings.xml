@@ -23,6 +23,7 @@
     <string name="music_detail_text">음악 상세</string>
     <string name="music_modify_text">음악 수정</string>
     <string name="music_list_text">음악 목록</string>
+    <string name="album_list_text">앨범 목록</string>
     <string name="setting_text">설정</string>
 
     <string name="sort_header">기록 정렬</string>
@@ -56,6 +57,7 @@
     <string name="bottom_sheet_cancel">닫기</string>
 
     <string name="music_empty">등록된 음악이 없습니다.\n지금 음악을 등록해보세요!</string>
+    <string name="album_empty">등록된 앨범이 없습니다.\n지금 앨범을 등록해보세요!</string>
 
     <string name="data_header">데이터</string>
     <string name="data_back_up">데이터 백업하기</string>
