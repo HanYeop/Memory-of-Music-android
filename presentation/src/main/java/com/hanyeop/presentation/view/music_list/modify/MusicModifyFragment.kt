@@ -9,8 +9,8 @@ import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicModifyBinding
 import com.hanyeop.presentation.view.music_list.MusicViewModel
-import com.hanyeop.presentation.view.rating.MusicRatingDialog
-import com.hanyeop.presentation.view.rating.MusicRatingListener
+import com.hanyeop.presentation.view.rating.RatingDialog
+import com.hanyeop.presentation.view.rating.RatingListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MusicModifyFragment
     : BaseFragment<FragmentMusicModifyBinding>(R.layout.fragment_music_modify),
-    MusicRatingListener {
+    RatingListener {
 
     private val musicViewModel by activityViewModels<MusicViewModel>()
 
@@ -57,7 +57,7 @@ class MusicModifyFragment
                 findNavController().popBackStack()
             }
             btnOk.setOnClickListener {
-                MusicRatingDialog(requireContext(),this@MusicModifyFragment).show()
+                RatingDialog(requireContext(),this@MusicModifyFragment).show()
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()

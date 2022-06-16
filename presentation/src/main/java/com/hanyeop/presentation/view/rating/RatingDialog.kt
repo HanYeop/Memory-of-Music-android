@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.databinding.DialogMusicRatingBinding
 
-class MusicRatingDialog(context: Context, private val listener: MusicRatingListener): Dialog(context) {
+class RatingDialog(context: Context, private val listener: RatingListener): Dialog(context) {
 
     private lateinit var binding: DialogMusicRatingBinding
 

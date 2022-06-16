@@ -1,5 +1,5 @@
 package com.hanyeop.presentation.view.rating
 
-interface MusicRatingListener {
+interface RatingListener {
     fun onOkClick(rating: Float)
 }
