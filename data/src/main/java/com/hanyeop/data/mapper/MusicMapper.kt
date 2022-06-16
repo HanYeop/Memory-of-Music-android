@@ -34,8 +34,8 @@ fun mapperToMusic(musics: List<MusicEntity>): List<Music>{
 }
 
 // Data -> Domain
-fun mapperToMusicResponse(MusicResponses: MusicResponse): List<DomainMusicResponse>{
-    return MusicResponses.channel!!.itemList!!.map {
+fun mapperToMusicResponse(musicResponses: MusicResponse): List<DomainMusicResponse>{
+    return musicResponses.channel!!.itemList!!.map {
         val title = it.title.replace("&nbsp;"," ").replace("&amp;","&")
         DomainMusicResponse(
             title = title,
