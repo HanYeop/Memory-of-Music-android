@@ -1,5 +1,6 @@
 package com.hanyeop.presentation.view.music_list.modify
 
+import android.view.WindowManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -67,5 +68,10 @@ class MusicModifyFragment
 
     override fun onOkClick(rating: Float) {
         musicViewModel.updateMusic(rating)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 }

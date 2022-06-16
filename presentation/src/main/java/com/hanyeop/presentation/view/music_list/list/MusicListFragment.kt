@@ -1,6 +1,8 @@
 package com.hanyeop.presentation.view.music_list.list
 
 import android.content.SharedPreferences
+import android.util.Log
+import android.view.WindowManager
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -141,5 +143,10 @@ class MusicListFragment
 
     override fun onRatingAscClicked() {
         musicListAdapter.order(RATING_ASC)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
     }
 }
