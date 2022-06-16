@@ -1,5 +1,6 @@
 package com.hanyeop.data.model.music
 
+import com.hanyeop.domain.model.album.Album
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
@@ -24,14 +25,14 @@ data class Item @JvmOverloads constructor(
     var title: String = "",
 
     @field:Element(name = "album")
-    var album: Album? = null,
+    var album: AlbumMusic? = null,
 
     @field:Element(name = "artist")
     var artist: Artist? = null
 )
 
 @Root(name = "album", strict = false)
-data class Album @JvmOverloads constructor(
+data class AlbumMusic @JvmOverloads constructor(
     @field:Element(name = "image")
     var image: String = ""
 )
