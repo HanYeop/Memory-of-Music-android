@@ -30,9 +30,7 @@
                 android:id="@+id/text"
                 android:text="@string/music_modify_text"
                 style="@style/toolbar_text"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="18sp" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 

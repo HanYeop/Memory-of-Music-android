@@ -30,9 +30,11 @@
                 android:id="@+id/text"
                 style="@style/toolbar_text"
                 android:text="@string/music_list_text"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="18sp" />
+
+            <Button
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 
