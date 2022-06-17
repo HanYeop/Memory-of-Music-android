@@ -26,13 +26,13 @@ object ViewBindingAdapter {
         this.clipToOutline = true
     }
 
-    // 음악 상세 이미지 바인딩
-    @BindingAdapter("detailImage")
+    // 음악 medium 이미지 바인딩
+    @BindingAdapter("mediumImage")
     @JvmStatic
-    fun ImageView.setDetailImage (imageUrl: Any){
+    fun ImageView.setMediumImage (imageUrl: Any){
         Glide.with(this.context)
             .load(imageUrl)
-            .override(R.dimen.detail_image_size * 2,R.dimen.detail_image_size * 2)
+            .override(R.dimen.medium_image_size * 2,R.dimen.medium_image_size * 2)
             .placeholder(R.drawable.image_loading)
             .into(this)
         this.clipToOutline = true

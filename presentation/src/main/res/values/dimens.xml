@@ -39,7 +39,7 @@
     <dimen name="setting_text_size">16sp</dimen>
 
     <dimen name="large_image_size">300dp</dimen>
-    <dimen name="detail_image_size">200dp</dimen>
+    <dimen name="medium_image_size">200dp</dimen>
     <dimen name="list_image_size">100dp</dimen>
     <dimen name="search_image_size">80dp</dimen>
     <dimen name="fab_size">42dp</dimen>

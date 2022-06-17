@@ -36,10 +36,10 @@
 
         <ImageView
             android:id="@+id/image_music"
-            android:layout_width="@dimen/detail_image_size"
-            android:layout_height="@dimen/detail_image_size"
+            android:layout_width="@dimen/medium_image_size"
+            android:layout_height="@dimen/medium_image_size"
             android:layout_marginTop="@dimen/margin_10"
-            app:detailImage="@{vm.image}"
+            app:mediumImage="@{vm.image}"
             android:background="@drawable/rounded_corner_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
