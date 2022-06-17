@@ -2,8 +2,11 @@ package com.hanyeop.mom.di
 
 import android.content.Context
 import androidx.room.Room
+import com.hanyeop.data.db.AlbumDao
 import com.hanyeop.data.db.MusicDao
 import com.hanyeop.data.db.MusicDatabase
+import com.hanyeop.data.repository.album.local.AlbumLocalDataSource
+import com.hanyeop.data.repository.album.local.AlbumLocalDataSourceImpl
 import com.hanyeop.data.repository.music.local.MusicLocalDataSource
 import com.hanyeop.data.repository.music.local.MusicLocalDataSourceImpl
 import dagger.Module
@@ -40,5 +43,19 @@ object LocalDataModule {
     @Provides
     fun provideMusicLocalDataSource(musicDao: MusicDao): MusicLocalDataSource{
         return MusicLocalDataSourceImpl(musicDao)
+    }
+
+    // AlbumDao DI
+    @Singleton
+    @Provides
+    fun provideAlbumDao(musicDatabase: MusicDatabase) : AlbumDao{
+        return musicDatabase.AlbumDao()
+    }
+
+    // AlbumLocalDataSource DI
+    @Singleton
+    @Provides
+    fun provideAlbumLocalDataSource(albumDao: AlbumDao): AlbumLocalDataSource{
+        return AlbumLocalDataSourceImpl(albumDao)
     }
 }
