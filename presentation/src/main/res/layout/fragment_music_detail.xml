@@ -118,13 +118,14 @@
                     app:srb_isIndicator="true"
                     app:srb_numStars="5"
                     app:srb_scrollable="true"
+                    app:srb_starPadding="@dimen/star_padding"
                     app:srb_starHeight="@dimen/star_size"
                     app:srb_starWidth="@dimen/star_size"
                     app:srb_stepSize="0.5" />
 
                 <TextView
                     android:id="@+id/text_time"
-                    style="@style/detail_body_text"
+                    style="@style/list_time_text"
                     android:textColor="@color/black_low_emphasis"
                     android:layout_width="0dp"
                     android:layout_marginTop="@dimen/margin_narrow_8"

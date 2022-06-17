@@ -46,4 +46,5 @@
     <dimen name="bottom_navi_size">70dp</dimen>
     <dimen name="icon_small">16dp</dimen>
     <dimen name="star_size">16dp</dimen>
+    <dimen name="star_padding">4dp</dimen>
 </resources>
