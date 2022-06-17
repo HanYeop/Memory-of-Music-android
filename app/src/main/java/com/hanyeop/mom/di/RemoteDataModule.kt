@@ -1,6 +1,8 @@
 package com.hanyeop.mom.di
 
 import com.hanyeop.data.api.MusicApi
+import com.hanyeop.data.repository.album.remote.AlbumRemoteDataSource
+import com.hanyeop.data.repository.album.remote.AlbumRemoteDataSourceImpl
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSource
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSourceImpl
 import com.hanyeop.mom.utils.BASE_URL
@@ -38,5 +40,12 @@ object RemoteDataModule {
     @Provides
     fun provideMusicRemoteDataSource(musicApi: MusicApi): MusicRemoteDataSource {
         return MusicRemoteDataSourceImpl(musicApi)
+    }
+
+    // AlbumRemoteDataSource DI
+    @Singleton
+    @Provides
+    fun provideAlbumRemoteDataSource(musicApi: MusicApi): AlbumRemoteDataSource {
+        return AlbumRemoteDataSourceImpl(musicApi)
     }
 }
