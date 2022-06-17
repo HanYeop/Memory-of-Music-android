@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_music_list"/>
     <keep_state_fragment
         android:id="@+id/albumListFragment"
-        android:name="com.hanyeop.presentation.view.album_list.AlbumListFragment"
+        android:name="com.hanyeop.presentation.view.album_list.list.AlbumListFragment"
         android:label="albumListFragment"
         tools:layout="@layout/fragment_album_list"/>
     <keep_state_fragment
