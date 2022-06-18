@@ -59,7 +59,7 @@ class MusicListFragment
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
-                musicListAdapter.filter.filter(newText)
+                musicListAdapter.filter.filter(newText?.lowercase())
                 return false
             }
         })

@@ -25,7 +25,7 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
                     values = if (constraint.isNullOrEmpty()){
                         originalList
                     }else{
-                        originalList.filter { it.title.contains(constraint.toString()) }
+                        originalList.filter { it.title.lowercase().contains(constraint.toString()) }
                     }
                 }
             }
@@ -37,6 +37,7 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
     }
 
     fun order(type: Int){
+        // default (최신순)
         originalList.sortBy { it.time }
         originalList.reverse()
         filterList.sortBy { it.time }
@@ -48,13 +49,13 @@ class MusicListAdapter(private val listener: MusicListAdapterListener)
                 filterList.sortBy { it.time }
             }
             TITLE_ASC ->{
-                originalList.sortBy { it.title }
-                filterList.sortBy { it.title }
+                originalList.sortBy { it.title.lowercase() }
+                filterList.sortBy { it.title.lowercase() }
             }
             TITLE_DESC ->{
-                originalList.sortBy { it.title }
+                originalList.sortBy { it.title.lowercase() }
                 originalList.reverse()
-                filterList.sortBy { it.title }
+                filterList.sortBy { it.title.lowercase() }
                 filterList.reverse()
             }
             RATING_DESC ->{
