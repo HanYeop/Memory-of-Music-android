@@ -44,9 +44,9 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:paddingTop="@dimen/padding_20"
             android:paddingStart="@dimen/padding_20"
-            android:paddingEnd="@dimen/padding_20">
+            android:paddingEnd="@dimen/padding_20"
+            android:paddingBottom="@dimen/padding_20">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -57,6 +57,7 @@
                     android:layout_width="@dimen/large_image_size"
                     android:layout_height="@dimen/large_image_size"
                     app:largeImage="@{music.image}"
+                    android:layout_marginTop="@dimen/margin_default_20"
                     android:background="@drawable/rounded_corner_border"
                     tools:src="@tools:sample/avatars"
                     app:layout_constraintEnd_toEndOf="parent"
