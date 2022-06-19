@@ -3,11 +3,9 @@ package com.hanyeop.presentation.view.album_list
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hanyeop.domain.model.album.Album
 import com.hanyeop.domain.model.album.DomainAlbumResponse
 import com.hanyeop.domain.usecase.album.*
 import com.hanyeop.domain.utils.Result
-import com.hanyeop.presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,8 +21,25 @@ class AlbumViewModel @Inject constructor(
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
 ) : ViewModel() {
 
+    val id: MutableStateFlow<Int> = MutableStateFlow(0)
+    val image: MutableStateFlow<String> = MutableStateFlow("")
+    val title: MutableStateFlow<String> = MutableStateFlow("")
+    val artist: MutableStateFlow<String> = MutableStateFlow("")
+    val trackList: MutableStateFlow<String> = MutableStateFlow("")
+    val summary: MutableStateFlow<String> = MutableStateFlow("")
+    val content: MutableStateFlow<String> = MutableStateFlow("")
+
     private val _remoteAlbums: MutableStateFlow<Result<List<DomainAlbumResponse>>> = MutableStateFlow(Result.Uninitialized)
     val remoteAlbums get() = _remoteAlbums.asStateFlow()
+
+    fun setAlbumInfo(albumInfo: DomainAlbumResponse){
+        image.value = albumInfo.image
+        title.value = albumInfo.title
+        artist.value = albumInfo.artist
+        trackList.value = albumInfo.trackList
+        summary.value = ""
+        content.value = ""
+    }
 
 //    // TEST
 //    fun insertTest(){
@@ -45,6 +60,7 @@ class AlbumViewModel @Inject constructor(
 //            }
 //        }
 //    }
+
 
     fun getRemoteAlbums(keyword: String){
         viewModelScope.launch(Dispatchers.IO) {

@@ -29,6 +29,7 @@ class AlbumSearchFragment
         }
         initSearchView()
         initClickListener()
+        albumViewModel.getRemoteAlbums("에픽하이")
     }
 
     private fun initSearchView(){
@@ -57,13 +58,13 @@ class AlbumSearchFragment
             }
             textDirect.setOnClickListener {
 //                albumViewModel.initMusicInfo()
-//                findNavController().navigate(R.id.action_musicSearchFragment_to_musicInsertFragment)
+                findNavController().navigate(R.id.action_albumSearchFragment_to_albumInsertFragment)
             }
         }
     }
 
     override fun onItemClicked(albumInfo: DomainAlbumResponse) {
-//        albumViewModel.setMusicInfo(musicInfo)
-//        findNavController().navigate(R.id.action_musicSearchFragment_to_musicInsertFragment)
+        albumViewModel.setAlbumInfo(albumInfo)
+        findNavController().navigate(R.id.action_albumSearchFragment_to_albumInsertFragment)
     }
 }

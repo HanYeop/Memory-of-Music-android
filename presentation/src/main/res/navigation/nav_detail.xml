@@ -59,5 +59,14 @@
         android:id="@+id/albumSearchFragment"
         android:name="com.hanyeop.presentation.view.album_list.search.AlbumSearchFragment"
         android:label="AlbumSearchFragment"
-        tools:layout="@layout/fragment_album_search"/>
+        tools:layout="@layout/fragment_album_search">
+        <action
+            android:id="@+id/action_albumSearchFragment_to_albumInsertFragment"
+            app:destination="@id/albumInsertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumInsertFragment"
+        android:name="com.hanyeop.presentation.view.album_list.insert.AlbumInsertFragment"
+        android:label="AlbumInsertFragment"
+        tools:layout="@layout/fragment_album_insert"/>
 </navigation>
