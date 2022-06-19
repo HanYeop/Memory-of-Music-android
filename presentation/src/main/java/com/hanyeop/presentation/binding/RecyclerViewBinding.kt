@@ -3,10 +3,10 @@ package com.hanyeop.presentation.binding
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.hanyeop.domain.model.album.DomainAlbumResponse
 import com.hanyeop.domain.model.music.DomainMusicResponse
-import com.hanyeop.domain.model.music.Music
 import com.hanyeop.domain.utils.Result
-import com.hanyeop.presentation.view.music_list.list.MusicListAdapter
+import com.hanyeop.presentation.view.album_list.search.AlbumSearchAdapter
 import com.hanyeop.presentation.view.music_list.search.MusicSearchAdapter
 
 object RecyclerViewBinding {
@@ -22,6 +22,9 @@ object RecyclerViewBinding {
 //                }
                 is MusicSearchAdapter -> {
                     (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<DomainMusicResponse>)
+                }
+                is AlbumSearchAdapter -> {
+                    (view.adapter as ListAdapter<Any, *>).submitList(result.data as List<DomainAlbumResponse>)
                 }
             }
         } else if (result is Result.Empty) {
