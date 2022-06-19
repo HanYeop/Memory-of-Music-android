@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_musicModifyFragment"
             app:destination="@id/musicModifyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_albumSearchFragment"
+            app:destination="@id/albumSearchFragment" />
     </fragment>
 
     <fragment
@@ -52,4 +55,9 @@
         android:name="com.hanyeop.presentation.view.music_list.modify.MusicModifyFragment"
         android:label="MusicModifyFragment"
         tools:layout="@layout/fragment_music_modify"/>
+    <fragment
+        android:id="@+id/albumSearchFragment"
+        android:name="com.hanyeop.presentation.view.album_list.search.AlbumSearchFragment"
+        android:label="AlbumSearchFragment"
+        tools:layout="@layout/fragment_album_search"/>
 </navigation>
