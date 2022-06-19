@@ -56,7 +56,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
             app:submitList="@{vm.remoteAlbums}"
-            tools:listitem="@layout/item_music_search" />
+            tools:listitem="@layout/item_album_search" />
 
         <ProgressBar
             android:id="@+id/progressBar"
