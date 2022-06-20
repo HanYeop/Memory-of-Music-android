@@ -1,8 +1,7 @@
 package com.hanyeop.presentation.view.music_list.list
 
 import android.content.SharedPreferences
-import android.util.Log
-import android.view.WindowManager
+import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -38,15 +37,38 @@ class MusicListFragment
 
     override fun init() {
         musicListAdapter.setHasStableIds(true)
+        registerForContextMenu(binding.textToolbar)
 
         binding.apply {
             vm = musicViewModel
             toolbar.inflateMenu(R.menu.menu_music_list_option)
         }
+
         initSearchView()
         initAdapter()
         initClickListener()
         initViewModelCallback()
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        MenuInflater(requireContext()).inflate(R.menu.menu_category, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_category_genre -> {
+                showToast("장르 클릭됨")
+            }
+            R.id.menu_category_rating -> {
+                showToast("평점 클릭됨")
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 
     private fun initSearchView(){
@@ -74,9 +96,11 @@ class MusicListFragment
                 }
                 false
             }
-
             fab.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
+            }
+            textToolbar.setOnClickListener {
+                it.showContextMenu()
             }
         }
     }

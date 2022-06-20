@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/text_toolbar"
                 style="@style/toolbar_text"
                 android:text="@string/music_list_text"
                 android:drawableRight="@drawable/ic_arrow_down_24"
