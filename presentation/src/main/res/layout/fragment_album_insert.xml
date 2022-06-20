@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="vm"
             type="com.hanyeop.presentation.view.album_list.AlbumViewModel" />
@@ -120,7 +121,7 @@
                     android:id="@+id/input_layout_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="160dp"
                     android:layout_marginTop="@dimen/margin_10"
                     android:layout_marginBottom="@dimen/margin_10"
                     app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
@@ -143,15 +144,19 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_4"
                     style="@style/detail_header_text"
+                    android:onClick="@{() -> vm.hideTrackList()}"
                     android:drawableStart="@drawable/left_image_disc"
                     android:drawablePadding="@dimen/padding_default_10"
+                    android:drawableEnd="@drawable/ic_arrow_down_24"
                     android:text="@string/album_track_list" />
 
                 <TextView
+                    android:id="@+id/text_track_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:text="@{vm.trackList}"
+                    android:visibility="@{vm.trackBoolean ? View.GONE : View.VISIBLE}"
                     tools:text="트랙리스트 입니다." />
 
             </LinearLayout>

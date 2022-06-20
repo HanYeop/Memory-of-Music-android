@@ -3,6 +3,7 @@ package com.hanyeop.presentation.view.album_list
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.play.core.internal.t
 import com.hanyeop.domain.model.album.DomainAlbumResponse
 import com.hanyeop.domain.usecase.album.*
 import com.hanyeop.domain.utils.Result
@@ -41,26 +42,10 @@ class AlbumViewModel @Inject constructor(
         content.value = ""
     }
 
-//    // TEST
-//    fun insertTest(){
-//        for(i in 0 until 5){
-//            viewModelScope.launch(Dispatchers.IO) {
-//                insertAlbumUseCase.execute(
-//                    Album(
-//                        image = "",
-//                        title = "abcd",
-//                        artist = "하이",
-//                        trackList = "1. test \n2. 하이",
-//                        rating = i.toFloat(),
-//                        summary = "테스트",
-//                        content = "설명"
-//                    )
-//                )
-//                _inputSuccessEvent.emit(R.string.insert_success)
-//            }
-//        }
-//    }
-
+    var trackBoolean: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    fun hideTrackList(){
+        trackBoolean.value = !trackBoolean.value
+    }
 
     fun getRemoteAlbums(keyword: String){
         viewModelScope.launch(Dispatchers.IO) {
