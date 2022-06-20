@@ -32,6 +32,8 @@
             android:layout_marginStart="@dimen/margin_default_20"
             android:layout_marginEnd="@dimen/margin_default_20"
             android:text="@{albumInfo.title}"
+            android:ellipsize="end"
+            android:maxLines="2"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_album"
@@ -41,10 +43,15 @@
 
         <TextView
             android:id="@+id/text_artist"
-            android:layout_marginStart="@dimen/margin_default_20"
-            android:text="@{albumInfo.artist}"
             style="@style/search_artist_text"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/margin_default_20"
+            android:layout_marginEnd="@dimen/margin_default_20"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{albumInfo.artist}"
             app:layout_constraintBottom_toBottomOf="@+id/image_album"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_album"
             app:layout_constraintTop_toBottomOf="@+id/text_title"
             tools:text="아티스트" />

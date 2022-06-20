@@ -90,9 +90,8 @@
             android:layout_width="@dimen/icon_small"
             android:layout_height="@dimen/icon_small"
             android:layout_marginEnd="@dimen/margin_4"
-            app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintEnd_toStartOf="@+id/text_rating"
-            app:layout_constraintTop_toTopOf="@+id/text_title"
+            app:layout_constraintTop_toTopOf="@+id/image_music"
             app:srcCompat="@drawable/star" />
 
         <TextView
