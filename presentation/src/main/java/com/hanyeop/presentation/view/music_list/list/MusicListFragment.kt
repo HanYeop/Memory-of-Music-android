@@ -17,22 +17,26 @@ import com.hanyeop.presentation.databinding.FragmentMusicListBinding
 import com.hanyeop.presentation.utils.*
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
+import com.hanyeop.presentation.view.category.CategoryDialog
+import com.hanyeop.presentation.view.category.CategoryDialogListener
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import com.hanyeop.presentation.view.sort.SortDialog
 import com.hanyeop.presentation.view.sort.SortListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MusicListFragment
     : BaseFragmentMain<FragmentMusicListBinding>(R.layout.fragment_music_list),
-    MusicListAdapterListener, SortListener {
+    MusicListAdapterListener, SortListener, CategoryDialogListener {
 
     private val musicViewModel by viewModels<MusicViewModel>()
     private val mainViewModel by activityViewModels<MainViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
     private var searchView : SearchView? = null
+    private lateinit var job : Job
 
     @Inject
     lateinit var sharedPref: SharedPreferences
@@ -65,10 +69,10 @@ class MusicListFragment
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_category_genre -> {
-                showToast("장르 클릭됨")
+
             }
             R.id.menu_category_rating -> {
-                showToast("평점 클릭됨")
+                CategoryDialog(requireContext(),this).show()
             }
         }
         return super.onContextItemSelected(item)
@@ -117,8 +121,8 @@ class MusicListFragment
     }
 
     private fun initViewModelCallback(){
-        lifecycleScope.launchWhenStarted {
-            musicViewModel.musicList.collectLatest {
+        job = lifecycleScope.launchWhenStarted {
+            musicViewModel.musicList.collect {
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
@@ -166,6 +170,22 @@ class MusicListFragment
 
     override fun onRatingAscClicked() {
         musicListAdapter.order(RATING_ASC)
+    }
+
+    override fun onRatingSelected(start: Float, end: Float) {
+        showToast("$start $end")
+        job.cancel()
+        musicViewModel.abc(start, end)
+        job = lifecycleScope.launchWhenStarted {
+             musicViewModel.musicList.collect {
+                if(it is Result.Success){
+                    searchView?.setQuery("",false)
+                    musicListAdapter.setItem(it.data)
+                }else{
+                    musicListAdapter.setItem(mutableListOf())
+                }
+            }
+        }
     }
 
     override fun onResume() {

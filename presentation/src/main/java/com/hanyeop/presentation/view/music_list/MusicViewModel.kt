@@ -85,7 +85,7 @@ class MusicViewModel @Inject constructor(
         }
     }
 
-    val musicList: StateFlow<Result<List<Music>>> =
+    var musicList: StateFlow<Result<List<Music>>> =
         getAllMusicUseCase.execute()
             .stateIn(
                 scope = viewModelScope,
@@ -93,13 +93,16 @@ class MusicViewModel @Inject constructor(
                 initialValue = Result.Uninitialized
             )
 
-    fun musicRatingList(start: Float, end: Float): StateFlow<Result<List<Music>>> =
-        getAllMusicByRatingUseCase.execute(start, end)
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(5000),
-                initialValue = Result.Uninitialized
-            )
+    fun abc(start: Float, end: Float){
+        musicList =
+            getAllMusicByRatingUseCase.execute(start, end)
+                .stateIn(
+                    scope = viewModelScope,
+                    started = SharingStarted.WhileSubscribed(5000),
+                    initialValue = Result.Uninitialized
+                )
+
+    }
 
     fun getRemoteMusics(keyword: String){
         viewModelScope.launch(Dispatchers.IO) {
