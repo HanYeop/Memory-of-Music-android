@@ -27,6 +27,7 @@
     <string name="album_list_text">앨범 목록</string>
     <string name="setting_text">설정</string>
 
+    <string name="sort_text">정렬</string>
     <string name="sort_header">기록 정렬</string>
     <string name="sort_time_desc">최신 순</string>
     <string name="sort_time_asc">과거 순</string>

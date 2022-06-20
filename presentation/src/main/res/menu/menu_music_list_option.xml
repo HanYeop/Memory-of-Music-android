@@ -11,7 +11,7 @@
 
     <item android:id="@+id/menu_sort"
         android:icon="@drawable/ic_baseline_tune_24"
-        android:title="정렬"
+        android:title="@string/sort_text"
         android:enabled="true"
         app:showAsAction="ifRoom"/>
 </menu>
