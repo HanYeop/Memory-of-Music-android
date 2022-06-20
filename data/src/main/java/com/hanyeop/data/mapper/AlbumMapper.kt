@@ -39,8 +39,10 @@ fun mapperToAlbum(albums: List<AlbumEntity>): List<Album>{
 fun mapperToAlbumResponse(albumResponses: AlbumResponse): List<DomainAlbumResponse>{
     return albumResponses.channel!!.itemList!!.map {
         val title = it.title.replace("&nbsp;"," ").replace("&amp;","&")
-        val trackList = it.album!!.trackList.replace("&nbsp;"," ").replace("&amp;","&").replace("/", "\n")
-            .replace("[Disc 1]","").replace("[Disc 2]","")
+        val trackList = it.album!!.trackList.replace("&nbsp;"," ")
+            .replace("&amp;","&").replace("/", "\n")
+            .replace("[Disc 1]\n1.","[Disc 1]\n 1.")
+            .replace("[Disc 2]\n1.","[Disc 2]\n 1.")
         DomainAlbumResponse(
             title = title,
             artist = it.artist.toString(),
