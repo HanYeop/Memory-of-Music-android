@@ -68,3 +68,7 @@ object Glide{
 object SimpleRatingBar{
     const val SIMPLE_RATING_BAR = "com.github.ome450901:SimpleRatingBar:1.5.1"
 }
+
+object SeekbarRangedView{
+    const val SEEK_BAR_RANGED_VIEW = "com.github.guilhe:seekbar-ranged-view:3.0.0"
+}

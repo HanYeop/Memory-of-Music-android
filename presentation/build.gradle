@@ -74,4 +74,7 @@ dependencies {
 
     // SimpleRatingBar
     implementation (SimpleRatingBar.SIMPLE_RATING_BAR)
+
+    // SeekbarRangedView
+    implementation (SeekbarRangedView.SEEK_BAR_RANGED_VIEW)
 }
