@@ -1,7 +1,9 @@
 package com.hanyeop.presentation.view.music_list.list
 
 import android.content.SharedPreferences
+import android.os.Build
 import android.view.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -35,6 +37,7 @@ class MusicListFragment
     @Inject
     lateinit var sharedPref: SharedPreferences
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun init() {
         musicListAdapter.setHasStableIds(true)
         registerForContextMenu(binding.textToolbar)
@@ -87,6 +90,7 @@ class MusicListFragment
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     private fun initClickListener(){
         binding.apply {
             toolbar.setOnMenuItemClickListener {
@@ -100,7 +104,7 @@ class MusicListFragment
                 findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
             }
             textToolbar.setOnClickListener {
-                it.showContextMenu()
+                it.showContextMenu(it.x ,it.y + it.height/2)
             }
         }
     }
