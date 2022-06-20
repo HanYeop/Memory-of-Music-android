@@ -17,6 +17,7 @@ import javax.inject.Inject
 class MusicViewModel @Inject constructor(
     private val insertMusicUseCase: InsertMusicUseCase,
     private val getAllMusicUseCase: GetAllMusicUseCase,
+    private val getAllMusicByRatingUseCase: GetAllMusicByRatingUseCase,
     private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
     private val deleteMusicUseCase: DeleteMusicUseCase,
     private val updateMusicUseCase: UpdateMusicUseCase
@@ -86,6 +87,14 @@ class MusicViewModel @Inject constructor(
 
     val musicList: StateFlow<Result<List<Music>>> =
         getAllMusicUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
+
+    fun musicRatingList(start: Float, end: Float): StateFlow<Result<List<Music>>> =
+        getAllMusicByRatingUseCase.execute(start, end)
             .stateIn(
                 scope = viewModelScope,
                 started = SharingStarted.WhileSubscribed(5000),

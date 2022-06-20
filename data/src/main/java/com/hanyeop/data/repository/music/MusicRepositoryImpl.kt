@@ -46,4 +46,26 @@ class MusicRepositoryImpl @Inject constructor(
     override fun deleteMusic(id : Int) = musicLocalDataSource.deleteMusic(id)
     override fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
         = musicLocalDataSource.updateMusic(id, title, artist, rating, summary, content)
+
+    override fun getAllMusicByRating(start: Float, end: Float): Flow<Result<List<Music>>> = flow {
+        emit(Result.Loading)
+        musicLocalDataSource.getAllMusicByRating(start, end).collect {
+            if(it.isEmpty()){
+                emit(Result.Empty)
+            }else{
+                emit(Result.Success(mapperToMusic(it)))
+            }
+        }
+
+        musicLocalDataSource.getAllMusicByRating(start, end).collect {
+            if(it.isEmpty()){
+                emit(Result.Empty)
+            }else{
+                emit(Result.Success(mapperToMusic(it)))
+            }
+        }
+
+    }.catch { e ->
+        emit(Result.Error(e))
+    }
 }

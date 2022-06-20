@@ -11,4 +11,5 @@ interface MusicRepository {
     fun getRemoteMusics(keyword: String): Flow<Result<List<DomainMusicResponse>>>
     fun deleteMusic(id : Int)
     fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
+    fun getAllMusicByRating(start: Float, end: Float): Flow<Result<List<Music>>>
 }

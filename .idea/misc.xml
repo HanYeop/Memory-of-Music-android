@@ -7,15 +7,18 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/button_regular_main.xml" value="0.3345" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/dialog_bottom_sheet.xml" value="0.308" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/dialog_top.xml" value="0.308" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_arrow_down_24.xml" value="0.325" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.281" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.308" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_featured_play_list_24.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.3345" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_playlist_add_24.xml" value="0.2235" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_queue_music_24.xml" value="0.3345" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_reorder_24.xml" value="0.3505" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3345" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.216" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_star_border_24.xml" value="0.325" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/ic_baseline_tune_24.xml" value="0.308" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/image_loading.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_album.xml" value="0.308" />
@@ -40,7 +43,9 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/dialog_music_insert.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/dialog_music_rating.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/dialog_sort.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_insert.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_search.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_main.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_detail.xml" value="0.3493670886075949" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_insert.xml" value="0.36614583333333334" />
@@ -49,10 +54,12 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_search.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_other_list.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_setting.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_album_search.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_music_brief.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_music_list.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_music_search.xml" value="0.3351851851851852" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_bottom_navi.xml" value="0.33" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_catetory.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_music_list_option.xml" value="0.3515625" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_option.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_toolbar.xml" value="0.36614583333333334" />

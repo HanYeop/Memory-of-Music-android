@@ -8,4 +8,5 @@ interface MusicLocalDataSource {
     fun getAllMusic(): Flow<List<MusicEntity>>
     fun deleteMusic(id : Int)
     fun updateMusic(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
+    fun getAllMusicByRating(start: Float, end: Float): Flow<List<MusicEntity>>
 }
