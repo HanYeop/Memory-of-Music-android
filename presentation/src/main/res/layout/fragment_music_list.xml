@@ -30,6 +30,8 @@
                 android:id="@+id/text"
                 style="@style/toolbar_text"
                 android:text="@string/music_list_text"
+                android:drawableRight="@drawable/ic_arrow_down_24"
+                android:drawablePadding="@dimen/margin_4"
                 android:textSize="18sp" />
 
         </com.google.android.material.appbar.MaterialToolbar>
