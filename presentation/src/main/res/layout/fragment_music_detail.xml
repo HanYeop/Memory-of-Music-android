@@ -163,9 +163,9 @@
 
                 <TextView
                     android:id="@+id/text_rating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@{String.valueOf(music.rating)}"
+                    style="@style/list_rating_text"
+                    android:textColor="@color/music_color"
                     android:layout_marginStart="@dimen/margin_4"
                     app:layout_constraintBottom_toBottomOf="@+id/rating_bar_detail"
                     app:layout_constraintStart_toEndOf="@+id/rating_bar_detail"
