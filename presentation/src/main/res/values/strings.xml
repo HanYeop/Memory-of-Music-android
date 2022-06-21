@@ -77,4 +77,17 @@
     <string name="inquiry">문의하기</string>
     <string name="layout_header">레이아웃</string>
     <string name="layout_type">데이터 간략히 표시</string>
+
+    <string-array name="genre">
+        <item>장르</item>
+        <item>발라드</item>
+        <item>댄스</item>
+        <item>POP</item>
+        <item>힙합</item>
+        <item>R&amp;B</item>
+        <item>인디</item>
+        <item>락</item>
+        <item>재즈</item>
+        <item>기타</item>
+    </string-array>
 </resources>

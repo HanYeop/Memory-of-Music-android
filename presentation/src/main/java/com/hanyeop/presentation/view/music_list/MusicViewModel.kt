@@ -27,6 +27,7 @@ class MusicViewModel @Inject constructor(
     val image: MutableStateFlow<String> = MutableStateFlow("")
     val title: MutableStateFlow<String> = MutableStateFlow("")
     val artist: MutableStateFlow<String> = MutableStateFlow("")
+    private val genre: MutableStateFlow<String> = MutableStateFlow("장르")
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
 
@@ -38,14 +39,17 @@ class MusicViewModel @Inject constructor(
     private val _remoteMusics: MutableStateFlow<Result<List<DomainMusicResponse>>> = MutableStateFlow(Result.Uninitialized)
     val remoteMusics get() = _remoteMusics.asStateFlow()
 
+    // 검색 결과 클릭 시 결과 정보 불러옴
     fun setMusicInfo(musicInfo: DomainMusicResponse){
         image.value = musicInfo.image
         title.value = musicInfo.title
         artist.value = musicInfo.artist
+        genre.value = ""
         summary.value = ""
         content.value = ""
     }
 
+    // 수정 버튼 클릭 시 기존의 정보 불러옴 TODO : 장르
     fun setMusic(music: Music){
         id.value = music.id
         image.value = music.image
@@ -55,22 +59,31 @@ class MusicViewModel @Inject constructor(
         content.value = music.content
     }
 
+    // 직접 추가시 모든 정보 초기화
     fun initMusicInfo(){
         image.value = ""
         title.value = ""
         artist.value = ""
+        genre.value = ""
         summary.value = ""
         content.value = ""
     }
 
+    // 장르 스피너 선택 결과
+    fun setGenre(selected: String){
+        genre.value = selected
+    }
+
     fun insertMusic(rating: Float){
-        if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
+        if(title.value.isNotBlank() && artist.value.isNotBlank()
+            && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
             viewModelScope.launch(Dispatchers.IO) {
                 insertMusicUseCase.execute(
                     Music(
                         image = image.value,
                         title = title.value,
                         artist = artist.value,
+                        genre = genre.value,
                         rating = rating,
                         summary = summary.value,
                         content = content.value
@@ -78,7 +91,8 @@ class MusicViewModel @Inject constructor(
                 )
                 _inputSuccessEvent.emit(R.string.insert_success)
             }
-        }else{
+        }
+        else{
             viewModelScope.launch(Dispatchers.IO) {
                 _inputErrorEvent.emit(R.string.insert_error)
             }
@@ -93,6 +107,7 @@ class MusicViewModel @Inject constructor(
                 initialValue = Result.Uninitialized
             )
 
+    // TODO : TEST 코드
     fun abc(start: Float, end: Float){
         musicList =
             getAllMusicByRatingUseCase.execute(start, end)
@@ -119,7 +134,8 @@ class MusicViewModel @Inject constructor(
     }
 
     fun updateMusic(rating: Float){
-        if(title.value.isNotBlank() && artist.value.isNotBlank() && summary.value.isNotBlank() && content.value.isNotBlank()){
+        if(title.value.isNotBlank() && artist.value.isNotBlank()
+            && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
             viewModelScope.launch(Dispatchers.IO) {
                 updateMusicUseCase.execute(id.value,title.value,artist.value,rating,summary.value,content.value)
                 _inputSuccessEvent.emit(R.string.update_success)

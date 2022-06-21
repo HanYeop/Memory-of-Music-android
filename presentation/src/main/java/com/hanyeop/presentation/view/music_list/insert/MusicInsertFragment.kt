@@ -1,7 +1,8 @@
 package com.hanyeop.presentation.view.music_list.insert
 
-import android.util.Log
+import android.view.View
 import android.view.WindowManager
+import android.widget.AdapterView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -31,6 +32,7 @@ class MusicInsertFragment
 
         initViewModelCallback()
         initClickListener()
+        initSpinner()
     }
     
     private fun initViewModelCallback(){
@@ -63,6 +65,25 @@ class MusicInsertFragment
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()
+            }
+        }
+    }
+
+    private fun initSpinner(){
+        val spinnerEntries = resources.getStringArray(R.array.genre)
+
+        binding.spinnerGenre.apply {
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    musicViewModel.setGenre(spinnerEntries[position])
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
             }
         }
     }
