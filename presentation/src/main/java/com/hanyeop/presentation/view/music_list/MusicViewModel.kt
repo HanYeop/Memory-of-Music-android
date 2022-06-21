@@ -49,12 +49,13 @@ class MusicViewModel @Inject constructor(
         content.value = ""
     }
 
-    // 수정 버튼 클릭 시 기존의 정보 불러옴 TODO : 장르
+    // 수정 버튼 클릭 시 기존의 정보 불러옴
     fun setMusic(music: Music){
         id.value = music.id
         image.value = music.image
         title.value = music.title
         artist.value = music.artist
+        genre.value = music.genre
         summary.value = music.summary
         content.value = music.content
     }
@@ -137,7 +138,7 @@ class MusicViewModel @Inject constructor(
         if(title.value.isNotBlank() && artist.value.isNotBlank()
             && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
             viewModelScope.launch(Dispatchers.IO) {
-                updateMusicUseCase.execute(id.value,title.value,artist.value,rating,summary.value,content.value)
+                updateMusicUseCase.execute(id.value,title.value,artist.value,genre.value,rating,summary.value,content.value)
                 _inputSuccessEvent.emit(R.string.update_success)
             }
         }else{
