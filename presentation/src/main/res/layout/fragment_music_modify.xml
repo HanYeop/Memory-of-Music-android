@@ -132,6 +132,14 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Spinner
+            android:id="@+id/spinner_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/genre"
+            app:layout_constraintBottom_toBottomOf="@+id/image_music"
+            app:layout_constraintStart_toEndOf="@+id/image_music" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_cancel"
             android:text="@string/cancel"

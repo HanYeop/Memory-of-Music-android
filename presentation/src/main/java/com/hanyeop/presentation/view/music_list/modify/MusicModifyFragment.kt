@@ -1,6 +1,8 @@
 package com.hanyeop.presentation.view.music_list.modify
 
+import android.view.View
 import android.view.WindowManager
+import android.widget.AdapterView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -30,6 +32,7 @@ class MusicModifyFragment
 
         initViewModelCallback()
         initClickListener()
+        initSpinner()
     }
 
     private fun initViewModelCallback(){
@@ -62,6 +65,31 @@ class MusicModifyFragment
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()
+            }
+        }
+    }
+
+    private fun initSpinner(){
+        val spinnerEntries = resources.getStringArray(R.array.genre)
+
+        binding.spinnerGenre.apply {
+            for(i in spinnerEntries.indices){
+                if(musicViewModel.genre.value == spinnerEntries[i]){
+                    setSelection(i)
+                    break
+                }
+            }
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    musicViewModel.setGenre(spinnerEntries[position])
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
             }
         }
     }
