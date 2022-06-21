@@ -9,6 +9,7 @@ data class Music(
     var image: String = "",
     var title: String = "",
     var artist: String = "",
+    var genre: String = "",
     var rating: Float = 0f,
     var summary: String = "",
     var content: String = "",

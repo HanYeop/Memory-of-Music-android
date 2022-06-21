@@ -11,6 +11,7 @@ fun mapperToMusicEntity(music: Music): MusicEntity{
         image = music.image,
         title = music.title,
         artist = music.artist,
+        genre = music.genre,
         rating = music.rating,
         summary = music.summary,
         content = music.content
@@ -25,6 +26,7 @@ fun mapperToMusic(musics: List<MusicEntity>): List<Music>{
             image = it.image,
             title = it.title,
             artist = it.artist,
+            genre = it.genre,
             rating = it.rating,
             summary = it.summary,
             content = it.content,

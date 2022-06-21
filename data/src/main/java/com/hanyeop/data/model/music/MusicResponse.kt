@@ -1,6 +1,5 @@
 package com.hanyeop.data.model.music
 
-import com.hanyeop.domain.model.album.Album
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
