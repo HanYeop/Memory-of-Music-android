@@ -75,7 +75,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/image_music"
-                    tools:text="안녕하세요." />
+                    tools:text="타이틀입니다." />
 
                 <TextView
                     android:id="@+id/text_artist"
@@ -171,6 +171,18 @@
                     app:layout_constraintStart_toEndOf="@+id/rating_bar_detail"
                     app:layout_constraintTop_toTopOf="@+id/rating_bar_detail"
                     tools:text="4.0" />
+
+                <TextView
+                    android:id="@+id/text_genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/detail_body_text"
+                    android:text="@{music.genre}"
+                    android:textColor="@color/black_medium_emphasis"
+                    tools:text="장르"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_rating"
+                    app:layout_constraintEnd_toEndOf="@+id/text_summary"
+                    app:layout_constraintTop_toTopOf="@+id/text_rating" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

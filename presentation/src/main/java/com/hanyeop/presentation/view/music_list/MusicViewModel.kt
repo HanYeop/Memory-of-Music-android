@@ -27,7 +27,7 @@ class MusicViewModel @Inject constructor(
     val image: MutableStateFlow<String> = MutableStateFlow("")
     val title: MutableStateFlow<String> = MutableStateFlow("")
     val artist: MutableStateFlow<String> = MutableStateFlow("")
-    private val genre: MutableStateFlow<String> = MutableStateFlow("장르")
+    val genre: MutableStateFlow<String> = MutableStateFlow("장르")
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
 
