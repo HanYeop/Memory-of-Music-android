@@ -1,41 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
         android:background="@drawable/popup_bg"
-        android:paddingTop="@dimen/padding_default_10"
-        android:paddingStart="@dimen/padding_default_10"
-        android:paddingEnd="@dimen/padding_default_10"
-        android:paddingBottom="@dimen/padding_20">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_20">
 
         <com.github.guilhe.views.SeekBarRangedView
             android:id="@+id/seek_bar_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            custom:layout_constraintBottom_toTopOf="@+id/btn_cancel"
+            custom:layout_constraintEnd_toEndOf="parent"
+            custom:layout_constraintHorizontal_bias="0.5"
+            custom:layout_constraintStart_toStartOf="parent"
+            custom:layout_constraintTop_toBottomOf="@+id/textView5"
             custom:progressColor="@color/subColor"
             custom:thumbNormalResource="@drawable/progresss_image_normal"
-            custom:thumbPressedResource="@drawable/progresss_image_press"/>
+            custom:thumbPressedResource="@drawable/progresss_image_press" />
 
         <Button
             android:id="@+id/btn_cancel"
+            style="@style/btn_text"
             android:background="@android:color/transparent"
             android:text="@string/cancel"
-            style="@style/btn_text" />
+            custom:layout_constraintBottom_toBottomOf="parent"
+            custom:layout_constraintEnd_toStartOf="@+id/btn_ok"
+            custom:layout_constraintHorizontal_bias="0.5"
+            custom:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_ok"
+            style="@style/btn_text"
             android:background="@android:color/transparent"
             android:text="@string/ok"
-            style="@style/btn_text" />
+            custom:layout_constraintBottom_toBottomOf="parent"
+            custom:layout_constraintEnd_toEndOf="parent"
+            custom:layout_constraintHorizontal_bias="0.5"
+            custom:layout_constraintStart_toEndOf="@+id/btn_cancel" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/text_rating_header"
+            style="@style/detail_header_text"
+            android:text="@string/category_header"
+            custom:layout_constraintStart_toStartOf="parent"
+            custom:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_min"
+            android:text="0.0"
+            style="@style/detail_body_text"
+            android:textSize="@dimen/rating_selected_text"
+            android:textColor="@color/subColor"
+            android:layout_marginTop="@dimen/margin_narrow_8"
+            custom:layout_constraintStart_toStartOf="@+id/text_rating_header"
+            custom:layout_constraintTop_toBottomOf="@+id/text_rating_header" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/detail_body_text"
+            android:text=" ~ "
+            android:textColor="@color/subColor"
+            custom:layout_constraintBottom_toBottomOf="@+id/text_min"
+            custom:layout_constraintStart_toEndOf="@+id/text_min"
+            custom:layout_constraintTop_toTopOf="@+id/text_min" />
+
+        <TextView
+            android:id="@+id/text_max"
+            style="@style/detail_body_text"
+            android:text="5.0"
+            android:textColor="@color/subColor"
+            android:textSize="@dimen/rating_selected_text"
+            custom:layout_constraintBottom_toBottomOf="@+id/textView5"
+            custom:layout_constraintStart_toEndOf="@+id/textView5"
+            custom:layout_constraintTop_toTopOf="@+id/textView5" />
+
+        <Spinner
+            android:id="@+id/spinner_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/genre_filter"
+            android:layout_marginStart="@dimen/margin_narrow_8"
+            custom:layout_constraintBottom_toBottomOf="@+id/text_max"
+            custom:layout_constraintStart_toEndOf="@+id/text_max"
+            custom:layout_constraintTop_toTopOf="@+id/text_max" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

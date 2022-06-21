@@ -28,7 +28,7 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_category, null, false)
         setContentView(binding.root)
 
-        context.dialogResize(this,0.8f,0.4f)
+        context.dialogResize(this,0.8f,0.3f)
 
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -59,6 +59,8 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
                 override fun onChanging(minValue: Float, maxValue: Float) {
                     min = round(minValue * 2) / 2 / div
                     max = round(maxValue * 2) / 2 / div
+                    binding.textMin.text = min.toString()
+                    binding.textMax.text = max.toString()
                 }
             }
         }
