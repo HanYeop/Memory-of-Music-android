@@ -44,7 +44,6 @@ class MusicListFragment
     @RequiresApi(Build.VERSION_CODES.N)
     override fun init() {
         musicListAdapter.setHasStableIds(true)
-        registerForContextMenu(binding.textToolbar)
 
         binding.apply {
             vm = musicViewModel
@@ -55,27 +54,6 @@ class MusicListFragment
         initAdapter()
         initClickListener()
         initViewModelCallback()
-    }
-
-    override fun onCreateContextMenu(
-        menu: ContextMenu,
-        v: View,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        MenuInflater(requireContext()).inflate(R.menu.menu_category, menu)
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.menu_category_genre -> {
-
-            }
-            R.id.menu_category_rating -> {
-                CategoryDialog(requireContext(),this).show()
-            }
-        }
-        return super.onContextItemSelected(item)
     }
 
     private fun initSearchView(){
@@ -108,7 +86,7 @@ class MusicListFragment
                 findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
             }
             textToolbar.setOnClickListener {
-                it.showContextMenu(it.x ,it.y + it.height/2)
+                CategoryDialog(requireContext(),this@MusicListFragment).show()
             }
         }
     }
