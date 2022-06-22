@@ -102,4 +102,12 @@ object ViewBindingAdapter {
     fun TextView.setSummary(summary: String) {
         this.text = String.format(resources.getString(R.string.binding_summary), summary)
     }
+
+    // 현재 필터 표시
+    @JvmStatic
+    @BindingAdapter("filterGenre", "filterStart", "filterEnd", "filterSort")
+    fun TextView.setFilter(genre: String, start: Float, end: Float, sort: Int) {
+        val curSort = resources.getStringArray(R.array.sort)
+        this.text = "필터 : $genre $start ~ $end, ${curSort[sort]}"
+    }
 }

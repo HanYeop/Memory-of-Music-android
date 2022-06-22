@@ -155,7 +155,6 @@ class MusicListFragment
     }
 
     override fun onCategorySelected(start: Float, end: Float, genre: String) {
-        showToast("$genre 장르 평점 $start ~ $end 결과입니다.")
         job.cancel()
         musicViewModel.changeMusicList(start, end, genre)
         collectMusicList()

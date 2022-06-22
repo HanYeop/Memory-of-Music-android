@@ -28,6 +28,7 @@
     <dimen name="detail_header">18dp</dimen>
     <dimen name="detail_body">16dp</dimen>
     <dimen name="bottom_sheet_text">18dp</dimen>
+    <dimen name="music_header">16dp</dimen>
 
     <dimen name="large_text_size">24dp</dimen>
     <dimen name="middle_text_size">18dp</dimen>

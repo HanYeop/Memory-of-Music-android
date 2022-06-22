@@ -32,6 +32,11 @@ class MusicViewModel @Inject constructor(
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
 
+    val filterGenre: MutableStateFlow<String> = MutableStateFlow("전체")
+    val filterStart: MutableStateFlow<Float> = MutableStateFlow(0.0f)
+    val filterEnd: MutableStateFlow<Float> = MutableStateFlow(5.0f)
+    val filterSort: MutableStateFlow<Int> = MutableStateFlow(0)
+
     private val _inputErrorEvent = MutableSharedFlow<Int>()
     val inputErrorEvent = _inputErrorEvent.asSharedFlow()
     private val _inputSuccessEvent = MutableSharedFlow<Int>()

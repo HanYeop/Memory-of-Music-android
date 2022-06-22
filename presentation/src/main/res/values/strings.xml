@@ -102,4 +102,13 @@
         <item>재즈</item>
         <item>기타</item>
     </string-array>
+
+    <string-array name="sort">
+        <item>최신 순</item>
+        <item>과거 순</item>
+        <item>제목 순</item>
+        <item>제목 역순</item>
+        <item>평점 순</item>
+        <item>평점 역순</item>
+    </string-array>
 </resources>
