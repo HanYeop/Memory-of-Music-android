@@ -81,6 +81,14 @@ class AlbumViewModel @Inject constructor(
         }
     }
 
+    var albumList: StateFlow<Result<List<Album>>> =
+        getAllAlbumUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
+
     var trackBoolean: MutableStateFlow<Boolean> = MutableStateFlow(false)
     fun hideTrackList(){
         trackBoolean.value = !trackBoolean.value
