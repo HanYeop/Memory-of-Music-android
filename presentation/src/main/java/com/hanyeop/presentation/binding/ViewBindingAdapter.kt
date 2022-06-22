@@ -110,4 +110,15 @@ object ViewBindingAdapter {
         val curSort = resources.getStringArray(R.array.sort)
         this.text = "필터 : $genre / $start ~ $end / ${curSort[sort]}"
     }
+
+    // 아이템 개수 표시
+    @JvmStatic
+    @BindingAdapter("itemCount")
+    fun TextView.setItemCount(result: Result<*>) {
+        if(result is Result.Success){
+            this.text = result.data.toString()
+        } else{
+            this.text = "0"
+        }
+    }
 }
