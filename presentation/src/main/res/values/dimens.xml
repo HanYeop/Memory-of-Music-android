@@ -15,30 +15,30 @@
     <dimen name="margin_1">1dp</dimen>
 
 
-    <dimen name="default_btn_text_size">16sp</dimen>
-    <dimen name="dialog_title">24sp</dimen>
-    <dimen name="list_title">14sp</dimen>
-    <dimen name="list_artist">13sp</dimen>
-    <dimen name="list_summary">12sp</dimen>
-    <dimen name="list_rating">12sp</dimen>
-    <dimen name="list_time">11sp</dimen>
-    <dimen name="search_title">16sp</dimen>
-    <dimen name="search_artist">14sp</dimen>
-    <dimen name="toolbar_title">18sp</dimen>
-    <dimen name="detail_header">18sp</dimen>
-    <dimen name="detail_body">16sp</dimen>
-    <dimen name="bottom_sheet_text">18sp</dimen>
+    <dimen name="default_btn_text_size">16dp</dimen>
+    <dimen name="dialog_title">24dp</dimen>
+    <dimen name="list_title">14dp</dimen>
+    <dimen name="list_artist">13dp</dimen>
+    <dimen name="list_summary">12dp</dimen>
+    <dimen name="list_rating">12dp</dimen>
+    <dimen name="list_time">11dp</dimen>
+    <dimen name="search_title">16dp</dimen>
+    <dimen name="search_artist">14dp</dimen>
+    <dimen name="toolbar_title">18dp</dimen>
+    <dimen name="detail_header">18dp</dimen>
+    <dimen name="detail_body">16dp</dimen>
+    <dimen name="bottom_sheet_text">18dp</dimen>
 
-    <dimen name="large_text_size">24sp</dimen>
-    <dimen name="middle_text_size">18sp</dimen>
-    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="large_text_size">24dp</dimen>
+    <dimen name="middle_text_size">18dp</dimen>
+    <dimen name="small_text_size">12dp</dimen>
 
-    <dimen name="default_text_size">14sp</dimen>
+    <dimen name="default_text_size">14dp</dimen>
 
-    <dimen name="setting_header_size">14sp</dimen>
-    <dimen name="setting_text_size">16sp</dimen>
+    <dimen name="setting_header_size">14dp</dimen>
+    <dimen name="setting_text_size">16dp</dimen>
 
-    <dimen name="rating_selected_text">22sp</dimen>
+    <dimen name="rating_selected_text">22dp</dimen>
 
     <dimen name="large_image_size">300dp</dimen>
     <dimen name="medium_image_size">180dp</dimen>
@@ -46,7 +46,7 @@
     <dimen name="search_image_size">80dp</dimen>
     <dimen name="fab_size">42dp</dimen>
     <dimen name="bottom_navi_size">70dp</dimen>
-    <dimen name="icon_small">16dp</dimen>
-    <dimen name="star_size">16dp</dimen>
+    <dimen name="icon_small">14dp</dimen>
+    <dimen name="star_size">14dp</dimen>
     <dimen name="star_padding">4dp</dimen>
 </resources>
