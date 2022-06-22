@@ -36,9 +36,9 @@
     <string name="sort_rating_desc">평점 순</string>
     <string name="sort_rating_asc">평점 역순</string>
 
-    <string name="insert_success">음악이 등록되었습니다.</string>
+    <string name="insert_success">기록이 등록되었습니다.</string>
     <string name="insert_error">입력되지 않은 값이 있습니다. 다시 확인해주세요.</string>
-    <string name="update_success">음악이 수정되었습니다.</string>
+    <string name="update_success">기록이 수정되었습니다.</string>
 
     <string name="error_network">인터넷 연결 상태를 확인해주세요.</string>
     <string name="error_unknown">검색 결과가 없습니다.</string>

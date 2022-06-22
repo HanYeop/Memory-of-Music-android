@@ -51,14 +51,33 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/image_album"
-                    android:layout_width="@dimen/medium_image_size"
-                    android:layout_height="@dimen/medium_image_size"
-                    android:layout_marginTop="@dimen/margin_10"
-                    android:background="@drawable/rounded_corner_border"
-                    app:mediumImage="@{vm.image}"
-                    tools:srcCompat="@tools:sample/avatars" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/image_album"
+                        android:layout_width="@dimen/medium_image_size"
+                        android:layout_height="@dimen/medium_image_size"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:background="@drawable/rounded_corner_border"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:mediumImage="@{vm.image}"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <Spinner
+                        android:id="@+id/spinner_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/genre"
+                        app:layout_constraintStart_toEndOf="@id/image_album"
+                        app:layout_constraintBottom_toBottomOf="@id/image_album"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_layout_title"
