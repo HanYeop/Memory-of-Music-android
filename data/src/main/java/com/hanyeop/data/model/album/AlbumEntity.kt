@@ -10,6 +10,7 @@ data class AlbumEntity(
     var image: String = "",
     var title: String = "",
     var artist: String = "",
+    var genre: String = "",
     var trackList: String = "",
     var rating: Float = 0f,
     var summary: String = "",
