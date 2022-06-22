@@ -43,6 +43,7 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
                     sharedPref.edit().putInt(LIST_TYPE, 0).apply()
                 }
                 mainViewModel.setListViewType()
+                mainViewModel.setListViewTypeAlbum()
             }
         }
     }
