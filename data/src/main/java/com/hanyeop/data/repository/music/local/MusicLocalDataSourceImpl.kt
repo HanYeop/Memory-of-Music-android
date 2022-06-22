@@ -13,4 +13,5 @@ class MusicLocalDataSourceImpl @Inject constructor(private val musicDao: MusicDa
     override fun updateMusic(id: Int, title: String, artist: String, genre: String, rating: Float, summary: String, content: String)
         = musicDao.updateMusic(id, title, artist, genre, rating, summary, content)
     override fun getAllMusicByRating(start: Float, end: Float): Flow<List<MusicEntity>> = musicDao.getAllMusicByRating(start, end)
+    override fun getAllMusicByCategory(start: Float, end: Float, genre: String): Flow<List<MusicEntity>> = musicDao.getAllMusicByCategory(start, end, genre)
 }
