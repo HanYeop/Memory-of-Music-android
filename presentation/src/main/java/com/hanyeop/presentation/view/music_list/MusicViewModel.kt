@@ -18,6 +18,7 @@ class MusicViewModel @Inject constructor(
     private val insertMusicUseCase: InsertMusicUseCase,
     private val getAllMusicUseCase: GetAllMusicUseCase,
     private val getAllMusicByRatingUseCase: GetAllMusicByRatingUseCase,
+    private val getAllMusicByCategoryUseCase: GetAllMusicByCategoryUseCase,
     private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
     private val deleteMusicUseCase: DeleteMusicUseCase,
     private val updateMusicUseCase: UpdateMusicUseCase
@@ -108,16 +109,25 @@ class MusicViewModel @Inject constructor(
                 initialValue = Result.Uninitialized
             )
 
-    // TODO : TEST 코드
-    fun abc(start: Float, end: Float){
-        musicList =
-            getAllMusicByRatingUseCase.execute(start, end)
-                .stateIn(
-                    scope = viewModelScope,
-                    started = SharingStarted.WhileSubscribed(5000),
-                    initialValue = Result.Uninitialized
-                )
-
+    fun changeMusicList(start: Float, end: Float, genre: String){
+        if(genre == "전체") {
+            musicList =
+                getAllMusicByRatingUseCase.execute(start, end)
+                    .stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(5000),
+                        initialValue = Result.Uninitialized
+                    )
+        }
+        else{
+            musicList =
+                getAllMusicByCategoryUseCase.execute(start, end, genre)
+                    .stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(5000),
+                        initialValue = Result.Uninitialized
+                    )
+        }
     }
 
     fun getRemoteMusics(keyword: String){
