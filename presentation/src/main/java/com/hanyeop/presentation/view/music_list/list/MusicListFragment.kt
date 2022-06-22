@@ -90,9 +90,7 @@ class MusicListFragment
                 CategoryDialog(requireContext(),this@MusicListFragment).show()
             }
             imageReset.setOnClickListener {
-                job.cancel()
-                musicViewModel.resetMusicList()
-                collectMusicList()
+                jobUpdate { musicViewModel.resetMusicList() }
                 showToast(resources.getString(R.string.filter_reset))
             }
         }
@@ -113,6 +111,12 @@ class MusicListFragment
                 initAdapter()
             }
         }
+    }
+
+    private fun jobUpdate(logic: () -> Unit){
+        job.cancel()
+        logic()
+        collectMusicList()
     }
 
     private fun collectMusicList(){
@@ -144,9 +148,7 @@ class MusicListFragment
     }
 
     override fun onCategorySelected(start: Float, end: Float, genre: String) {
-        job.cancel()
-        musicViewModel.changeMusicList(start, end, genre)
-        collectMusicList()
+        jobUpdate { musicViewModel.changeMusicList(start, end, genre) }
     }
 
     override fun onResume() {
