@@ -130,28 +130,8 @@ class MusicListFragment
         dialog.show(childFragmentManager,dialog.tag)
     }
 
-    override fun onTimeDescClicked() {
-        musicListAdapter.order(TIME_DESC)
-    }
-
-    override fun onTimeAscClicked() {
-        musicListAdapter.order(TIME_ASC)
-    }
-
-    override fun onTitleAscClicked() {
-        musicListAdapter.order(TITLE_ASC)
-    }
-
-    override fun onTitleDescClicked() {
-        musicListAdapter.order(TITLE_DESC)
-    }
-
-    override fun onRatingDescClicked() {
-        musicListAdapter.order(RATING_DESC)
-    }
-
-    override fun onRatingAscClicked() {
-        musicListAdapter.order(RATING_ASC)
+    override fun onSortClicked(type: Int) {
+        musicListAdapter.order(type)
     }
 
     override fun onCategorySelected(start: Float, end: Float, genre: String) {

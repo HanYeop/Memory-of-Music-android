@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.databinding.DialogSortBinding
-import com.hanyeop.presentation.utils.dialogResize
+import com.hanyeop.presentation.utils.*
 
 class SortDialog(context: Context, private val listener: SortListener): Dialog(context) {
 
@@ -31,27 +31,27 @@ class SortDialog(context: Context, private val listener: SortListener): Dialog(c
     private fun initClickListener(){
         binding.apply {
             textTimeDesc.setOnClickListener {
-                listener.onTimeDescClicked()
+                listener.onSortClicked(TIME_DESC)
                 dismiss()
             }
             textTimeAsc.setOnClickListener {
-                listener.onTimeAscClicked()
+                listener.onSortClicked(TIME_ASC)
                 dismiss()
             }
             textTitleAsc.setOnClickListener {
-                listener.onTitleAscClicked()
+                listener.onSortClicked(TITLE_ASC)
                 dismiss()
             }
             textTitleDesc.setOnClickListener {
-                listener.onTitleDescClicked()
+                listener.onSortClicked(TITLE_DESC)
                 dismiss()
             }
             textRatingDesc.setOnClickListener {
-                listener.onRatingDescClicked()
+                listener.onSortClicked(RATING_DESC)
                 dismiss()
             }
             textRatingAsc.setOnClickListener {
-                listener.onRatingAscClicked()
+                listener.onSortClicked(RATING_ASC)
                 dismiss()
             }
             textCancel.setOnClickListener {
