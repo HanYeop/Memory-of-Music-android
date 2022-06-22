@@ -33,4 +33,8 @@ interface MusicDao {
     // 음악 기록 평점/장르별 불러오기 (최신 순으로, 기본값)
     @Query("SELECT * FROM music_table WHERE rating BETWEEN :start AND :end AND genre = :genre ORDER BY time DESC")
     fun getAllMusicByCategory(start: Float, end: Float, genre: String): Flow<List<MusicEntity>>
+
+    // 음악 기록 개수 불러오기
+    @Query("SELECT COUNT(*) FROM music_table")
+    fun getAllMusicCount(): Flow<Int>
 }
