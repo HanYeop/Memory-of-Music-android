@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="album"
+            type="com.hanyeop.domain.model.album.Album" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default_10"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/image_album"
+            android:layout_width="@dimen/list_image_size"
+            android:layout_height="@dimen/list_image_size"
+            android:background="@drawable/rounded_corner_border"
+            app:musicListImage="@{album.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/margin_10"
+            android:text="@{album.title}"
+            style="@style/list_title_text"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintEnd_toStartOf="@+id/image_rating"
+            app:layout_constraintStart_toEndOf="@+id/image_album"
+            app:layout_constraintTop_toTopOf="@+id/image_album"
+            tools:text="타이틀" />
+
+        <TextView
+            android:id="@+id/text_artist"
+            style="@style/list_artist_text"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{album.artist}"
+            app:layout_constraintEnd_toEndOf="@+id/text_rating"
+            app:layout_constraintStart_toStartOf="@+id/text_title"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            tools:text="아티스트" />
+
+        <TextView
+            android:id="@+id/text_summary"
+            android:layout_width="0dp"
+            style="@style/list_summary_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginBottom="@dimen/margin_4"
+            app:layout_constraintBottom_toTopOf="@+id/text_time"
+            app:layout_constraintEnd_toEndOf="@+id/text_rating"
+            app:layout_constraintStart_toStartOf="@+id/text_artist"
+            app:layout_constraintTop_toBottomOf="@+id/text_artist"
+            app:summary="@{album.summary}"
+            tools:text="간략한 설명입니다." />
+
+        <ImageView
+            android:id="@+id/image_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/image_album"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_album"
+            app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+
+        <TextView
+            android:id="@+id/text_rating"
+            android:layout_marginEnd="@dimen/margin_10"
+            style="@style/list_rating_text"
+            android:textColor="@color/album_color"
+            android:text="@{String.valueOf(album.rating)}"
+            app:layout_constraintBottom_toBottomOf="@+id/image_rating"
+            app:layout_constraintEnd_toStartOf="@+id/image_other"
+            app:layout_constraintTop_toTopOf="@+id/image_rating"
+            tools:text="5.0" />
+
+        <ImageView
+            android:id="@+id/image_rating"
+            android:layout_width="@dimen/icon_small"
+            android:layout_height="@dimen/icon_small"
+            android:layout_marginTop="@dimen/margin_2"
+            android:layout_marginEnd="@dimen/margin_4"
+            app:layout_constraintEnd_toStartOf="@+id/text_rating"
+            app:layout_constraintTop_toTopOf="@+id/image_album"
+            app:srcCompat="@drawable/star" />
+
+        <TextView
+            android:id="@+id/text_time"
+            style="@style/list_time_text"
+            app:layout_constraintBottom_toBottomOf="@+id/image_album"
+            app:layout_constraintEnd_toEndOf="@+id/text_rating"
+            app:time="@{album.time}"
+            tools:text="2020/01/01" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
