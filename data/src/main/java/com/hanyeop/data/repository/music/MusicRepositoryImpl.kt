@@ -72,4 +72,13 @@ class MusicRepositoryImpl @Inject constructor(
     }.catch { e ->
         emit(Result.Error(e))
     }
+
+    override fun getAllMusicCount(): Flow<Result<Int>> = flow {
+        emit(Result.Loading)
+        musicLocalDataSource.getAllMusicCount().collect {
+            emit(Result.Success(it))
+        }
+    }.catch { e ->
+        emit(Result.Error(e))
+    }
 }
