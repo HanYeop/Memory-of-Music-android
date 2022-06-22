@@ -99,6 +99,16 @@ class MusicListFragment
     }
 
     private fun initViewModelCallback(){
+        collectMusicList()
+
+        lifecycleScope.launchWhenStarted {
+            mainViewModel.listViewType.collectLatest {
+                initAdapter()
+            }
+        }
+    }
+
+    private fun collectMusicList(){
         job = lifecycleScope.launchWhenStarted {
             musicViewModel.musicList.collect {
                 if(it is Result.Success){
@@ -107,12 +117,6 @@ class MusicListFragment
                 }else{
                     musicListAdapter.setItem(mutableListOf())
                 }
-            }
-        }
-
-        lifecycleScope.launchWhenStarted {
-            mainViewModel.listViewType.collectLatest {
-                initAdapter()
             }
         }
     }
@@ -150,20 +154,11 @@ class MusicListFragment
         musicListAdapter.order(RATING_ASC)
     }
 
-    override fun onRatingSelected(start: Float, end: Float) {
-        showToast("$start $end")
+    override fun onCategorySelected(start: Float, end: Float, genre: String) {
+        showToast("$genre 장르 평점 $start ~ $end 결과입니다.")
         job.cancel()
-        musicViewModel.abc(start, end)
-        job = lifecycleScope.launchWhenStarted {
-             musicViewModel.musicList.collect {
-                if(it is Result.Success){
-                    searchView?.setQuery("",false)
-                    musicListAdapter.setItem(it.data)
-                }else{
-                    musicListAdapter.setItem(mutableListOf())
-                }
-            }
-        }
+        musicViewModel.changeMusicList(start, end, genre)
+        collectMusicList()
     }
 
     override fun onResume() {
