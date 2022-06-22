@@ -56,15 +56,19 @@ class MusicRepositoryImpl @Inject constructor(
                 emit(Result.Success(mapperToMusic(it)))
             }
         }
+    }.catch { e ->
+        emit(Result.Error(e))
+    }
 
-        musicLocalDataSource.getAllMusicByRating(start, end).collect {
+    override fun getAllMusicByCategory(start: Float, end: Float, genre: String): Flow<Result<List<Music>>> = flow {
+        emit(Result.Loading)
+        musicLocalDataSource.getAllMusicByCategory(start, end, genre).collect {
             if(it.isEmpty()){
                 emit(Result.Empty)
             }else{
                 emit(Result.Success(mapperToMusic(it)))
             }
         }
-
     }.catch { e ->
         emit(Result.Error(e))
     }
