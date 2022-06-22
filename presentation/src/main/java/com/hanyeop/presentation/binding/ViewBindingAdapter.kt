@@ -108,6 +108,6 @@ object ViewBindingAdapter {
     @BindingAdapter("filterGenre", "filterStart", "filterEnd", "filterSort")
     fun TextView.setFilter(genre: String, start: Float, end: Float, sort: Int) {
         val curSort = resources.getStringArray(R.array.sort)
-        this.text = "필터 : $genre $start ~ $end, ${curSort[sort]}"
+        this.text = "필터 : $genre / $start ~ $end / ${curSort[sort]}"
     }
 }

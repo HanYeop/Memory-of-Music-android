@@ -7,6 +7,7 @@ import com.hanyeop.domain.model.music.Music
 import com.hanyeop.domain.usecase.music.*
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
+import com.hanyeop.presentation.utils.TIME_DESC
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -85,7 +86,7 @@ class MusicViewModel @Inject constructor(
         filterSort.value = type
     }
 
-    fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
+    private fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
         filterGenre.value = genre
         filterStart.value = start
         filterEnd.value = end
@@ -125,6 +126,16 @@ class MusicViewModel @Inject constructor(
                 initialValue = Result.Uninitialized
             )
 
+    fun resetMusicList(){
+        musicList = getAllMusicUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
+        setFilterAll("전체", 0.0f, 5.0f, TIME_DESC)
+    }
+
     fun changeMusicList(start: Float, end: Float, genre: String){
         if(genre == "전체") {
             musicList =
@@ -144,6 +155,7 @@ class MusicViewModel @Inject constructor(
                         initialValue = Result.Uninitialized
                     )
         }
+        setFilterAll(genre, start, end, filterSort.value)
     }
 
     fun getRemoteMusics(keyword: String){

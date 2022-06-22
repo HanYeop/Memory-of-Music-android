@@ -2,6 +2,7 @@ package com.hanyeop.presentation.view.music_list.list
 
 import android.content.SharedPreferences
 import android.os.Build
+import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
@@ -88,6 +89,12 @@ class MusicListFragment
             textToolbar.setOnClickListener {
                 CategoryDialog(requireContext(),this@MusicListFragment).show()
             }
+            imageReset.setOnClickListener {
+                job.cancel()
+                musicViewModel.resetMusicList()
+                collectMusicList()
+                showToast(resources.getString(R.string.filter_reset))
+            }
         }
     }
 
@@ -114,11 +121,16 @@ class MusicListFragment
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
+                    filterSort(musicViewModel.filterSort.value)
                 }else{
                     musicListAdapter.setItem(mutableListOf())
                 }
             }
         }
+    }
+
+    private fun filterSort(type: Int){
+        musicListAdapter.order(type)
     }
 
     override fun onItemClicked(music: Music) {
@@ -138,7 +150,6 @@ class MusicListFragment
     override fun onCategorySelected(start: Float, end: Float, genre: String) {
         job.cancel()
         musicViewModel.changeMusicList(start, end, genre)
-        musicViewModel.setFilterAll(genre, start, end, TIME_DESC)
         collectMusicList()
     }
 

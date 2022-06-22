@@ -54,6 +54,7 @@
     <string name="delete_success">기록이 삭제되었습니다.</string>
     
     <string name="category_header">평점/장르별 보기</string>
+    <string name="filter_reset">필터가 초기화되었습니다.</string>
 
     <string name="bottom_sheet_start">재생하기</string>
     <string name="bottom_sheet_modify">기록 수정하기</string>
