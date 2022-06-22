@@ -121,16 +121,12 @@ class MusicListFragment
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     musicListAdapter.setItem(it.data)
-                    filterSort(musicViewModel.filterSort.value)
+                    musicListAdapter.order(musicViewModel.filterSort.value)
                 }else{
                     musicListAdapter.setItem(mutableListOf())
                 }
             }
         }
-    }
-
-    private fun filterSort(type: Int){
-        musicListAdapter.order(type)
     }
 
     override fun onItemClicked(music: Music) {
