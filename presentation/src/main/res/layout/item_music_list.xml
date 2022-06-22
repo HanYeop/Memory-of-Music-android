@@ -90,6 +90,7 @@
             android:id="@+id/image_rating"
             android:layout_width="@dimen/icon_small"
             android:layout_height="@dimen/icon_small"
+            android:layout_marginTop="@dimen/margin_2"
             android:layout_marginEnd="@dimen/margin_4"
             app:layout_constraintEnd_toStartOf="@+id/text_rating"
             app:layout_constraintTop_toTopOf="@+id/image_music"
