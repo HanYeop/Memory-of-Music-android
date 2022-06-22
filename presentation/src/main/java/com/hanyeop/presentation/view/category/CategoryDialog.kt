@@ -7,6 +7,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
 import com.github.guilhe.views.SeekBarRangedView
 import com.hanyeop.presentation.R
@@ -21,6 +23,7 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
     private val div = 20
     private var min = 0f
     private var max = 5f
+    private var curGenre = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +37,13 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
 
         initClickListener()
         initSeekBar()
+        initSpinner()
     }
 
     private fun initClickListener(){
         binding.apply {
             btnOk.setOnClickListener {
-                listener.onRatingSelected(min, max)
+                listener.onCategorySelected(min, max, curGenre)
                 dismiss()
             }
             btnCancel.setOnClickListener {
@@ -61,6 +65,25 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
                     max = round(maxValue * 2) / 2 / div
                     binding.textMin.text = min.toString()
                     binding.textMax.text = max.toString()
+                }
+            }
+        }
+    }
+
+    private fun initSpinner(){
+        val spinnerEntries = context.resources.getStringArray(R.array.genre_filter)
+
+        binding.spinnerGenre.apply {
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    curGenre = spinnerEntries[position]
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
                 }
             }
         }
