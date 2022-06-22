@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.album_list.list.AlbumListFragment"
-        app:toast="@{vm.albumList}"
         android:padding="@dimen/padding_default_10">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -102,7 +101,7 @@
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-            app:isEmpty="@{vm.albumList}"
+            app:isEmpty="@{vm.albumCount}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

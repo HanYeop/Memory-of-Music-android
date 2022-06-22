@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/padding_default_10"
-        app:toast="@{vm.musicList}"
         tools:context=".view.music_list.list.MusicListFragment">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -82,7 +81,7 @@
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="gone"
-            app:isEmpty="@{vm.musicList}"
+            app:isEmpty="@{vm.musicCount}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
