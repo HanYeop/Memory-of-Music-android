@@ -81,6 +81,17 @@ class MusicViewModel @Inject constructor(
         genre.value = selected
     }
 
+    fun setFilterSort(type: Int){
+        filterSort.value = type
+    }
+
+    fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
+        filterGenre.value = genre
+        filterStart.value = start
+        filterEnd.value = end
+        filterSort.value = type
+    }
+
     fun insertMusic(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank()
             && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){

@@ -132,11 +132,13 @@ class MusicListFragment
 
     override fun onSortClicked(type: Int) {
         musicListAdapter.order(type)
+        musicViewModel.setFilterSort(type)
     }
 
     override fun onCategorySelected(start: Float, end: Float, genre: String) {
         job.cancel()
         musicViewModel.changeMusicList(start, end, genre)
+        musicViewModel.setFilterAll(genre, start, end, TIME_DESC)
         collectMusicList()
     }
 
