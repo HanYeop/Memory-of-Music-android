@@ -40,10 +40,9 @@
             style="@style/filter_header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_10"
-            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            android:layout_marginStart="@dimen/margin_12"            app:layout_constraintStart_toStartOf="@+id/toolbar"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            android:text="필터 : 전체 0.0 ~ 5.0, 최신 순" />
+            android:text="전체 / 0.0 ~ 5.0 / 최신 순" />
 
         <ImageView
             android:id="@+id/image_reset"
