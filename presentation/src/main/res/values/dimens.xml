@@ -17,17 +17,17 @@
 
     <dimen name="default_btn_text_size">16dp</dimen>
     <dimen name="dialog_title">24dp</dimen>
-    <dimen name="list_title">14dp</dimen>
-    <dimen name="list_artist">13dp</dimen>
-    <dimen name="list_summary">12dp</dimen>
-    <dimen name="list_rating">12dp</dimen>
+    <dimen name="list_title">15dp</dimen>
+    <dimen name="list_artist">14dp</dimen>
+    <dimen name="list_summary">13dp</dimen>
+    <dimen name="list_rating">13dp</dimen>
     <dimen name="list_time">11dp</dimen>
     <dimen name="search_title">16dp</dimen>
     <dimen name="search_artist">14dp</dimen>
     <dimen name="toolbar_title">18dp</dimen>
-    <dimen name="detail_header">18dp</dimen>
+    <dimen name="detail_header">20dp</dimen>
     <dimen name="detail_body">16dp</dimen>
-    <dimen name="bottom_sheet_text">18dp</dimen>
+    <dimen name="bottom_sheet_text">19dp</dimen>
     <dimen name="music_header">16dp</dimen>
 
     <dimen name="large_text_size">24dp</dimen>
@@ -36,8 +36,8 @@
 
     <dimen name="default_text_size">14dp</dimen>
 
-    <dimen name="setting_header_size">14dp</dimen>
-    <dimen name="setting_text_size">16dp</dimen>
+    <dimen name="setting_header_size">16dp</dimen>
+    <dimen name="setting_text_size">17dp</dimen>
 
     <dimen name="rating_selected_text">22dp</dimen>
 
