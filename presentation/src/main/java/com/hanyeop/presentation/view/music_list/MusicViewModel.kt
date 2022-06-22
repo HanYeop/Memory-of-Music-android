@@ -22,7 +22,8 @@ class MusicViewModel @Inject constructor(
     private val getAllMusicByCategoryUseCase: GetAllMusicByCategoryUseCase,
     private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
     private val deleteMusicUseCase: DeleteMusicUseCase,
-    private val updateMusicUseCase: UpdateMusicUseCase
+    private val updateMusicUseCase: UpdateMusicUseCase,
+    private val getAllMusicCountUseCase: GetAllMusicCountUseCase
 ) : ViewModel() {
 
     val id: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -185,4 +186,12 @@ class MusicViewModel @Inject constructor(
             }
         }
     }
+
+    var musicCount: StateFlow<Result<Int>> =
+        getAllMusicCountUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
 }
