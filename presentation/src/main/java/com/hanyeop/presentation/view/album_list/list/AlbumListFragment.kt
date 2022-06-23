@@ -18,6 +18,8 @@ import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
 import com.hanyeop.presentation.view.music_list.list.MusicBottomSheet
+import com.hanyeop.presentation.view.sort.SortDialog
+import com.hanyeop.presentation.view.sort.SortListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -25,7 +27,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class AlbumListFragment
-    : BaseFragmentMain<FragmentAlbumListBinding>(R.layout.fragment_album_list), AlbumListAdapterListener {
+    : BaseFragmentMain<FragmentAlbumListBinding>(R.layout.fragment_album_list),
+    AlbumListAdapterListener, SortListener {
 
     private val albumViewModel by viewModels<AlbumViewModel>()
     private val mainViewModel by activityViewModels<MainViewModel>()
@@ -37,6 +40,8 @@ class AlbumListFragment
     lateinit var sharedPref: SharedPreferences
 
     override fun init() {
+        albumListAdapter.setHasStableIds(true)
+        
         binding.apply {
             vm = albumViewModel
             toolbar.inflateMenu(R.menu.menu_music_list_option)
@@ -65,13 +70,13 @@ class AlbumListFragment
 
     private fun initClickListener(){
         binding.apply {
-//            toolbar.setOnMenuItemClickListener {
-//                if(it.itemId == R.id.menu_sort){
-//                    val dialog = SortDialog(requireContext(),this@MusicListFragment)
-//                    dialog.show()
-//                }
-//                false
-//            }
+            toolbar.setOnMenuItemClickListener {
+                if(it.itemId == R.id.menu_sort){
+                    val dialog = SortDialog(requireContext(),this@AlbumListFragment)
+                    dialog.show()
+                }
+                false
+            }
             fab.setOnClickListener {
 //                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
                 albumViewModel.test()
@@ -110,7 +115,7 @@ class AlbumListFragment
             albumViewModel.albumList.collect {
                 Log.d("test5", "collectMusicList: test")
                 if(it is Result.Success){
-//                    searchView?.setQuery("",false)
+                    searchView?.setQuery("",false)
                     albumListAdapter.setItem(it.data)
 //                    filterSort(musicViewModel.filterSort.value)
                 }else{
@@ -133,10 +138,10 @@ class AlbumListFragment
         dialog.show(childFragmentManager,dialog.tag)
     }
 
-//    override fun onSortClicked(type: Int) {
-//        musicListAdapter.order(type)
-//        musicViewModel.setFilterSort(type)
-//    }
+    override fun onSortClicked(type: Int) {
+        albumListAdapter.order(type)
+//        albumViewModel.setFilterSort(type)
+    }
 //
 //    override fun onCategorySelected(start: Float, end: Float, genre: String) {
 //        job.cancel()
