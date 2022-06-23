@@ -174,7 +174,7 @@
                     android:id="@+id/text_track_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_margin="@dimen/margin_narrow_8"
                     android:text="@{vm.trackList}"
                     android:visibility="@{vm.trackBoolean ? View.VISIBLE : View.GONE}"
                     tools:text="트랙리스트 입니다." />
