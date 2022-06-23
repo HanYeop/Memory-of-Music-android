@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.album.Album
 import com.hanyeop.domain.model.album.DomainAlbumResponse
+import com.hanyeop.domain.usecase.album.GetAllAlbumCountUseCase
 import com.hanyeop.domain.usecase.album.GetAllAlbumUseCase
 import com.hanyeop.domain.usecase.album.GetRemoteAlbumsUseCase
 import com.hanyeop.domain.usecase.album.InsertAlbumUseCase
@@ -20,6 +21,7 @@ class AlbumViewModel @Inject constructor(
     private val insertAlbumUseCase: InsertAlbumUseCase,
     private val getAllAlbumUseCase: GetAllAlbumUseCase,
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
+    private val getAllAlbumCountUseCase: GetAllAlbumCountUseCase
 ) : ViewModel() {
 
     val id: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -101,4 +103,12 @@ class AlbumViewModel @Inject constructor(
             }
         }
     }
+
+    var albumCount: StateFlow<Result<Int>> =
+        getAllAlbumCountUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
 }
