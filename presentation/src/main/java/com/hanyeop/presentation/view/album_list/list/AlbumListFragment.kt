@@ -1,6 +1,7 @@
 package com.hanyeop.presentation.view.album_list.list
 
 import android.content.SharedPreferences
+import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
@@ -105,12 +106,13 @@ class AlbumListFragment
     private fun collectMusicList(){
         job = lifecycleScope.launchWhenStarted {
             albumViewModel.albumList.collect {
+                Log.d("test5", "collectMusicList: test")
                 if(it is Result.Success){
 //                    searchView?.setQuery("",false)
                     albumListAdapter.setItem(it.data)
 //                    filterSort(musicViewModel.filterSort.value)
                 }else{
-//                    musicListAdapter.setItem(mutableListOf())
+                    albumListAdapter.setItem(mutableListOf())
                 }
             }
         }
