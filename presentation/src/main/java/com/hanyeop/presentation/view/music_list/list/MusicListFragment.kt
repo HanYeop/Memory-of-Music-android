@@ -84,7 +84,8 @@ class MusicListFragment
                 false
             }
             fab.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
+//                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
+                musicViewModel.test()
             }
             textToolbar.setOnClickListener {
                 CategoryDialog(requireContext(),this@MusicListFragment).show()

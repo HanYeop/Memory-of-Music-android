@@ -2,6 +2,7 @@ package com.hanyeop.presentation.view.music_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hanyeop.domain.model.album.Album
 import com.hanyeop.domain.model.music.DomainMusicResponse
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.domain.usecase.music.*
@@ -76,6 +77,24 @@ class MusicViewModel @Inject constructor(
         genre.value = ""
         summary.value = ""
         content.value = ""
+    }
+
+    fun test(){
+        viewModelScope.launch(Dispatchers.IO) {
+            for(i in 0 until 5) {
+                insertMusicUseCase.execute(
+                    Music(
+                        image = "",
+                        title = i.toString(),
+                        artist = "ab",
+                        genre = "힙합",
+                        rating = i.toFloat(),
+                        summary = "테스트",
+                        content = "입니다 $i"
+                    )
+                )
+            }
+        }
     }
 
     // 장르 스피너 선택 결과
