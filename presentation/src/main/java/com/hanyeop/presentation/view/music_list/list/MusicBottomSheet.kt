@@ -1,6 +1,5 @@
 package com.hanyeop.presentation.view.music_list.list
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Intent
 import android.net.Uri
@@ -16,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.databinding.DialogMusicBottomSheetBinding
+import com.hanyeop.presentation.databinding.DialogBottomSheetBinding
 import com.hanyeop.presentation.utils.showDeleteDialog
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
 
-    private var _binding: DialogMusicBottomSheetBinding? = null
+    private var _binding: DialogBottomSheetBinding? = null
     val binding get() = _binding!!
 
     private val musicViewModel by activityViewModels<MusicViewModel>()
@@ -38,7 +37,7 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.dialog_music_bottom_sheet, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.dialog_bottom_sheet, container, false)
         return binding.root
     }
 
