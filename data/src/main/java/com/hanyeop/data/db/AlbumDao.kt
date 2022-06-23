@@ -22,9 +22,9 @@ interface AlbumDao {
     @Query("DELETE FROM album_table WHERE id = :id")
     fun deleteAlbum(id: Int)
 
-//    // 앨범 기록 수정
-//    @Query("UPDATE music_table SET title = :title, artist = :artist, rating = :rating, summary = :summary, content = :content WHERE id = :id")
-//    fun updateAlbum(id: Int, title: String, artist: String, rating: Float, summary: String, content: String)
+    // 앨범 기록 수정
+    @Query("UPDATE album_table SET title = :title, artist = :artist, genre = :genre, rating = :rating, summary = :summary, content = :content WHERE id = :id")
+    fun updateAlbum(id: Int, title: String, artist: String, genre: String, rating: Float, summary: String, content: String)
 
 //    // 음악 기록 평점별 불러오기 (최신 순으로, 기본값)
 //    @Query("SELECT * FROM music_table WHERE rating BETWEEN :start AND :end ORDER BY time DESC")
