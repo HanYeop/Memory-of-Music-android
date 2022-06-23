@@ -55,7 +55,7 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>(R.layout.fr
     }
 
     private fun dialogPositiveButtonClicked() {
-//        musicViewModel.deleteMusic(args.music.id)
+        albumViewModel.deleteAlbum(args.album.id)
         showToast(resources.getString(R.string.delete_success))
         findNavController().popBackStack()
     }

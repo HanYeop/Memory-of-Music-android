@@ -4,10 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.album.Album
 import com.hanyeop.domain.model.album.DomainAlbumResponse
-import com.hanyeop.domain.usecase.album.GetAllAlbumCountUseCase
-import com.hanyeop.domain.usecase.album.GetAllAlbumUseCase
-import com.hanyeop.domain.usecase.album.GetRemoteAlbumsUseCase
-import com.hanyeop.domain.usecase.album.InsertAlbumUseCase
+import com.hanyeop.domain.usecase.album.*
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +18,7 @@ class AlbumViewModel @Inject constructor(
     private val insertAlbumUseCase: InsertAlbumUseCase,
     private val getAllAlbumUseCase: GetAllAlbumUseCase,
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
+    private val deleteAlbumUseCase: DeleteAlbumUseCase,
     private val getAllAlbumCountUseCase: GetAllAlbumCountUseCase
 ) : ViewModel() {
 
@@ -101,6 +99,12 @@ class AlbumViewModel @Inject constructor(
             getRemoteAlbumsUseCase.execute(keyword).collectLatest {
                 _remoteAlbums.value = it
             }
+        }
+    }
+
+    fun deleteAlbum(id : Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteAlbumUseCase.execute(id)
         }
     }
 
