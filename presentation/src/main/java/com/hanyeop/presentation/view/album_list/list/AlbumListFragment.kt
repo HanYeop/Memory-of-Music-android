@@ -17,6 +17,8 @@ import com.hanyeop.presentation.utils.LIST_TYPE
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
+import com.hanyeop.presentation.view.category.CategoryDialog
+import com.hanyeop.presentation.view.category.CategoryDialogListener
 import com.hanyeop.presentation.view.music_list.list.MusicBottomSheet
 import com.hanyeop.presentation.view.sort.SortDialog
 import com.hanyeop.presentation.view.sort.SortListener
@@ -28,7 +30,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class AlbumListFragment
     : BaseFragmentMain<FragmentAlbumListBinding>(R.layout.fragment_album_list),
-    AlbumListAdapterListener, SortListener {
+    AlbumListAdapterListener, SortListener, CategoryDialogListener {
 
     private val albumViewModel by viewModels<AlbumViewModel>()
     private val mainViewModel by activityViewModels<MainViewModel>()
@@ -81,15 +83,13 @@ class AlbumListFragment
 //                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
                 albumViewModel.test()
             }
-//            textToolbar.setOnClickListener {
-//                CategoryDialog(requireContext(),this@MusicListFragment).show()
-//            }
-//            imageReset.setOnClickListener {
-//                job.cancel()
-//                musicViewModel.resetMusicList()
-//                collectMusicList()
-//                showToast(resources.getString(R.string.filter_reset))
-//            }
+            text.setOnClickListener {
+                CategoryDialog(requireContext(),this@AlbumListFragment).show()
+            }
+            imageReset.setOnClickListener {
+                jobUpdate { albumViewModel.resetAlbumList() }
+                showToast(resources.getString(R.string.filter_reset))
+            }
         }
     }
 
@@ -108,6 +108,12 @@ class AlbumListFragment
                 initAdapter()
             }
         }
+    }
+
+    private fun jobUpdate(logic: () -> Unit){
+        job.cancel()
+        logic()
+        collectMusicList()
     }
 
     private fun collectMusicList(){
@@ -142,12 +148,10 @@ class AlbumListFragment
         albumListAdapter.order(type)
 //        albumViewModel.setFilterSort(type)
     }
-//
-//    override fun onCategorySelected(start: Float, end: Float, genre: String) {
-//        job.cancel()
-//        musicViewModel.changeMusicList(start, end, genre)
-//        collectMusicList()
-//    }
+
+    override fun onCategorySelected(start: Float, end: Float, genre: String) {
+        jobUpdate { albumViewModel.changeAlbumList(start, end, genre) }
+    }
 
     override fun onResume() {
         super.onResume()
