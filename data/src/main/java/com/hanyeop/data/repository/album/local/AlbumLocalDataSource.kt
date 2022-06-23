@@ -7,4 +7,5 @@ interface AlbumLocalDataSource {
     fun insertAlbum(album : AlbumEntity)
     fun getAllAlbum(): Flow<List<AlbumEntity>>
     fun deleteAlbum(id : Int)
+    fun getAllAlbumCount(): Flow<Int>
 }

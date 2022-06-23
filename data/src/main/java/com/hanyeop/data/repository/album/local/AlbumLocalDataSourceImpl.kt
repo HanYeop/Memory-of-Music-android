@@ -10,4 +10,5 @@ class AlbumLocalDataSourceImpl @Inject constructor(private val albumDao: AlbumDa
     override fun insertAlbum(album: AlbumEntity) = albumDao.insertAlbum(album)
     override fun getAllAlbum(): Flow<List<AlbumEntity>> = albumDao.getAllAlbum()
     override fun deleteAlbum(id: Int) = albumDao.deleteAlbum(id)
+    override fun getAllAlbumCount(): Flow<Int> = albumDao.getAllAlbumCount()
 }
