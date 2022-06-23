@@ -163,6 +163,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/margin_4"
                     style="@style/detail_header_text"
+                    android:background="?attr/selectableItemBackground"
                     android:onClick="@{() -> vm.hideTrackList()}"
                     android:drawableStart="@drawable/left_image_disc"
                     android:drawablePadding="@dimen/padding_default_10"
@@ -175,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:text="@{vm.trackList}"
-                    android:visibility="@{vm.trackBoolean ? View.GONE : View.VISIBLE}"
+                    android:visibility="@{vm.trackBoolean ? View.VISIBLE : View.GONE}"
                     tools:text="트랙리스트 입니다." />
 
             </LinearLayout>
