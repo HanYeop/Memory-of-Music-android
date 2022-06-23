@@ -41,8 +41,8 @@ class AlbumDetailFragment : BaseFragment<FragmentAlbumDetailBinding>(R.layout.fr
                             requireContext().startActivity(intent)
                         }
                         R.id.menu_modify -> {
-//                            musicViewModel.setMusic(args.music)
-//                            findNavController().navigate(R.id.action_musicDetailFragment_to_musicModifyFragment)
+                            albumViewModel.setAlbum(args.album)
+                            findNavController().navigate(R.id.action_albumDetailFragment_to_albumModifyFragment)
                         }
                         R.id.menu_delete -> {
                             showDeleteDialog(requireContext()) { dialogPositiveButtonClicked() }

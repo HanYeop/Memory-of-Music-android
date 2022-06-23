@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_mainFragment_to_albumDetailFragment"
             app:destination="@id/albumDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_albumModifyFragment"
+            app:destination="@id/albumModifyFragment" />
     </fragment>
 
     <fragment
@@ -80,5 +83,13 @@
         <argument
             android:name="album"
             app:argType="com.hanyeop.domain.model.album.Album" />
+        <action
+            android:id="@+id/action_albumDetailFragment_to_albumModifyFragment"
+            app:destination="@id/albumModifyFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/albumModifyFragment"
+        android:name="com.hanyeop.presentation.view.album_list.modify.AlbumModifyFragment"
+        android:label="AlbumModifyFragment"
+        tools:layout="@layout/fragment_album_modify"/>
 </navigation>

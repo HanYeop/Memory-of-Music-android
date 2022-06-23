@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hanyeop.domain.model.album.Album
@@ -61,9 +62,9 @@ class AlbumBottomSheet (private val album: Album): BottomSheetDialogFragment() {
                 showDeleteDialog(requireContext()){ dialogPositiveButtonClicked() }
             }
             textModify.setOnClickListener {
-//                albumViewModel.setMusic(music)
-//                findNavController().navigate(R.id.action_mainFragment_to_musicModifyFragment)
-//                dismiss()
+                albumViewModel.setAlbum(album)
+                findNavController().navigate(R.id.action_mainFragment_to_albumModifyFragment)
+                dismiss()
             }
             textCancel.setOnClickListener {
                 dismiss()
