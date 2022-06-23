@@ -45,6 +45,9 @@ class AlbumRepositoryImpl @Inject constructor(
 
     override fun deleteAlbum(id: Int) = albumLocalDataSource.deleteAlbum(id)
 
+    override fun updateAlbum(id: Int, title: String, artist: String, genre: String, rating: Float, summary: String, content: String)
+        = albumLocalDataSource.updateAlbum(id, title, artist, genre, rating, summary, content)
+
     override fun getAllAlbumCount(): Flow<Result<Int>> = flow {
         emit(Result.Loading)
         albumLocalDataSource.getAllAlbumCount().collect {
