@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/menu_play"
+        android:title="@string/menu_play"
+        android:enabled="true"/>
+
     <item android:id="@+id/menu_modify"
         android:title="@string/menu_modify"
         android:enabled="true"/>

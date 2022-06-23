@@ -48,6 +48,7 @@
 
     <string name="back_btn_press">뒤로가기 버튼을 한번 더 누르면 종료됩니다.</string>
 
+    <string name="menu_play">재생</string>
     <string name="menu_modify">기록 수정</string>
     <string name="menu_delete">기록 삭제</string>
     <string name="delete_content">기록을 삭제하시겠습니까? 삭제한 내용은 복구할 수 없습니다.</string>

@@ -1,8 +1,8 @@
 package com.hanyeop.presentation.view.music_list.detail
 
-import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.hanyeop.presentation.R
@@ -34,6 +34,10 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
                 }
                 setOnMenuItemClickListener { item ->
                     when(item?.itemId){
+                        R.id.menu_play -> {
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/results?search_query=${args.music.artist} ${args.music.title}"))
+                            requireContext().startActivity(intent)
+                        }
                         R.id.menu_modify -> {
                             musicViewModel.setMusic(args.music)
                             findNavController().navigate(R.id.action_musicDetailFragment_to_musicModifyFragment)
