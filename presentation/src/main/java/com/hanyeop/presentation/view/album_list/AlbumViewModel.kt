@@ -55,6 +55,25 @@ class AlbumViewModel @Inject constructor(
         genre.value = selected
     }
 
+    fun test(){
+        viewModelScope.launch(Dispatchers.IO) {
+            for(i in 0 until 5) {
+                insertAlbumUseCase.execute(
+                    Album(
+                        image = "",
+                        title = i.toString(),
+                        artist = "ab",
+                        genre = "힙합",
+                        trackList = "",
+                        rating = i.toFloat(),
+                        summary = "테스트",
+                        content = "입니다 $i"
+                    )
+                )
+            }
+        }
+    }
+
     fun insertAlbum(rating: Float){
         if(title.value.isNotBlank() && artist.value.isNotBlank()
             && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){

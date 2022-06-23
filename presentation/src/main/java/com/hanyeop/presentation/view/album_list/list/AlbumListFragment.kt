@@ -73,7 +73,8 @@ class AlbumListFragment
 //                false
 //            }
             fab.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
+//                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
+                albumViewModel.test()
             }
 //            textToolbar.setOnClickListener {
 //                CategoryDialog(requireContext(),this@MusicListFragment).show()
