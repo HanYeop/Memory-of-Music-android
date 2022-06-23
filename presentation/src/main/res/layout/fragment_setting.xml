@@ -10,6 +10,9 @@
         <variable
             name="musicVm"
             type="com.hanyeop.presentation.view.music_list.MusicViewModel" />
+        <variable
+            name="albumVm"
+            type="com.hanyeop.presentation.view.album_list.AlbumViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -93,7 +96,8 @@
                             android:id="@+id/text_album_count_body"
                             style="@style/setting_body_text"
                             android:textColor="@color/setting_color"
-                            android:text="10"
+                            tools:text="10"
+                            app:itemCount="@{albumVm.albumCount}"
                             android:gravity="center"/>
                     </LinearLayout>
                 </LinearLayout>
