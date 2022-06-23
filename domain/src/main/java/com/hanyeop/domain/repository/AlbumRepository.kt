@@ -10,4 +10,6 @@ interface AlbumRepository {
     fun getAllAlbum(): Flow<Result<List<Album>>>
     fun getRemoteAlbums(keyword: String): Flow<Result<List<DomainAlbumResponse>>>
     fun deleteAlbum(id : Int)
+
+    fun getAllAlbumCount(): Flow<Result<Int>>
 }
