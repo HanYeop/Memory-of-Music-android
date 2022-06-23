@@ -123,7 +123,7 @@ class AlbumListFragment
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     albumListAdapter.setItem(it.data)
-//                    filterSort(musicViewModel.filterSort.value)
+                    filterSort(albumViewModel.filterSort.value)
                 }else{
                     albumListAdapter.setItem(mutableListOf())
                 }
@@ -131,9 +131,9 @@ class AlbumListFragment
         }
     }
 
-//    private fun filterSort(type: Int){
-//        musicListAdapter.order(type)
-//    }
+    private fun filterSort(type: Int){
+        albumListAdapter.order(type)
+    }
 
     override fun onItemClicked(album: Album) {
         findNavController().navigate(MainFragmentDirections.actionMainFragmentToAlbumDetailFragment(album))
@@ -146,7 +146,7 @@ class AlbumListFragment
 
     override fun onSortClicked(type: Int) {
         albumListAdapter.order(type)
-//        albumViewModel.setFilterSort(type)
+        albumViewModel.setFilterSort(type)
     }
 
     override fun onCategorySelected(start: Float, end: Float, genre: String) {

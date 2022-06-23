@@ -40,7 +40,12 @@
             style="@style/filter_header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_12"            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:filterEnd="@{vm.filterEnd}"
+            app:filterGenre="@{vm.filterGenre}"
+            app:filterSort="@{vm.filterSort}"
+            app:filterStart="@{vm.filterStart}"
+            android:layout_marginStart="@dimen/margin_12"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:text="전체 / 0.0 ~ 5.0 / 최신 순" />
 

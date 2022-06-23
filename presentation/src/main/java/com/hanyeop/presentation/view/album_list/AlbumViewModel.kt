@@ -7,6 +7,7 @@ import com.hanyeop.domain.model.album.DomainAlbumResponse
 import com.hanyeop.domain.usecase.album.*
 import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
+import com.hanyeop.presentation.utils.TIME_DESC
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -33,6 +34,11 @@ class AlbumViewModel @Inject constructor(
     val trackList: MutableStateFlow<String> = MutableStateFlow("")
     val summary: MutableStateFlow<String> = MutableStateFlow("")
     val content: MutableStateFlow<String> = MutableStateFlow("")
+
+    val filterGenre: MutableStateFlow<String> = MutableStateFlow("전체")
+    val filterStart: MutableStateFlow<Float> = MutableStateFlow(0.0f)
+    val filterEnd: MutableStateFlow<Float> = MutableStateFlow(5.0f)
+    val filterSort: MutableStateFlow<Int> = MutableStateFlow(0)
 
     private val _inputErrorEvent = MutableSharedFlow<Int>()
     val inputErrorEvent = _inputErrorEvent.asSharedFlow()
@@ -80,16 +86,16 @@ class AlbumViewModel @Inject constructor(
         genre.value = selected
     }
 
-//    fun setFilterSort(type: Int){
-//        filterSort.value = type
-//    }
-//
-//    private fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
-//        filterGenre.value = genre
-//        filterStart.value = start
-//        filterEnd.value = end
-//        filterSort.value = type
-//    }
+    fun setFilterSort(type: Int){
+        filterSort.value = type
+    }
+
+    private fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
+        filterGenre.value = genre
+        filterStart.value = start
+        filterEnd.value = end
+        filterSort.value = type
+    }
 
     fun test(){
         viewModelScope.launch(Dispatchers.IO) {
@@ -151,7 +157,7 @@ class AlbumViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = Result.Uninitialized
             )
-//        setFilterAll("전체", 0.0f, 5.0f, TIME_DESC)
+        setFilterAll("전체", 0.0f, 5.0f, TIME_DESC)
     }
 
     fun changeAlbumList(start: Float, end: Float, genre: String){
@@ -173,7 +179,7 @@ class AlbumViewModel @Inject constructor(
                         initialValue = Result.Uninitialized
                     )
         }
-//        setFilterAll(genre, start, end, filterSort.value)
+        setFilterAll(genre, start, end, filterSort.value)
     }
 
     var trackBoolean: MutableStateFlow<Boolean> = MutableStateFlow(false)
