@@ -38,7 +38,7 @@ class MusicModifyFragment
     private fun initViewModelCallback(){
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                musicViewModel.inputErrorEvent.collectLatest {
+                musicViewModel.inputErrorMsg.collectLatest {
                     showToast(resources.getString(it))
                 }
             }
@@ -46,10 +46,18 @@ class MusicModifyFragment
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                musicViewModel.inputSuccessEvent.collectLatest {
+                musicViewModel.insertSuccessMsg.collectLatest {
                     showToast(resources.getString(it))
                     findNavController().navigateUp()
                     findNavController().navigateUp()
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                musicViewModel.inputSuccessEvent.collectLatest {
+                    RatingDialog(requireContext(),this@MusicModifyFragment).show()
                 }
             }
         }
@@ -59,9 +67,6 @@ class MusicModifyFragment
         binding.apply {
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
-            }
-            btnOk.setOnClickListener {
-                RatingDialog(requireContext(),this@MusicModifyFragment).show()
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()

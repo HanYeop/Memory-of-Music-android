@@ -39,7 +39,12 @@
     <string name="sort_rating_asc">평점 역순</string>
 
     <string name="insert_success">기록이 등록되었습니다.</string>
-    <string name="insert_error">입력되지 않은 값이 있습니다. 다시 확인해주세요.</string>
+    <string name="insert_error">테스트</string>
+    <string name="error_title">제목을 입력해주세요.</string>
+    <string name="error_artist">가수를 입력해주세요.</string>
+    <string name="error_summary">한줄평을 입력해주세요.</string>
+    <string name="error_content">내용을 입력해주세요.</string>
+    <string name="error_genre">장르를 선택해주세요.</string>
     <string name="update_success">기록이 수정되었습니다.</string>
 
     <string name="error_network">인터넷 연결 상태를 확인해주세요.</string>
