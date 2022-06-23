@@ -1,10 +1,13 @@
 package com.hanyeop.presentation.utils
 
+import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Point
 import android.os.Build
 import android.view.WindowManager
+import androidx.navigation.fragment.findNavController
+import com.hanyeop.presentation.R
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,4 +44,18 @@ fun timeFormatter(time: Long): String{
     val dateFormat = SimpleDateFormat("yyyy. MM. dd")
 
     return dateFormat.format(date)
+}
+
+fun showDeleteDialog(context: Context, logic: () -> Unit){
+    val builder = AlertDialog.Builder(context)
+    builder
+        .setTitle(context.resources.getString(R.string.menu_delete))
+        .setMessage(context.resources.getString(R.string.delete_content))
+        .setPositiveButton(context.resources.getString(R.string.ok)) { _, _ ->
+            logic()
+        }
+        .setNegativeButton(context.getString(R.string.cancel)){ _, _ ->
+        }
+        .create()
+        .show()
 }

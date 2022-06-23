@@ -17,6 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.hanyeop.domain.model.music.Music
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.databinding.DialogMusicBottomSheetBinding
+import com.hanyeop.presentation.utils.showDeleteDialog
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,7 +60,7 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
                 dismiss()
             }
             textDelete.setOnClickListener {
-                showDialog()
+                showDeleteDialog(requireContext()){ dialogPositiveButtonClicked() }
             }
             textModify.setOnClickListener {
                 musicViewModel.setMusic(music)
@@ -72,21 +73,10 @@ class MusicBottomSheet(private val music: Music): BottomSheetDialogFragment() {
         }
     }
 
-    private fun showDialog(){
-        val builder = AlertDialog.Builder(requireContext())
-        builder
-            .setTitle(resources.getString(R.string.menu_delete))
-            .setMessage(resources.getString(R.string.delete_content))
-            .setPositiveButton(resources.getString(R.string.ok)) { _ , _ ->
-                musicViewModel.deleteMusic(music.id)
-                Toast.makeText(requireContext(), (resources.getString(R.string.delete_success)), Toast.LENGTH_SHORT).show()
-                dismiss()
-            }
-            .setNegativeButton(resources.getString(R.string.cancel)){ _, _ ->
-
-            }
-            .create()
-            .show()
+    private fun dialogPositiveButtonClicked(){
+        musicViewModel.deleteMusic(music.id)
+        Toast.makeText(requireContext(), (resources.getString(R.string.delete_success)), Toast.LENGTH_SHORT).show()
+        dismiss()
     }
 
     override fun onDestroyView() {

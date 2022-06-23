@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicDetailBinding
+import com.hanyeop.presentation.utils.showDeleteDialog
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +39,7 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
                             findNavController().navigate(R.id.action_musicDetailFragment_to_musicModifyFragment)
                         }
                         R.id.menu_delete ->{
-                            showDialog()
+                            showDeleteDialog(requireContext()) { dialogPositiveButtonClicked() }
                         }
                     }
                     false
@@ -47,20 +48,9 @@ class MusicDetailFragment : BaseFragment<FragmentMusicDetailBinding>(R.layout.fr
         }
     }
 
-    private fun showDialog(){
-        val builder = AlertDialog.Builder(requireContext())
-        builder
-            .setTitle(resources.getString(R.string.menu_delete))
-            .setMessage(resources.getString(R.string.delete_content))
-            .setPositiveButton(resources.getString(R.string.ok)) { _ , _ ->
-                musicViewModel.deleteMusic(args.music.id)
-                showToast(resources.getString(R.string.delete_success))
-                findNavController().popBackStack()
-            }
-            .setNegativeButton(resources.getString(R.string.cancel)){ _, _ ->
-
-            }
-            .create()
-            .show()
+    private fun dialogPositiveButtonClicked(){
+        musicViewModel.deleteMusic(args.music.id)
+        showToast(resources.getString(R.string.delete_success))
+        findNavController().popBackStack()
     }
 }
