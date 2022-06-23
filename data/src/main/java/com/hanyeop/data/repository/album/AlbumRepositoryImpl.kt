@@ -48,6 +48,32 @@ class AlbumRepositoryImpl @Inject constructor(
     override fun updateAlbum(id: Int, title: String, artist: String, genre: String, rating: Float, summary: String, content: String)
         = albumLocalDataSource.updateAlbum(id, title, artist, genre, rating, summary, content)
 
+    override fun getAllAlbumByRating(start: Float, end: Float): Flow<Result<List<Album>>> = flow {
+        emit(Result.Loading)
+        albumLocalDataSource.getAllAlbumByRating(start, end).collect {
+            if(it.isEmpty()){
+                emit(Result.Empty)
+            }else{
+                emit(Result.Success(mapperToAlbum(it)))
+            }
+        }
+    }.catch { e ->
+        emit(Result.Error(e))
+    }
+
+    override fun getAllAlbumByCategory(start: Float, end: Float, genre: String): Flow<Result<List<Album>>> = flow {
+        emit(Result.Loading)
+        albumLocalDataSource.getAllAlbumByCategory(start, end, genre).collect {
+            if(it.isEmpty()){
+                emit(Result.Empty)
+            }else{
+                emit(Result.Success(mapperToAlbum(it)))
+            }
+        }
+    }.catch { e ->
+        emit(Result.Error(e))
+    }
+
     override fun getAllAlbumCount(): Flow<Result<Int>> = flow {
         emit(Result.Loading)
         albumLocalDataSource.getAllAlbumCount().collect {
