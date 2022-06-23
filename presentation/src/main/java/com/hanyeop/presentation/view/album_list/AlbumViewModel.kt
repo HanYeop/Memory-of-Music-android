@@ -17,6 +17,8 @@ import javax.inject.Inject
 class AlbumViewModel @Inject constructor(
     private val insertAlbumUseCase: InsertAlbumUseCase,
     private val getAllAlbumUseCase: GetAllAlbumUseCase,
+    private val getAllAlbumByRatingUseCase: GetAllAlbumByRatingUseCase,
+    private val getAllAlbumByCategoryUseCase: GetAllAlbumByCategoryUseCase,
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
     private val deleteAlbumUseCase: DeleteAlbumUseCase,
     private val updateAlbumUseCase: UpdateAlbumUseCase,
@@ -78,6 +80,17 @@ class AlbumViewModel @Inject constructor(
         genre.value = selected
     }
 
+//    fun setFilterSort(type: Int){
+//        filterSort.value = type
+//    }
+//
+//    private fun setFilterAll(genre: String, start: Float, end: Float, type: Int){
+//        filterGenre.value = genre
+//        filterStart.value = start
+//        filterEnd.value = end
+//        filterSort.value = type
+//    }
+
     fun test(){
         viewModelScope.launch(Dispatchers.IO) {
             for(i in 0 until 5) {
@@ -130,6 +143,38 @@ class AlbumViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = Result.Uninitialized
             )
+
+    fun resetAlbumList(){
+        albumList = getAllAlbumUseCase.execute()
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = Result.Uninitialized
+            )
+//        setFilterAll("전체", 0.0f, 5.0f, TIME_DESC)
+    }
+
+    fun changeAlbumList(start: Float, end: Float, genre: String){
+        if(genre == "전체") {
+            albumList =
+                getAllAlbumByRatingUseCase.execute(start, end)
+                    .stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(5000),
+                        initialValue = Result.Uninitialized
+                    )
+        }
+        else{
+            albumList =
+                getAllAlbumByCategoryUseCase.execute(start, end, genre)
+                    .stateIn(
+                        scope = viewModelScope,
+                        started = SharingStarted.WhileSubscribed(5000),
+                        initialValue = Result.Uninitialized
+                    )
+        }
+//        setFilterAll(genre, start, end, filterSort.value)
+    }
 
     var trackBoolean: MutableStateFlow<Boolean> = MutableStateFlow(false)
     fun hideTrackList(){
