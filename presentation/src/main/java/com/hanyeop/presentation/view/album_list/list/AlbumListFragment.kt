@@ -13,6 +13,7 @@ import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentAlbumListBinding
 import com.hanyeop.presentation.utils.LIST_TYPE
+import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -120,11 +121,10 @@ class AlbumListFragment
 //    }
 
     override fun onItemClicked(album: Album) {
-        TODO("Not yet implemented")
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToAlbumDetailFragment(album))
     }
 
     override fun onOtherButtonClicked(album: Album) {
-        TODO("Not yet implemented")
     }
 
 //    override fun onSortClicked(type: Int) {

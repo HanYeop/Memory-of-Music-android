@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.hanyeop.presentation.view.album_list.AlbumViewModel" />
+        <variable
+            name="album"
+            type="com.hanyeop.domain.model.album.Album" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.album_list.detail.AlbumDetailFragment">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_margin="@dimen/padding_default_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24">
+
+            <TextView
+                android:id="@+id/text"
+                android:text="@string/album_detail_text"
+                style="@style/toolbar_text"
+                android:textSize="18sp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:paddingStart="@dimen/padding_20"
+            android:paddingEnd="@dimen/padding_20"
+            android:paddingBottom="@dimen/padding_20">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image_album"
+                    android:layout_width="@dimen/large_image_size"
+                    android:layout_height="@dimen/large_image_size"
+                    android:layout_marginTop="@dimen/margin_default_20"
+                    android:background="@drawable/rounded_corner_border"
+                    app:largeImage="@{album.image}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/text_title"
+                    style="@style/detail_header_text"
+                    android:layout_width="0dp"
+                    android:layout_margin="@dimen/margin_16"
+                    android:gravity="center"
+                    android:text="@{album.title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_album"
+                    tools:text="타이틀입니다." />
+
+                <TextView
+                    android:id="@+id/text_artist"
+                    style="@style/detail_body_text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:gravity="center"
+                    android:text="@{album.artist}"
+                    android:textColor="@color/black_low_emphasis"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_title"
+                    tools:text="가수입니다." />
+
+                <TextView
+                    android:id="@+id/text_summary"
+                    style="@style/detail_body_text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_artist"
+                    app:summary="@{album.summary}"
+                    tools:text="한줄평입니다." />
+
+                <com.willy.ratingbar.ScaleRatingBar
+                    android:id="@+id/rating_bar_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:rating="@{album.rating}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_summary"
+                    app:srb_clickable="false"
+                    app:srb_isIndicator="true"
+                    app:srb_numStars="5"
+                    app:srb_scrollable="true"
+                    app:srb_starHeight="@dimen/star_size"
+                    app:srb_starPadding="@dimen/star_padding"
+                    app:srb_starWidth="@dimen/star_size"
+                    app:srb_stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/text_time"
+                    style="@style/list_time_text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:gravity="center"
+                    android:textColor="@color/black_low_emphasis"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rating_bar_detail"
+                    app:time="@{album.time}"
+                    tools:text="2020/01/01" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/detail_header_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableEnd="@drawable/ic_arrow_down_24"
+                    android:drawablePadding="@dimen/padding_default_10"
+                    android:onClick="@{() -> vm.hideTrackList()}"
+                    android:text="@string/album_track_list"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_content" />
+
+                <TextView
+                    android:id="@+id/text_track_list"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:text="@{album.trackList}"
+                    android:visibility="@{vm.trackBoolean ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@+id/textView2"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:text="트랙리스트 입니다." />
+
+                <TextView
+                    android:id="@+id/image_content"
+                    style="@style/detail_header_text"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_24"
+                    android:text="@string/music_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_time" />
+
+                <TextView
+                    android:id="@+id/text_content"
+                    style="@style/detail_body_text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:text="@{album.content}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_content"
+                    tools:text="상세 내용입니다." />
+
+                <TextView
+                    android:id="@+id/text_rating"
+                    style="@style/list_rating_text"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:text="@{String.valueOf(album.rating)}"
+                    android:textColor="@color/music_color"
+                    app:layout_constraintBottom_toBottomOf="@+id/rating_bar_detail"
+                    app:layout_constraintStart_toEndOf="@+id/rating_bar_detail"
+                    app:layout_constraintTop_toTopOf="@+id/rating_bar_detail"
+                    tools:text="4.0" />
+
+                <TextView
+                    android:id="@+id/text_genre"
+                    style="@style/detail_body_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{album.genre}"
+                    android:textColor="@color/black_medium_emphasis"
+                    app:layout_constraintBottom_toBottomOf="@+id/text_rating"
+                    app:layout_constraintEnd_toEndOf="@+id/text_summary"
+                    app:layout_constraintTop_toTopOf="@+id/text_rating"
+                    tools:text="장르" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

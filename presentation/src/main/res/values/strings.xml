@@ -20,11 +20,12 @@
     <string name="search_view_hint">음악 검색</string>
     <string name="search_view_album_hint">앨범 검색</string>
     <string name="music_insert_text">음악 등록</string>
-    <string name="album_insert_text">앨범 등록</string>
     <string name="music_detail_text">음악 상세</string>
     <string name="music_modify_text">음악 수정</string>
     <string name="music_list_text">음악 목록</string>
     <string name="album_list_text">앨범 목록</string>
+    <string name="album_insert_text">앨범 등록</string>
+    <string name="album_detail_text">앨범 상세</string>
     <string name="setting_text">설정</string>
 
     <string name="sort_text">정렬</string>
@@ -53,7 +54,7 @@
     <string name="menu_delete">기록 삭제</string>
     <string name="delete_content">기록을 삭제하시겠습니까? 삭제한 내용은 복구할 수 없습니다.</string>
     <string name="delete_success">기록이 삭제되었습니다.</string>
-    
+
     <string name="category_header">평점/장르별 보기</string>
     <string name="filter_reset">필터가 초기화되었습니다.</string>
 
