@@ -80,8 +80,8 @@ class AlbumListFragment
                 false
             }
             fab.setOnClickListener {
-//                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
-                albumViewModel.test()
+                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
+//                albumViewModel.test()
             }
             text.setOnClickListener {
                 CategoryDialog(requireContext(),this@AlbumListFragment).show()
@@ -119,20 +119,15 @@ class AlbumListFragment
     private fun collectMusicList(){
         job = lifecycleScope.launchWhenStarted {
             albumViewModel.albumList.collect {
-                Log.d("test5", "collectMusicList: test")
                 if(it is Result.Success){
                     searchView?.setQuery("",false)
                     albumListAdapter.setItem(it.data)
-                    filterSort(albumViewModel.filterSort.value)
+                    albumListAdapter.order(albumViewModel.filterSort.value)
                 }else{
                     albumListAdapter.setItem(mutableListOf())
                 }
             }
         }
-    }
-
-    private fun filterSort(type: Int){
-        albumListAdapter.order(type)
     }
 
     override fun onItemClicked(album: Album) {

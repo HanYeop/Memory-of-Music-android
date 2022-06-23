@@ -37,7 +37,7 @@ class AlbumModifyFragment : BaseFragment<FragmentAlbumModifyBinding>(R.layout.fr
     private fun initViewModelCallback() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputErrorEvent.collectLatest {
+                albumViewModel.inputErrorMsg.collectLatest {
                     showToast(resources.getString(it))
                 }
             }
@@ -45,10 +45,18 @@ class AlbumModifyFragment : BaseFragment<FragmentAlbumModifyBinding>(R.layout.fr
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputSuccessEvent.collectLatest {
+                albumViewModel.insertSuccessMsg.collectLatest {
                     showToast(resources.getString(it))
                     findNavController().navigateUp()
                     findNavController().navigateUp()
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                albumViewModel.inputSuccessEvent.collectLatest {
+                    RatingDialog(requireContext(), this@AlbumModifyFragment).show()
                 }
             }
         }
@@ -58,9 +66,6 @@ class AlbumModifyFragment : BaseFragment<FragmentAlbumModifyBinding>(R.layout.fr
         binding.apply {
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
-            }
-            btnOk.setOnClickListener {
-                RatingDialog(requireContext(), this@AlbumModifyFragment).show()
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()

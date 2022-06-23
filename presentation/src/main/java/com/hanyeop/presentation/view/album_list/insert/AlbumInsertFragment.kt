@@ -35,7 +35,7 @@ class AlbumInsertFragment
     private fun initViewModelCallback(){
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputErrorEvent.collectLatest {
+                albumViewModel.inputErrorMsg.collectLatest {
                     showToast(resources.getString(it))
                 }
             }
@@ -43,10 +43,18 @@ class AlbumInsertFragment
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputSuccessEvent.collectLatest {
+                albumViewModel.insertSuccessMsg.collectLatest {
                     showToast(resources.getString(it))
                     findNavController().navigateUp()
                     findNavController().navigateUp()
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                albumViewModel.inputSuccessEvent.collectLatest {
+                    RatingDialog(requireContext(),this@AlbumInsertFragment).show()
                 }
             }
         }
@@ -56,9 +64,6 @@ class AlbumInsertFragment
         binding.apply {
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
-            }
-            btnOk.setOnClickListener {
-                RatingDialog(requireContext(),this@AlbumInsertFragment).show()
             }
             btnCancel.setOnClickListener {
                 findNavController().popBackStack()

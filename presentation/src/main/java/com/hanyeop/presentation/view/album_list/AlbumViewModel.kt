@@ -40,10 +40,12 @@ class AlbumViewModel @Inject constructor(
     val filterEnd: MutableStateFlow<Float> = MutableStateFlow(5.0f)
     val filterSort: MutableStateFlow<Int> = MutableStateFlow(0)
 
-    private val _inputErrorEvent = MutableSharedFlow<Int>()
-    val inputErrorEvent = _inputErrorEvent.asSharedFlow()
-    private val _inputSuccessEvent = MutableSharedFlow<Int>()
+    private val _inputErrorMsg = MutableSharedFlow<Int>()
+    val inputErrorMsg = _inputErrorMsg.asSharedFlow()
+    private val _inputSuccessEvent = MutableSharedFlow<String>()
     val inputSuccessEvent = _inputSuccessEvent.asSharedFlow()
+    private val _insertSuccessMsg = MutableSharedFlow<Int>()
+    val insertSuccessMsg = _insertSuccessMsg.asSharedFlow()
 
     private val _remoteAlbums: MutableStateFlow<Result<List<DomainAlbumResponse>>> = MutableStateFlow(Result.Uninitialized)
     val remoteAlbums get() = _remoteAlbums.asStateFlow()
@@ -117,28 +119,20 @@ class AlbumViewModel @Inject constructor(
     }
 
     fun insertAlbum(rating: Float){
-        if(title.value.isNotBlank() && artist.value.isNotBlank()
-            && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
-            viewModelScope.launch(Dispatchers.IO) {
-                insertAlbumUseCase.execute(
-                    Album(
-                        image = image.value,
-                        title = title.value,
-                        artist = artist.value,
-                        genre = genre.value,
-                        trackList = trackList.value,
-                        rating = rating,
-                        summary = summary.value,
-                        content = content.value
-                    )
+        viewModelScope.launch(Dispatchers.IO) {
+            insertAlbumUseCase.execute(
+                Album(
+                    image = image.value,
+                    title = title.value,
+                    artist = artist.value,
+                    genre = genre.value,
+                    trackList = trackList.value,
+                    rating = rating,
+                    summary = summary.value,
+                    content = content.value
                 )
-                _inputSuccessEvent.emit(R.string.insert_success)
-            }
-        }
-        else{
-            viewModelScope.launch(Dispatchers.IO) {
-                _inputErrorEvent.emit(R.string.insert_error)
-            }
+            )
+            _insertSuccessMsg.emit(R.string.insert_success)
         }
     }
 
@@ -202,16 +196,9 @@ class AlbumViewModel @Inject constructor(
     }
 
     fun updateAlbum(rating: Float){
-        if(title.value.isNotBlank() && artist.value.isNotBlank()
-            && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
-            viewModelScope.launch(Dispatchers.IO) {
-                updateAlbumUseCase.execute(id.value,title.value,artist.value,genre.value,rating,summary.value,content.value)
-                _inputSuccessEvent.emit(R.string.update_success)
-            }
-        }else{
-            viewModelScope.launch(Dispatchers.IO) {
-                _inputErrorEvent.emit(R.string.insert_error)
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            updateAlbumUseCase.execute(id.value,title.value,artist.value,genre.value,rating,summary.value,content.value)
+            _insertSuccessMsg.emit(R.string.update_success)
         }
     }
 
@@ -222,4 +209,28 @@ class AlbumViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = Result.Uninitialized
             )
+
+    fun inputCheck(){
+        viewModelScope.launch(Dispatchers.IO) {
+            when {
+                title.value.isBlank() -> {
+                    _inputErrorMsg.emit(R.string.error_title)
+                }
+                artist.value.isBlank() -> {
+                    _inputErrorMsg.emit(R.string.error_artist)
+                }
+                summary.value.isBlank() ->{
+                    _inputErrorMsg.emit(R.string.error_summary)
+                }
+                content.value.isBlank() ->{
+                    _inputErrorMsg.emit(R.string.error_content)
+                }
+                genre.value == "장르" ->{
+                    _inputErrorMsg.emit(R.string.error_genre)
+                }else -> {
+                _inputSuccessEvent.emit("검사 성공")
+                }
+            }
+        }
+    }
 }
