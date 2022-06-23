@@ -57,7 +57,7 @@ class AlbumSearchFragment
                 findNavController().popBackStack()
             }
             textDirect.setOnClickListener {
-//                albumViewModel.initMusicInfo()
+                albumViewModel.initAlbumInfo()
                 findNavController().navigate(R.id.action_albumSearchFragment_to_albumInsertFragment)
             }
         }

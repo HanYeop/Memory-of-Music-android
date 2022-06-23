@@ -73,15 +73,16 @@ class AlbumViewModel @Inject constructor(
         content.value = album.content
     }
 
-//    // 직접 추가시 모든 정보 초기화
-//    fun initMusicInfo(){
-//        image.value = ""
-//        title.value = ""
-//        artist.value = ""
-//        genre.value = ""
-//        summary.value = ""
-//        content.value = ""
-//    }
+    // 직접 추가시 모든 정보 초기화
+    fun initAlbumInfo(){
+        image.value = ""
+        title.value = ""
+        artist.value = ""
+        genre.value = ""
+        trackList.value = ""
+        summary.value = ""
+        content.value = ""
+    }
 
     // 장르 스피너 선택 결과
     fun setGenre(selected: String){
