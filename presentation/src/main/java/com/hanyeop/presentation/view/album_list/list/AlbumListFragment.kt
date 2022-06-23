@@ -17,6 +17,7 @@ import com.hanyeop.presentation.utils.LIST_TYPE
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
+import com.hanyeop.presentation.view.music_list.list.MusicBottomSheet
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -127,6 +128,8 @@ class AlbumListFragment
     }
 
     override fun onOtherButtonClicked(album: Album) {
+        val dialog = AlbumBottomSheet(album)
+        dialog.show(childFragmentManager,dialog.tag)
     }
 
 //    override fun onSortClicked(type: Int) {
