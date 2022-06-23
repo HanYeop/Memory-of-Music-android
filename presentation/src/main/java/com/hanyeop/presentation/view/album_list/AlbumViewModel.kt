@@ -19,6 +19,7 @@ class AlbumViewModel @Inject constructor(
     private val getAllAlbumUseCase: GetAllAlbumUseCase,
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
     private val deleteAlbumUseCase: DeleteAlbumUseCase,
+    private val updateAlbumUseCase: UpdateAlbumUseCase,
     private val getAllAlbumCountUseCase: GetAllAlbumCountUseCase
 ) : ViewModel() {
 
@@ -49,6 +50,28 @@ class AlbumViewModel @Inject constructor(
         summary.value = ""
         content.value = ""
     }
+
+    // 수정 버튼 클릭 시 기존의 정보 불러옴
+    fun setAlbum(album: Album){
+        id.value = album.id
+        image.value = album.image
+        title.value = album.title
+        artist.value = album.artist
+        genre.value = album.genre
+        trackList.value = album.trackList
+        summary.value = album.summary
+        content.value = album.content
+    }
+
+//    // 직접 추가시 모든 정보 초기화
+//    fun initMusicInfo(){
+//        image.value = ""
+//        title.value = ""
+//        artist.value = ""
+//        genre.value = ""
+//        summary.value = ""
+//        content.value = ""
+//    }
 
     // 장르 스피너 선택 결과
     fun setGenre(selected: String){
@@ -124,6 +147,20 @@ class AlbumViewModel @Inject constructor(
     fun deleteAlbum(id : Int){
         viewModelScope.launch(Dispatchers.IO) {
             deleteAlbumUseCase.execute(id)
+        }
+    }
+
+    fun updateAlbum(rating: Float){
+        if(title.value.isNotBlank() && artist.value.isNotBlank()
+            && summary.value.isNotBlank() && content.value.isNotBlank() && genre.value != "장르"){
+            viewModelScope.launch(Dispatchers.IO) {
+                updateAlbumUseCase.execute(id.value,title.value,artist.value,genre.value,rating,summary.value,content.value)
+                _inputSuccessEvent.emit(R.string.update_success)
+            }
+        }else{
+            viewModelScope.launch(Dispatchers.IO) {
+                _inputErrorEvent.emit(R.string.insert_error)
+            }
         }
     }
 
