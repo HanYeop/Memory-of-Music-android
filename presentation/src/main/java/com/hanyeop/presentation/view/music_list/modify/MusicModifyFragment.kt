@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentMusicModifyBinding
+import com.hanyeop.presentation.utils.repeatOnStarted
 import com.hanyeop.presentation.view.music_list.MusicViewModel
 import com.hanyeop.presentation.view.rating.RatingDialog
 import com.hanyeop.presentation.view.rating.RatingListener
@@ -36,29 +37,23 @@ class MusicModifyFragment
     }
 
     private fun initViewModelCallback(){
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                musicViewModel.inputErrorMsg.collectLatest {
-                    showToast(resources.getString(it))
-                }
+        repeatOnStarted {
+            musicViewModel.inputErrorMsg.collectLatest {
+                showToast(resources.getString(it))
             }
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                musicViewModel.insertSuccessMsg.collectLatest {
-                    showToast(resources.getString(it))
-                    findNavController().navigateUp()
-                    findNavController().navigateUp()
-                }
+        repeatOnStarted {
+            musicViewModel.insertSuccessMsg.collectLatest {
+                showToast(resources.getString(it))
+                findNavController().navigateUp()
+                findNavController().navigateUp()
             }
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                musicViewModel.inputSuccessEvent.collectLatest {
-                    RatingDialog(requireContext(),this@MusicModifyFragment).show()
-                }
+        repeatOnStarted {
+            musicViewModel.inputSuccessEvent.collectLatest {
+                RatingDialog(requireContext(),this@MusicModifyFragment).show()
             }
         }
     }

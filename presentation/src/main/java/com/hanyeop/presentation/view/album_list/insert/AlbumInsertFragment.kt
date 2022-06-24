@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentAlbumInsertBinding
+import com.hanyeop.presentation.utils.repeatOnStarted
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
 import com.hanyeop.presentation.view.rating.RatingDialog
 import com.hanyeop.presentation.view.rating.RatingListener
@@ -33,29 +34,23 @@ class AlbumInsertFragment
     }
 
     private fun initViewModelCallback(){
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputErrorMsg.collectLatest {
-                    showToast(resources.getString(it))
-                }
+        repeatOnStarted {
+            albumViewModel.inputErrorMsg.collectLatest {
+                showToast(resources.getString(it))
             }
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.insertSuccessMsg.collectLatest {
-                    showToast(resources.getString(it))
-                    findNavController().navigateUp()
-                    findNavController().navigateUp()
-                }
+        repeatOnStarted {
+            albumViewModel.insertSuccessMsg.collectLatest {
+                showToast(resources.getString(it))
+                findNavController().navigateUp()
+                findNavController().navigateUp()
             }
         }
 
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                albumViewModel.inputSuccessEvent.collectLatest {
-                    RatingDialog(requireContext(),this@AlbumInsertFragment).show()
-                }
+        repeatOnStarted {
+            albumViewModel.inputSuccessEvent.collectLatest {
+                RatingDialog(requireContext(),this@AlbumInsertFragment).show()
             }
         }
     }
