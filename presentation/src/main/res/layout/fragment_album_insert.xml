@@ -161,7 +161,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_4"
+                    android:padding="@dimen/margin_4"
                     style="@style/detail_header_text"
                     android:background="?attr/selectableItemBackground"
                     android:onClick="@{() -> vm.hideTrackList()}"
