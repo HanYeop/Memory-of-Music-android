@@ -7,6 +7,7 @@ import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentSettingBinding
 import com.hanyeop.presentation.utils.LIST_TYPE
+import com.hanyeop.presentation.utils.showDeleteDialog
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.album_list.AlbumViewModel
 import com.hanyeop.presentation.view.music_list.MusicViewModel
@@ -30,6 +31,7 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
             albumVm = albumViewModel
         }
         initSwitch()
+        initClickListener()
         initViewModelCallback()
     }
 
@@ -44,6 +46,18 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
                 }
                 mainViewModel.setListViewType()
                 mainViewModel.setListViewTypeAlbum()
+            }
+        }
+    }
+
+    private fun initClickListener(){
+        binding.apply {
+            textDataDelete.setOnClickListener {
+                showDeleteDialog(requireContext()){
+                    albumViewModel.deleteAllAlbum()
+                    musicViewModel.deleteAllMusic()
+                    showToast(resources.getString(R.string.delete_success))
+                }
             }
         }
     }
