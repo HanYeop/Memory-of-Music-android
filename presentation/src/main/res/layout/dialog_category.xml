@@ -33,7 +33,7 @@
 
         <Button
             android:id="@+id/btn_cancel"
-            style="@style/btn_text"
+            style="@style/btn_dialog_text"
             android:background="@android:color/transparent"
             android:text="@string/cancel"
             custom:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +43,7 @@
 
         <Button
             android:id="@+id/btn_ok"
-            style="@style/btn_text"
+            style="@style/btn_dialog_text"
             android:background="@android:color/transparent"
             android:text="@string/ok"
             custom:layout_constraintBottom_toBottomOf="parent"

@@ -40,7 +40,7 @@
             android:id="@+id/btn_cancel"
             android:background="@android:color/transparent"
             android:text="@string/cancel"
-            style="@style/btn_text"
+            style="@style/btn_dialog_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ratingBar_popup" />
 
@@ -48,7 +48,7 @@
             android:id="@+id/btn_ok"
             android:background="@android:color/transparent"
             android:text="@string/ok"
-            style="@style/btn_text"
+            style="@style/btn_dialog_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ratingBar_popup" />
     </androidx.constraintlayout.widget.ConstraintLayout>
