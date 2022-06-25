@@ -76,23 +76,19 @@ class MusicListFragment
     @RequiresApi(Build.VERSION_CODES.N)
     private fun initClickListener(){
         binding.apply {
-            toolbar.setOnMenuItemClickListener {
-                if(it.itemId == R.id.menu_sort){
-                    val dialog = SortDialog(requireContext(),this@MusicListFragment)
-                    dialog.show()
-                }
-                false
-            }
             fab.setOnClickListener {
 //                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
                 musicViewModel.test()
             }
-            textToolbar.setOnClickListener {
-                CategoryDialog(requireContext(),this@MusicListFragment).show()
-            }
             imageReset.setOnClickListener {
                 jobUpdate { musicViewModel.resetMusicList() }
                 showToast(resources.getString(R.string.filter_reset))
+            }
+            textFilterCategory.setOnClickListener {
+                CategoryDialog(requireContext(),this@MusicListFragment).show()
+            }
+            textFilterSort.setOnClickListener {
+                SortDialog(requireContext(),this@MusicListFragment).show()
             }
         }
     }

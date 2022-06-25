@@ -72,23 +72,19 @@ class AlbumListFragment
 
     private fun initClickListener(){
         binding.apply {
-            toolbar.setOnMenuItemClickListener {
-                if(it.itemId == R.id.menu_sort){
-                    val dialog = SortDialog(requireContext(),this@AlbumListFragment)
-                    dialog.show()
-                }
-                false
-            }
             fab.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
 //                albumViewModel.test()
             }
-            text.setOnClickListener {
-                CategoryDialog(requireContext(),this@AlbumListFragment).show()
-            }
             imageReset.setOnClickListener {
                 jobUpdate { albumViewModel.resetAlbumList() }
                 showToast(resources.getString(R.string.filter_reset))
+            }
+            textFilterCategory.setOnClickListener {
+                CategoryDialog(requireContext(),this@AlbumListFragment).show()
+            }
+            textFilterSort.setOnClickListener {
+                SortDialog(requireContext(),this@AlbumListFragment).show()
             }
         }
     }
