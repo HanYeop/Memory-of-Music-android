@@ -12,25 +12,53 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_musicSearchFragment"
-            app:destination="@id/musicSearchFragment" />
+            app:destination="@id/musicSearchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_musicDetailFragment"
-            app:destination="@id/musicDetailFragment" />
+            app:destination="@id/musicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_musicModifyFragment"
-            app:destination="@id/musicModifyFragment" />
+            app:destination="@id/musicModifyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_albumSearchFragment"
-            app:destination="@id/albumSearchFragment" />
+            app:destination="@id/albumSearchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_albumDetailFragment"
-            app:destination="@id/albumDetailFragment" />
+            app:destination="@id/albumDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_albumModifyFragment"
-            app:destination="@id/albumModifyFragment" />
+            app:destination="@id/albumModifyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainFragment_to_dataSettingFragment"
-            app:destination="@id/dataSettingFragment" />
+            app:destination="@id/dataSettingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -40,7 +68,11 @@
         tools:layout="@layout/fragment_music_search">
         <action
             android:id="@+id/action_musicSearchFragment_to_musicInsertFragment"
-            app:destination="@id/musicInsertFragment" />
+            app:destination="@id/musicInsertFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/musicInsertFragment"
@@ -71,7 +103,11 @@
         tools:layout="@layout/fragment_album_search">
         <action
             android:id="@+id/action_albumSearchFragment_to_albumInsertFragment"
-            app:destination="@id/albumInsertFragment" />
+            app:destination="@id/albumInsertFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/albumInsertFragment"
