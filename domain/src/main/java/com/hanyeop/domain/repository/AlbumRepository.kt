@@ -14,4 +14,5 @@ interface AlbumRepository {
     fun getAllAlbumByRating(start: Float, end: Float): Flow<Result<List<Album>>>
     fun getAllAlbumByCategory(start: Float, end: Float, genre: String): Flow<Result<List<Album>>>
     fun getAllAlbumCount(): Flow<Result<Int>>
+    fun deleteAllAlbum()
 }

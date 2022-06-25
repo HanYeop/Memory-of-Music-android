@@ -81,4 +81,6 @@ class MusicRepositoryImpl @Inject constructor(
     }.catch { e ->
         emit(Result.Error(e))
     }
+
+    override fun deleteAllMusic() = musicLocalDataSource.deleteAllMusic()
 }

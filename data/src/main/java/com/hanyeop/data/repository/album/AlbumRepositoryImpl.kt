@@ -82,4 +82,6 @@ class AlbumRepositoryImpl @Inject constructor(
     }.catch { e ->
         emit(Result.Error(e))
     }
+
+    override fun deleteAllAlbum() = albumLocalDataSource.deleteAllAlbum()
 }

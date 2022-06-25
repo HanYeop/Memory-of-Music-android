@@ -14,4 +14,5 @@ interface MusicRepository {
     fun getAllMusicByRating(start: Float, end: Float): Flow<Result<List<Music>>>
     fun getAllMusicByCategory(start: Float, end: Float, genre: String): Flow<Result<List<Music>>>
     fun getAllMusicCount(): Flow<Result<Int>>
+    fun deleteAllMusic()
 }
