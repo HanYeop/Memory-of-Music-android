@@ -11,4 +11,5 @@ interface AlbumLocalDataSource {
     fun getAllAlbumByRating(start: Float, end: Float): Flow<List<AlbumEntity>>
     fun getAllAlbumByCategory(start: Float, end: Float, genre: String): Flow<List<AlbumEntity>>
     fun getAllAlbumCount(): Flow<Int>
+    fun deleteAllAlbum()
 }
