@@ -13,6 +13,12 @@
         android:enabled="true"
         app:exb_color="@color/album_color"/>
 
+    <item android:id="@+id/otherFragment"
+        android:icon="@drawable/left_image_other"
+        android:title="@string/menu_other"
+        android:enabled="true"
+        app:exb_color="@color/other_color"/>
+
     <item android:id="@+id/settingFragment"
         android:icon="@drawable/left_image_setting"
         android:title="@string/menu_setting"

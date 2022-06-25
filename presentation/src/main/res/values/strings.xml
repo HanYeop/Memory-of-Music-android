@@ -9,6 +9,7 @@
 
     <string name="menu_music">음악</string>
     <string name="menu_album">앨범</string>
+    <string name="menu_other">둘러보기</string>
     <string name="menu_setting">설정</string>
 
     <string name="music_title">제목</string>
@@ -27,6 +28,7 @@
     <string name="album_insert_text">앨범 등록</string>
     <string name="album_modify_text">앨범 수정</string>
     <string name="album_detail_text">앨범 상세</string>
+    <string name="other_text">둘러보기</string>
     <string name="setting_text">설정</string>
 
     <string name="sort_text">정렬</string>

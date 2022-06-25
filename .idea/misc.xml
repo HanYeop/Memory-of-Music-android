@@ -29,6 +29,7 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_album.xml" value="0.308" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_custom.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_disc.xml" value="0.308" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_other.xml" value="0.35" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_pen.xml" value="0.216" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_setting.xml" value="0.308" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/left_image_user.xml" value="0.216" />
@@ -71,6 +72,7 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_list.xml" value="0.33" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_modify.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_other.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_other_list.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_setting.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/item_album_brief.xml" value="0.36614583333333334" />

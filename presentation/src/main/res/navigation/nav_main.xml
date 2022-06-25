@@ -16,6 +16,11 @@
         android:label="albumListFragment"
         tools:layout="@layout/fragment_album_list"/>
     <keep_state_fragment
+        android:id="@+id/otherFragment"
+        android:name="com.hanyeop.presentation.view.other.OtherFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_other"/>
+    <keep_state_fragment
         android:id="@+id/settingFragment"
         android:name="com.hanyeop.presentation.view.setting.SettingFragment"
         android:label="SettingFragment"
