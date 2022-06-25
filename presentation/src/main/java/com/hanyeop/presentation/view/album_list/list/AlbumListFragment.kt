@@ -72,9 +72,11 @@ class AlbumListFragment
 
     private fun initClickListener(){
         binding.apply {
-            fab.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
-//                albumViewModel.test()
+            toolbar.setOnMenuItemClickListener {
+                if(it.itemId == R.id.menu_add){
+                    findNavController().navigate(R.id.action_mainFragment_to_albumSearchFragment)
+                }
+                false
             }
             imageReset.setOnClickListener {
                 jobUpdate { albumViewModel.resetAlbumList() }

@@ -76,9 +76,11 @@ class MusicListFragment
     @RequiresApi(Build.VERSION_CODES.N)
     private fun initClickListener(){
         binding.apply {
-            fab.setOnClickListener {
-//                findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
-                musicViewModel.test()
+            toolbar.setOnMenuItemClickListener {
+                if(it.itemId == R.id.menu_add){
+                    findNavController().navigate(R.id.action_mainFragment_to_musicSearchFragment)
+                }
+                false
             }
             imageReset.setOnClickListener {
                 jobUpdate { musicViewModel.resetMusicList() }

@@ -28,8 +28,6 @@
         <TextView
             android:id="@+id/text"
             style="@style/toolbar_text"
-            android:drawableRight="@drawable/ic_arrow_down_24"
-            android:drawablePadding="@dimen/margin_4"
             android:text="@string/album_list_text"
             android:textSize="18sp" />
 
@@ -109,19 +107,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="@dimen/fab_size"
-            android:layout_height="@dimen/fab_size"
-            android:backgroundTint="@color/light_gray"
-            app:borderWidth="0dp"
-            app:elevation="6dp"
-            android:layout_margin="@dimen/margin_10"
-            app:fabCustomSize="@dimen/fab_size"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_playlist_add_24" />
 
         <LinearLayout
             android:layout_width="wrap_content"
