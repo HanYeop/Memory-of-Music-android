@@ -24,7 +24,8 @@ class MusicViewModel @Inject constructor(
     private val getRemoteMusicsUseCase: GetRemoteMusicsUseCase,
     private val deleteMusicUseCase: DeleteMusicUseCase,
     private val updateMusicUseCase: UpdateMusicUseCase,
-    private val getAllMusicCountUseCase: GetAllMusicCountUseCase
+    private val getAllMusicCountUseCase: GetAllMusicCountUseCase,
+    private val deleteAllMusicUseCase: DeleteAllMusicUseCase
 ) : ViewModel() {
 
     val id: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -200,6 +201,12 @@ class MusicViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = Result.Uninitialized
             )
+
+    fun deleteAllMusic(){
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteAllMusicUseCase.execute()
+        }
+    }
 
     fun inputCheck(){
         viewModelScope.launch(Dispatchers.IO) {

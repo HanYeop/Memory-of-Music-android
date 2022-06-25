@@ -23,7 +23,8 @@ class AlbumViewModel @Inject constructor(
     private val getRemoteAlbumsUseCase: GetRemoteAlbumsUseCase,
     private val deleteAlbumUseCase: DeleteAlbumUseCase,
     private val updateAlbumUseCase: UpdateAlbumUseCase,
-    private val getAllAlbumCountUseCase: GetAllAlbumCountUseCase
+    private val getAllAlbumCountUseCase: GetAllAlbumCountUseCase,
+    private val deleteAllAlbumUseCase: DeleteAllAlbumUseCase
 ) : ViewModel() {
 
     val id: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -210,6 +211,12 @@ class AlbumViewModel @Inject constructor(
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = Result.Uninitialized
             )
+
+    fun deleteAllAlbum(){
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteAllAlbumUseCase.execute()
+        }
+    }
 
     fun inputCheck(){
         viewModelScope.launch(Dispatchers.IO) {
