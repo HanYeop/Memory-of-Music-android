@@ -15,7 +15,7 @@
     <dimen name="margin_1">1dp</dimen>
 
 
-    <dimen name="default_btn_text_size">16dp</dimen>
+    <dimen name="default_btn_text_size">18dp</dimen>
     <dimen name="dialog_title">24dp</dimen>
     <dimen name="list_title">15dp</dimen>
     <dimen name="list_artist">14dp</dimen>
