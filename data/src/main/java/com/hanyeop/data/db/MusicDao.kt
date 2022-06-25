@@ -37,4 +37,8 @@ interface MusicDao {
     // 음악 기록 개수 불러오기
     @Query("SELECT COUNT(*) FROM music_table")
     fun getAllMusicCount(): Flow<Int>
+
+    // 모든 앨범 기록 삭제
+    @Query("DELETE FROM music_table ")
+    fun deleteAllMusic()
 }
