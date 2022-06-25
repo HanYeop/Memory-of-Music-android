@@ -73,6 +73,7 @@
     <string name="album_empty">등록된 앨범이 없습니다.\n지금 앨범을 등록해보세요!</string>
 
     <string name="data_header">데이터</string>
+    <string name="data_setting">데이터 백업/복원하기</string>
     <string name="data_back_up">데이터 백업하기</string>
     <string name="data_restore">데이터 복원하기</string>
     <string name="data_delete">데이터 전부 삭제하기</string>
@@ -120,4 +121,5 @@
         <item>평점 순</item>
         <item>평점 역순</item>
     </string-array>
+
 </resources>

@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_mainFragment_to_albumModifyFragment"
             app:destination="@id/albumModifyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_dataSettingFragment"
+            app:destination="@id/dataSettingFragment" />
     </fragment>
 
     <fragment
@@ -92,4 +95,9 @@
         android:name="com.hanyeop.presentation.view.album_list.modify.AlbumModifyFragment"
         android:label="AlbumModifyFragment"
         tools:layout="@layout/fragment_album_modify"/>
+    <fragment
+        android:id="@+id/dataSettingFragment"
+        android:name="com.hanyeop.presentation.view.setting.data.DataSettingFragment"
+        android:label="DataSettingFragment"
+        tools:layout="@layout/fragment_data_setting"/>
 </navigation>

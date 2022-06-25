@@ -3,6 +3,7 @@ package com.hanyeop.presentation.view.setting
 import android.content.SharedPreferences
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentSettingBinding
@@ -58,6 +59,9 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
                     musicViewModel.deleteAllMusic()
                     showToast(resources.getString(R.string.delete_success))
                 }
+            }
+            textDataSetting.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_dataSettingFragment)
             }
         }
     }
