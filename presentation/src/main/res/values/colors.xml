@@ -19,6 +19,8 @@
     <color name="red">#E91E63</color>
 
     <color name="music_color">#FF8888</color>
+    <color name="music_filter_color">#D9FF8888</color>
     <color name="album_color">#2270DE</color>
+    <color name="album_filter_color">#BF2270DE</color>
     <color name="setting_color">#fa2</color>
 </resources>
