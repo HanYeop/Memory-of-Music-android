@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -52,4 +53,7 @@ dependencies {
     implementation (Room.ROOM_RUNTIME)
     kapt (Room.ROOM_COMPILER)
     implementation (Room.ROOM_KTX)
+
+    // Firebase
+    implementation (Firebase.FIREBASE_FIRESTORE)
 }

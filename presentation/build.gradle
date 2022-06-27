@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -77,4 +78,7 @@ dependencies {
 
     // SeekbarRangedView
     implementation (SeekbarRangedView.SEEK_BAR_RANGED_VIEW)
+
+    // Firebase
+    implementation (Firebase.FIREBASE_FIRESTORE)
 }

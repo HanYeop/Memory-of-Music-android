@@ -16,3 +16,4 @@ local.properties
 .idea/deploymentTargetDropDown.xml
 /buildSrc/build/
 /data/src/main/java/com/hanyeop/data/utils/ApiKey.kt
+/app/google-services.json

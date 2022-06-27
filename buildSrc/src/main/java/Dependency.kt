@@ -72,3 +72,7 @@ object SimpleRatingBar{
 object SeekbarRangedView{
     const val SEEK_BAR_RANGED_VIEW = "com.github.guilhe:seekbar-ranged-view:3.0.0"
 }
+
+object Firebase{
+    const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:24.1.2"
+}
