@@ -74,6 +74,8 @@
     <string name="music_empty">등록된 음악이 없습니다.\n지금 음악을 등록해보세요!</string>
     <string name="album_empty">등록된 앨범이 없습니다.\n지금 앨범을 등록해보세요!</string>
 
+    <string name="recommendation_header">추천 음악</string>
+
     <string name="data_header">데이터</string>
     <string name="data_setting">데이터 백업/복원하기</string>
     <string name="data_back_up">데이터 백업하기</string>
