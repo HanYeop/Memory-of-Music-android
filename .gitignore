@@ -17,3 +17,6 @@ local.properties
 /buildSrc/build/
 /data/src/main/java/com/hanyeop/data/utils/ApiKey.kt
 /app/google-services.json
+data/google-services.json
+domain/google-services.json
+presentation/google-services.json
