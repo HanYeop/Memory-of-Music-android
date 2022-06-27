@@ -9,7 +9,7 @@
 
     <string name="menu_music">음악</string>
     <string name="menu_album">앨범</string>
-    <string name="menu_other">둘러보기</string>
+    <string name="menu_other">칼럼</string>
     <string name="menu_setting">설정</string>
 
     <string name="music_title">제목</string>
