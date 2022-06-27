@@ -62,6 +62,18 @@ object ViewBindingAdapter {
         this.clipToOutline = true
     }
 
+    // 칼럼 recommendation 이미지 바인딩
+    @BindingAdapter("recommendationImage")
+    @JvmStatic
+    fun ImageView.setRecommendationImage (imageUrl: Any){
+        Glide.with(this.context)
+            .load(imageUrl)
+            .override(R.dimen.recommendation_image_size * 2,R.dimen.recommendation_image_size * 2)
+            .placeholder(R.drawable.image_loading)
+            .into(this)
+        this.clipToOutline = true
+    }
+
     // 로딩 상태 표시
     @JvmStatic
     @BindingAdapter("isLoading")
