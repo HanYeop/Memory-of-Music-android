@@ -29,7 +29,6 @@ class AlbumSearchFragment
         }
         initSearchView()
         initClickListener()
-        albumViewModel.getRemoteAlbums("에픽하이")
     }
 
     private fun initSearchView(){
