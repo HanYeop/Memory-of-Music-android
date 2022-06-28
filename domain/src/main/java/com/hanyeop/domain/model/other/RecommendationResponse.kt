@@ -4,4 +4,5 @@ data class RecommendationResponse(
     var image: String = "",
     var title: String = "",
     var artist: String = "",
+    var id: Int = 0
 )
