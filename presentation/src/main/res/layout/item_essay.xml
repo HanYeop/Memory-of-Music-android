@@ -49,7 +49,7 @@
             android:layout_marginEnd="@dimen/margin_default_20"
             android:layout_width="0dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:text="@{essay.content}"
             app:layout_constraintBottom_toBottomOf="@+id/image_essay"
             app:layout_constraintEnd_toEndOf="parent"
