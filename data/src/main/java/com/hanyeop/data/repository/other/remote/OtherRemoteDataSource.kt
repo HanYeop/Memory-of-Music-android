@@ -5,4 +5,5 @@ import com.google.firebase.firestore.QuerySnapshot
 
 interface OtherRemoteDataSource {
     fun getRecommendation() : Task<QuerySnapshot>
+    fun getEssay() : Task<QuerySnapshot>
 }
