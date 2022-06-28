@@ -1,7 +1,9 @@
 package com.hanyeop.presentation.view.other
 
 import androidx.lifecycle.ViewModel
+import com.hanyeop.domain.model.other.EssayResponse
 import com.hanyeop.domain.model.other.RecommendationResponse
+import com.hanyeop.domain.usecase.other.GetEssayUseCase
 import com.hanyeop.domain.usecase.other.GetRecommendationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -10,11 +12,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OtherViewModel @Inject constructor(
-    private val getRecommendationUseCase: GetRecommendationUseCase
+    private val getRecommendationUseCase: GetRecommendationUseCase,
+    private val getEssayUseCase: GetEssayUseCase
 ) : ViewModel() {
 
     private val _recommendationList: MutableStateFlow<List<RecommendationResponse>> = MutableStateFlow(listOf())
     val recommendationList get() = _recommendationList.asStateFlow()
+    private val _essayList: MutableStateFlow<List<EssayResponse>> = MutableStateFlow(listOf())
+    val essayList get() = _essayList.asStateFlow()
 
     fun getRecommendation() = getRecommendationUseCase.execute()
         .addOnSuccessListener { snapshot ->
@@ -24,7 +29,18 @@ class OtherViewModel @Inject constructor(
                     list.add(it!!)
                 }
             }
-            list.reverse()
             _recommendationList.value = list
         }
+
+    fun getEssay() = getEssayUseCase.execute()
+        .addOnSuccessListener { snapshot ->
+            val list = mutableListOf<EssayResponse>()
+            for(item in snapshot.documents){
+                item.toObject(EssayResponse::class.java).let {
+                    list.add(it!!)
+                }
+            }
+            _essayList.value = list
+        }
+
 }

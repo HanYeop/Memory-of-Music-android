@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="essay"
+            type="com.hanyeop.domain.model.other.EssayResponse" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,9 +17,11 @@
             android:id="@+id/image_essay"
             android:layout_width="@dimen/search_image_size"
             android:layout_height="@dimen/search_image_size"
-            android:layout_margin="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_10"
             android:background="@drawable/rounded_corner_border"
             tools:src="@tools:sample/avatars"
+            app:searchImage="@{essay.image}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +34,7 @@
             android:layout_marginEnd="@dimen/margin_default_20"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="최고의 앨범"
+            android:text="@{essay.title}"
             app:layout_constraintBottom_toTopOf="@+id/text_artist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_essay"
@@ -46,7 +50,7 @@
             android:layout_width="0dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="주목할만하다."
+            android:text="@{essay.content}"
             app:layout_constraintBottom_toBottomOf="@+id/image_essay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/image_essay"

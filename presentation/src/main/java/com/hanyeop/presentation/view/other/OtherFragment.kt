@@ -30,20 +30,17 @@ class OtherFragment
             otherViewModel.getRecommendation()
 
             essayRecyclerView.adapter = essayAdapter
-            essayAdapter.submitList(
-                listOf(EssayResponse("","제목1","가수1","https://hanyeop.tistory.com/429"),
-                    EssayResponse("","제목1","가수1"),
-                    EssayResponse("","제목112","3가수1"),
-                    EssayResponse("","제목13","가수31"),
-                    EssayResponse("","제목1","가수31"),
-                    EssayResponse("","제목123","가수31"),
-                    EssayResponse("","제목13","가수1"))
-            )
+            otherViewModel.getEssay()
         }
 
         repeatOnStarted {
             otherViewModel.recommendationList.collect{
                 recommendationAdapter.submitList(it)
+            }
+        }
+        repeatOnStarted {
+            otherViewModel.essayList.collect{
+                essayAdapter.submitList(it)
             }
         }
     }

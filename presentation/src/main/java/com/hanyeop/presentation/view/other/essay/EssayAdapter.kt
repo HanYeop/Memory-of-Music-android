@@ -18,7 +18,7 @@ class EssayAdapter(private val listener: EssayAdapterListener)
             }
         }
         fun bind(essay: EssayResponse){
-
+            binding.essay = essay
         }
     }
 
