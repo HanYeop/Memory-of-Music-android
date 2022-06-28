@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             app:srb_clickable="true"
             app:srb_isIndicator="false"
+            app:srb_starPadding="@dimen/star_padding"
             app:srb_numStars="5"
             app:srb_rating="0"
             app:srb_scrollable="true"
