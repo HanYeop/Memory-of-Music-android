@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanyeop.domain.model.other.RecommendationResponse
 import com.hanyeop.presentation.databinding.ItemRecommendationBinding
 
-class RecommendationAdapter()
+class RecommendationAdapter(private val listener: RecommendationAdapterListener)
     : ListAdapter<RecommendationResponse, RecommendationAdapter.ViewHolder>(diffUtil){
 
     inner class ViewHolder(private val binding: ItemRecommendationBinding): RecyclerView.ViewHolder(binding.root){
         init {
-
+            binding.root.setOnClickListener {
+                listener.onItemClicked(getItem(adapterPosition))
+            }
         }
         fun bind(recommendation: RecommendationResponse){
             binding.recommendation = recommendation
