@@ -75,6 +75,9 @@
     <string name="album_empty">등록된 앨범이 없습니다.\n지금 앨범을 등록해보세요!</string>
 
     <string name="recommendation_header">추천 음악</string>
+    <string name="recommendation_body">개발자의 추천 음악을 만나보세요!</string>
+    <string name="essay_header">음악 에세이</string>
+
 
     <string name="data_header">데이터</string>
     <string name="data_setting">데이터 백업/복원하기</string>

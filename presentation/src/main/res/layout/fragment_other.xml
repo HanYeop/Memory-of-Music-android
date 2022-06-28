@@ -52,12 +52,32 @@
                     style="@style/detail_header_text"
                     android:text="@string/recommendation_header" />
 
+                <TextView
+                    android:id="@+id/text_recommendation_music_body"
+                    style="@style/detail_body_text"
+                    android:textColor="@color/gray"
+                    android:text="@string/recommendation_body" />
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/other_recycler_view"
+                    android:id="@+id/recommendation_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:paddingTop="@dimen/padding_default_10"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_recommendation"/>
+
+                <TextView
+                    android:id="@+id/text_essay"
+                    style="@style/detail_header_text"
+                    android:layout_marginTop="@dimen/margin_24"
+                    android:text="@string/essay_header" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/essay_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/padding_default_10"
-                    android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_recommendation"/>
 
