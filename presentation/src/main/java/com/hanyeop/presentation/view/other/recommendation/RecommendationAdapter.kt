@@ -1,4 +1,4 @@
-package com.hanyeop.presentation.view.other
+package com.hanyeop.presentation.view.other.recommendation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

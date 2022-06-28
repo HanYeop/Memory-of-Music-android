@@ -5,8 +5,8 @@ import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentOtherBinding
 import com.hanyeop.presentation.utils.repeatOnStarted
+import com.hanyeop.presentation.view.other.recommendation.RecommendationAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class OtherFragment : BaseFragmentMain<FragmentOtherBinding>(R.layout.fragment_other) {
