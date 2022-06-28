@@ -46,67 +46,50 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_margin="@dimen/margin_24"
-                    android:background="@drawable/setting_top">
+                    android:background="@drawable/setting_top"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_default_10">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/google_drive_logo" />
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10"
                         android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:gravity="left">
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="@+id/imageView">
+
                         <TextView
-                            android:id="@+id/text_music_count_header"
-                            android:text="@string/music_count_header"
+                            android:id="@+id/text_google_drive_id_header"
                             style="@style/setting_header_text"
-                            android:textColor="@color/black_high_emphasis"
-                            android:gravity="center"/>
+                            android:text="@string/google_drive_id"
+                            android:textColor="@color/setting_color" />
+
                         <TextView
-                            android:id="@+id/text_music_count_body"
+                            android:id="@+id/text_google_drive_id_body"
                             style="@style/setting_body_text"
-                            android:textColor="@color/setting_color"
-                            tools:text="10"
-                            android:gravity="center"/>
+                            android:textSize="@dimen/setting_id_size"
+                            android:layout_width="match_parent"
+                            android:text="test555@naver.com" />
                     </LinearLayout>
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/text_layout_header"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/layout_header"
-                    style="@style/setting_header_text"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:layout_marginBottom="@dimen/margin_narrow_8"/>
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/switch_layout_type"
-                    android:layout_width="match_parent"
-                    style="@style/setting_body_text"
-                    app:track="@drawable/switch_track_selector"
-                    android:thumb="@drawable/switch_thumb"
-                    android:paddingStart="@dimen/padding_20"
-                    android:background="@color/real_light_gray"
-                    android:paddingTop="@dimen/padding_default_10"
-                    android:paddingEnd="@dimen/padding_default_10"
-                    android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/layout_type" />
-
-                <TextView
-                    android:id="@+id/text_data_header"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/data_header"
-                    android:layout_marginTop="@dimen/margin_16"
-                    style="@style/setting_header_text"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:layout_marginBottom="@dimen/margin_narrow_8"/>
-
-                <TextView
-                    android:id="@+id/text_data_setting"
+                    android:id="@+id/text_data_back_up"
                     style="@style/setting_body_text"
                     android:layout_width="match_parent"
                     android:background="@drawable/ripple_setting"
@@ -115,10 +98,20 @@
                     android:paddingTop="@dimen/padding_default_10"
                     android:paddingEnd="@dimen/padding_default_10"
                     android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/data_setting" />
+                    android:text="@string/data_back_up" />
 
                 <TextView
-                    android:id="@+id/text_data_delete"
+                    android:id="@+id/text_data_back_up_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최근 백업 시간 : "
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    style="@style/setting_header_text"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginBottom="@dimen/margin_narrow_8"/>
+
+                <TextView
+                    android:id="@+id/text_data_restore"
                     style="@style/setting_body_text"
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/margin_1"
@@ -128,64 +121,17 @@
                     android:paddingTop="@dimen/padding_default_10"
                     android:paddingEnd="@dimen/padding_default_10"
                     android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/data_delete" />
+                    android:text="@string/data_restore" />
 
                 <TextView
-                    android:id="@+id/text_security_header"
+                    android:id="@+id/text_data_restore_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/security_header"
-                    android:layout_marginTop="@dimen/margin_16"
+                    android:text="최근 복원 시간 : "
+                    android:layout_marginTop="@dimen/margin_narrow_8"
                     style="@style/setting_header_text"
                     android:layout_marginStart="@dimen/margin_16"
                     android:layout_marginBottom="@dimen/margin_narrow_8"/>
-
-                <TextView
-                    android:id="@+id/text_security_setting"
-                    style="@style/setting_body_text"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/ripple_setting"
-                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-                    android:paddingStart="@dimen/padding_20"
-                    android:paddingTop="@dimen/padding_default_10"
-                    android:paddingEnd="@dimen/padding_default_10"
-                    android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/security_setting" />
-
-                <TextView
-                    android:id="@+id/text_etc_header"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/etc_header"
-                    android:layout_marginTop="@dimen/margin_16"
-                    style="@style/setting_header_text"
-                    android:layout_marginStart="@dimen/margin_16"
-                    android:layout_marginBottom="@dimen/margin_narrow_8"/>
-
-                <TextView
-                    android:id="@+id/text_review"
-                    style="@style/setting_body_text"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/ripple_setting"
-                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-                    android:paddingStart="@dimen/padding_20"
-                    android:paddingTop="@dimen/padding_default_10"
-                    android:paddingEnd="@dimen/padding_default_10"
-                    android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/review" />
-
-                <TextView
-                    android:id="@+id/text_inquiry"
-                    style="@style/setting_body_text"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/ripple_setting"
-                    android:layout_marginTop="@dimen/margin_1"
-                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
-                    android:paddingStart="@dimen/padding_20"
-                    android:paddingTop="@dimen/padding_default_10"
-                    android:paddingEnd="@dimen/padding_default_10"
-                    android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/inquiry" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
