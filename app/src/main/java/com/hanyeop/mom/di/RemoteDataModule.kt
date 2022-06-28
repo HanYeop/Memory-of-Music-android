@@ -1,10 +1,13 @@
 package com.hanyeop.mom.di
 
+import com.google.firebase.firestore.FirebaseFirestore
 import com.hanyeop.data.api.MusicApi
 import com.hanyeop.data.repository.album.remote.AlbumRemoteDataSource
 import com.hanyeop.data.repository.album.remote.AlbumRemoteDataSourceImpl
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSource
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSourceImpl
+import com.hanyeop.data.repository.other.remote.OtherRemoteDataSource
+import com.hanyeop.data.repository.other.remote.OtherRemoteDataSourceImpl
 import com.hanyeop.mom.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -47,5 +50,12 @@ object RemoteDataModule {
     @Provides
     fun provideAlbumRemoteDataSource(musicApi: MusicApi): AlbumRemoteDataSource {
         return AlbumRemoteDataSourceImpl(musicApi)
+    }
+
+    // OtherRemoteDataSource DI
+    @Singleton
+    @Provides
+    fun provideOtherRemoteDataSource(fireStore : FirebaseFirestore): OtherRemoteDataSource {
+        return OtherRemoteDataSourceImpl(fireStore)
     }
 }
