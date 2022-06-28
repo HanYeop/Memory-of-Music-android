@@ -216,6 +216,16 @@
                     android:paddingBottom="@dimen/padding_default_10"
                     android:text="@string/inquiry" />
 
+                <TextView
+                    android:id="@+id/text_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_narrow_8"
+                    style="@style/setting_header_text"
+                    android:textSize="12dp"
+                    android:gravity="center"
+                    android:text="@string/source_text" />
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
