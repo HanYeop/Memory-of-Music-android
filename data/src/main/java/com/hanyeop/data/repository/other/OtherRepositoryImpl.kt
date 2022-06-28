@@ -10,4 +10,5 @@ class OtherRepositoryImpl @Inject constructor(
     private val otherRemoteDataSource: OtherRemoteDataSource
 ) : OtherRepository{
     override fun getRecommendation(): Task<QuerySnapshot> = otherRemoteDataSource.getRecommendation()
+    override fun getEssay(): Task<QuerySnapshot> = otherRemoteDataSource.getEssay()
 }

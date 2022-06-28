@@ -5,4 +5,5 @@ import com.google.firebase.firestore.QuerySnapshot
 
 interface OtherRepository {
     fun getRecommendation() : Task<QuerySnapshot>
+    fun getEssay() : Task<QuerySnapshot>
 }
