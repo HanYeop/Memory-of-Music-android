@@ -31,7 +31,7 @@ class CategoryDialog(context: Context, private val listener: CategoryDialogListe
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_category, null, false)
         setContentView(binding.root)
 
-        context.dialogResize(this,0.8f,0.3f)
+        context.dialogResize(this,0.8f,0.25f)
 
         window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
