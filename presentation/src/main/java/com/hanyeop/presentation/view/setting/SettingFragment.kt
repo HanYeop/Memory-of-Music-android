@@ -63,6 +63,9 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
             textDataSetting.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_dataSettingFragment)
             }
+            textInquiry.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_inquiryFragment)
+            }
         }
     }
 

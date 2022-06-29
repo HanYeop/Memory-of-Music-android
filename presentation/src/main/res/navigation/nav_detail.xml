@@ -59,6 +59,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainFragment_to_inquiryFragment"
+            app:destination="@id/inquiryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -136,4 +143,9 @@
         android:name="com.hanyeop.presentation.view.setting.data.DataSettingFragment"
         android:label="DataSettingFragment"
         tools:layout="@layout/fragment_data_setting"/>
+    <fragment
+        android:id="@+id/inquiryFragment"
+        android:name="com.hanyeop.presentation.view.setting.inquiry.InquiryFragment"
+        android:label="InquiryFragment"
+        tools:layout="@layout/fragment_inquiry"/>
 </navigation>

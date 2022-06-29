@@ -92,6 +92,9 @@
     <string name="etc_header">기타</string>
     <string name="review">리뷰하기</string>
     <string name="inquiry">문의하기</string>
+    <string name="inquiry_name">닉네임</string>
+    <string name="inquiry_success">문의가 등록되었습니다.</string>
+    <string name="inquiry_header">이용하면서 불편했던 부분이나 건의사항을 남겨주세요. \n답장이 필요할 시 이메일을 남겨주세요!</string>
     <string name="layout_header">레이아웃</string>
     <string name="layout_type">데이터 간략히 표시</string>
     <string name="source_text">음악 정보 제공 : maniadb</string>
@@ -130,5 +133,7 @@
         <item>평점 순</item>
         <item>평점 역순</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
