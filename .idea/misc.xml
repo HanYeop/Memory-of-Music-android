@@ -3,7 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.346" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/drawable/dialog_bottom_sheet.xml" value="0.308" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/drawable/ic_launcher_background.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/drawable/ic_main_background.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_main_2.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_main_2_round.xml" value="0.346" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/app/src/main/res/mipmap-anydpi-v26/ic_main_round.xml" value="0.346" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/button_cancel.xml" value="0.362" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/button_ok.xml" value="0.362" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/drawable/button_regular_main.xml" value="0.3345" />
@@ -66,6 +75,7 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_modify.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_album_search.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_data_setting.xml" value="0.3515625" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_inquiry.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_main.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_detail.xml" value="0.3493670886075949" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/layout/fragment_music_insert.xml" value="0.36614583333333334" />
@@ -89,6 +99,7 @@
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_music_list_option.xml" value="0.3515625" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_option.xml" value="0.36614583333333334" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/menu/menu_toolbar.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Memory-of-Music-android-clean/presentation/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.346" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_featured_play_list_24.xml" value="0.341" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_queue_music_24.xml" value="0.341" />
         <entry key="..\:/AndroidProject/Memory-of-Music-android/presentation/src/main/res/drawable/ic_baseline_reorder_24.xml" value="0.341" />
