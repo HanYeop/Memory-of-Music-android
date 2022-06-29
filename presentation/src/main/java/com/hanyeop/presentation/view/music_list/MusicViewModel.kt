@@ -82,24 +82,6 @@ class MusicViewModel @Inject constructor(
         content.value = ""
     }
 
-    fun test(){
-        viewModelScope.launch(Dispatchers.IO) {
-            for(i in 0 until 5) {
-                insertMusicUseCase.execute(
-                    Music(
-                        image = "",
-                        title = i.toString(),
-                        artist = "ab",
-                        genre = "힙합",
-                        rating = i.toFloat(),
-                        summary = "테스트",
-                        content = "입니다 $i"
-                    )
-                )
-            }
-        }
-    }
-
     // 장르 스피너 선택 결과
     fun setGenre(selected: String){
         genre.value = selected

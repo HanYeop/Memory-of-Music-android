@@ -101,25 +101,6 @@ class AlbumViewModel @Inject constructor(
         filterSort.value = type
     }
 
-    fun test(){
-        viewModelScope.launch(Dispatchers.IO) {
-            for(i in 0 until 5) {
-                insertAlbumUseCase.execute(
-                    Album(
-                        image = "",
-                        title = i.toString(),
-                        artist = "ab",
-                        genre = "힙합",
-                        trackList = "",
-                        rating = i.toFloat(),
-                        summary = "테스트",
-                        content = "입니다 $i"
-                    )
-                )
-            }
-        }
-    }
-
     fun insertAlbum(rating: Float){
         viewModelScope.launch(Dispatchers.IO) {
             insertAlbumUseCase.execute(
@@ -236,7 +217,7 @@ class AlbumViewModel @Inject constructor(
                 genre.value == "장르" ->{
                     _inputErrorMsg.emit(R.string.error_genre)
                 }else -> {
-                _inputSuccessEvent.emit("검사 성공")
+                    _inputSuccessEvent.emit("검사 성공")
                 }
             }
         }
