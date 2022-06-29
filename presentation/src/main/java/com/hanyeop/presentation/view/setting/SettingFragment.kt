@@ -1,6 +1,8 @@
 package com.hanyeop.presentation.view.setting
 
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -65,6 +67,10 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
             }
             textInquiry.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_inquiryFragment)
+            }
+            textReview.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${requireContext().packageName}" ))
+                requireContext().startActivity(intent)
             }
         }
     }
