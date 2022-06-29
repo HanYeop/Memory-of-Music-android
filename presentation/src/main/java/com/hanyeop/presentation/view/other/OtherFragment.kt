@@ -32,7 +32,10 @@ class OtherFragment
             essayRecyclerView.adapter = essayAdapter
             otherViewModel.getEssay()
         }
+        initViewModelCallback()
+    }
 
+    private fun initViewModelCallback(){
         repeatOnStarted {
             otherViewModel.recommendationList.collect{
                 recommendationAdapter.submitList(it)
