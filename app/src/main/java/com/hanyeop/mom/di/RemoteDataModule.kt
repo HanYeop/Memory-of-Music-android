@@ -8,6 +8,8 @@ import com.hanyeop.data.repository.music.remote.MusicRemoteDataSource
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSourceImpl
 import com.hanyeop.data.repository.other.remote.OtherRemoteDataSource
 import com.hanyeop.data.repository.other.remote.OtherRemoteDataSourceImpl
+import com.hanyeop.data.repository.setting.remote.SettingRemoteDataSource
+import com.hanyeop.data.repository.setting.remote.SettingRemoteDataSourceImpl
 import com.hanyeop.mom.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -57,5 +59,12 @@ object RemoteDataModule {
     @Provides
     fun provideOtherRemoteDataSource(fireStore : FirebaseFirestore): OtherRemoteDataSource {
         return OtherRemoteDataSourceImpl(fireStore)
+    }
+
+    // SettingRemoteDataSource DI
+    @Singleton
+    @Provides
+    fun provideSettingRemoteDataSource(fireStore : FirebaseFirestore): SettingRemoteDataSource {
+        return SettingRemoteDataSourceImpl(fireStore)
     }
 }
