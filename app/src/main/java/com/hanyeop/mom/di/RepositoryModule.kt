@@ -8,9 +8,12 @@ import com.hanyeop.data.repository.music.local.MusicLocalDataSource
 import com.hanyeop.data.repository.music.remote.MusicRemoteDataSource
 import com.hanyeop.data.repository.other.OtherRepositoryImpl
 import com.hanyeop.data.repository.other.remote.OtherRemoteDataSource
+import com.hanyeop.data.repository.setting.SettingRepositoryImpl
+import com.hanyeop.data.repository.setting.remote.SettingRemoteDataSource
 import com.hanyeop.domain.repository.AlbumRepository
 import com.hanyeop.domain.repository.MusicRepository
 import com.hanyeop.domain.repository.OtherRepository
+import com.hanyeop.domain.repository.SettingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,5 +51,14 @@ object RepositoryModule {
         otherRemoteDataSource: OtherRemoteDataSource
     ): OtherRepository {
         return OtherRepositoryImpl(otherRemoteDataSource)
+    }
+
+    // SettingRepository DI
+    @Provides
+    @Singleton
+    fun provideSettingRepository(
+        settingRemoteDataSource: SettingRemoteDataSource
+    ): SettingRepository {
+        return SettingRepositoryImpl(settingRemoteDataSource)
     }
 }
