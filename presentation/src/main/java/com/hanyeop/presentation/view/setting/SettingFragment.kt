@@ -65,12 +65,15 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
             textDataSetting.setOnClickListener {
                 findNavController().navigate(R.id.action_mainFragment_to_dataSettingFragment)
             }
-            textInquiry.setOnClickListener {
-                findNavController().navigate(R.id.action_mainFragment_to_inquiryFragment)
+            textLockSetting.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_lockSettingFragment)
             }
             textReview.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${requireContext().packageName}" ))
                 requireContext().startActivity(intent)
+            }
+            textInquiry.setOnClickListener {
+                findNavController().navigate(R.id.action_mainFragment_to_inquiryFragment)
             }
         }
     }

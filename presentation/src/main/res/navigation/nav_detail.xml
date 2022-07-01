@@ -66,6 +66,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainFragment_to_lockSettingFragment"
+            app:destination="@id/lockSettingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -148,4 +155,9 @@
         android:name="com.hanyeop.presentation.view.setting.inquiry.InquiryFragment"
         android:label="InquiryFragment"
         tools:layout="@layout/fragment_inquiry"/>
+    <fragment
+        android:id="@+id/lockSettingFragment"
+        android:name="com.hanyeop.presentation.view.setting.lock.LockSettingFragment"
+        android:label="LockSettingFragment"
+        tools:layout="@layout/fragment_lock_setting"/>
 </navigation>
