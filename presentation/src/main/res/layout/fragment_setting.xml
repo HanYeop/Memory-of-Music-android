@@ -170,7 +170,7 @@
                     android:layout_marginBottom="@dimen/margin_narrow_8"/>
 
                 <TextView
-                    android:id="@+id/text_security_setting"
+                    android:id="@+id/text_lock_setting"
                     style="@style/setting_body_text"
                     android:layout_width="match_parent"
                     android:background="@drawable/ripple_setting"
@@ -179,7 +179,7 @@
                     android:paddingTop="@dimen/padding_default_10"
                     android:paddingEnd="@dimen/padding_default_10"
                     android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/security_setting" />
+                    android:text="@string/lock_setting" />
 
                 <TextView
                     android:id="@+id/text_etc_header"

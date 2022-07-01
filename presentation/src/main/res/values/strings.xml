@@ -88,7 +88,7 @@
     <string name="music_count_header">등록한 음악</string>
     <string name="music_album_header">등록한 앨범</string>
     <string name="security_header">보안</string>
-    <string name="security_setting">잠금 설정</string>
+    <string name="lock_setting">잠금 설정</string>
     <string name="etc_header">기타</string>
     <string name="review">리뷰하기</string>
     <string name="inquiry">문의하기</string>
