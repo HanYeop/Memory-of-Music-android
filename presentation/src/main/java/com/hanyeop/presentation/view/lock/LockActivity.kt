@@ -17,6 +17,33 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
             textTwo.setOnClickListener {
 
             }
+            textThree.setOnClickListener {
+
+            }
+            textFour.setOnClickListener {
+
+            }
+            textFive.setOnClickListener {
+
+            }
+            textSix.setOnClickListener {
+
+            }
+            textSeven.setOnClickListener {
+
+            }
+            textEight.setOnClickListener {
+
+            }
+            textNine.setOnClickListener {
+
+            }
+            textZero.setOnClickListener {
+
+            }
+            imageBackspace.setOnClickListener {
+
+            }
         }
     }
 }

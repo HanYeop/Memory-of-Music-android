@@ -40,22 +40,22 @@
 
             <TextView
                 style="@style/lock_number_text"
-                android:text="_"
+                android:text="●"
                 android:layout_marginEnd="@dimen/margin_narrow_8" />
 
             <TextView
                 style="@style/lock_number_text"
-                android:text="_"
+                android:text="●"
                 android:layout_marginEnd="@dimen/margin_narrow_8" />
 
             <TextView
                 style="@style/lock_number_text"
-                android:text="_"
+                android:text="●"
                 android:layout_marginEnd="@dimen/margin_narrow_8" />
 
             <TextView
                 style="@style/lock_number_text"
-                android:text="_" />
+                android:text="●" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,10 +149,11 @@
                     style="@style/lock_number_select_text"
                     android:text="0" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/image_backspace"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ripple_lock"
                     android:layout_weight="1"
                     android:src="@drawable/ic_baseline_backspace_24" />
             </LinearLayout>
