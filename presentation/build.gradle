@@ -81,4 +81,7 @@ dependencies {
 
     // Firebase
     implementation (Firebase.FIREBASE_FIRESTORE)
+
+    // Biometric
+    implementation (Biometric.BIOMETRIC)
 }

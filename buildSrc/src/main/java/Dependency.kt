@@ -76,3 +76,8 @@ object SeekbarRangedView{
 object Firebase{
     const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx:24.1.2"
 }
+
+object Biometric{
+    const val BIOMETRIC = "androidx.biometric:biometric:1.2.0-alpha04"
+}
+
