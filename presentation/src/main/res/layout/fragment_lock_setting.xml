@@ -75,7 +75,7 @@
                     android:text="@string/fingerprint_use" />
 
                 <TextView
-                    android:id="@+id/text_data_restore"
+                    android:id="@+id/text_password_change"
                     style="@style/setting_body_text"
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/margin_1"

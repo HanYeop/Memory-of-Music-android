@@ -26,6 +26,9 @@ class LockSettingFragment : BaseFragment<FragmentLockSettingBinding>(R.layout.fr
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
             }
+            textPasswordChange.setOnClickListener {
+                findNavController().navigate(R.id.action_lockSettingFragment_to_passwordSettingFragment)
+            }
         }
     }
 
