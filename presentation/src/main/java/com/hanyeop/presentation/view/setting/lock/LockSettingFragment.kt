@@ -1,14 +1,22 @@
 package com.hanyeop.presentation.view.setting.lock
 
+import android.content.SharedPreferences
 import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentLockSettingBinding
+import com.hanyeop.presentation.utils.PASSWORD_USE
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LockSettingFragment : BaseFragment<FragmentLockSettingBinding>(R.layout.fragment_lock_setting) {
 
-    override fun init() {
+    @Inject
+    lateinit var sharedPref: SharedPreferences
 
+    override fun init() {
+        initSwitch()
         initClickListener()
     }
 
@@ -16,6 +24,19 @@ class LockSettingFragment : BaseFragment<FragmentLockSettingBinding>(R.layout.fr
         binding.apply {
             toolbar.setNavigationOnClickListener {
                 findNavController().popBackStack()
+            }
+        }
+    }
+
+    private fun initSwitch(){
+        binding.apply {
+            switchPassword.isChecked = sharedPref.getInt(PASSWORD_USE,0) != 0
+            switchPassword.setOnCheckedChangeListener { _, isChecked ->
+                if(isChecked){
+                    sharedPref.edit().putInt(PASSWORD_USE, 1).apply()
+                }else{
+                    sharedPref.edit().putInt(PASSWORD_USE, 0).apply()
+                }
             }
         }
     }

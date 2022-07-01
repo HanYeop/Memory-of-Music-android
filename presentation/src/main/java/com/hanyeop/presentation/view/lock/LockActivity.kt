@@ -1,19 +1,41 @@
 package com.hanyeop.presentation.view.lock
 
-import android.util.Log
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.core.content.ContextCompat
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseActivity
 import com.hanyeop.presentation.databinding.ActivityLockBinding
-import kotlinx.coroutines.*
+import com.hanyeop.presentation.utils.PASSWORD_USE
+import com.hanyeop.presentation.view.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
+
+    @Inject
+    lateinit var sharedPref: SharedPreferences
 
     private var focus = 1
     private val password = Array(5){ -1 }
 
     override fun init() {
+        if(sharedPref.getInt(PASSWORD_USE,0) == 0){
+            startMainActivity()
+        }
         initClickListener()
+    }
+
+    private fun startMainActivity(){
+        finish()
+        val intent = Intent(this,MainActivity::class.java)
+        intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        startActivity(intent)
     }
 
     private fun initClickListener(){
@@ -118,6 +140,7 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
     }
 
     private fun checkPassword(){
+        startMainActivity()
         CoroutineScope(Dispatchers.Main).launch {
             binding.textLockBody.text = resources.getString(R.string.unlock_fail)
             resetColor()

@@ -13,3 +13,4 @@ const val TYPE_ALL = 0
 const val TYPE_BRIEF = 1
 
 const val LIST_TYPE = "listType"
+const val PASSWORD_USE = "passwordUse"
