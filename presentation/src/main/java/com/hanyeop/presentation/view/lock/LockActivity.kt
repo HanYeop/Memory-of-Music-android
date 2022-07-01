@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseActivity
 import com.hanyeop.presentation.databinding.ActivityLockBinding
+import com.hanyeop.presentation.utils.FINGERPRINT_USE
 import com.hanyeop.presentation.utils.PASSWORD
 import com.hanyeop.presentation.utils.PASSWORD_USE
 import com.hanyeop.presentation.view.MainActivity
@@ -39,10 +40,13 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
         if(sharedPref.getInt(PASSWORD_USE,0) == 0){
             startMainActivity()
         }
+
         initClickListener()
         initBiometric()
 
-        biometricPrompt.authenticate(promptInfo)
+        if(sharedPref.getInt(FINGERPRINT_USE,0) == 1){
+            biometricPrompt.authenticate(promptInfo)
+        }
     }
 
     private fun initBiometric(){
