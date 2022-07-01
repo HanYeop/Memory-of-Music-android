@@ -26,6 +26,8 @@ class OtherFragment
 
     override fun init() {
         binding.apply {
+            vm = otherViewModel
+
             recommendationRecyclerView.adapter = recommendationAdapter
             otherViewModel.getRecommendation()
 

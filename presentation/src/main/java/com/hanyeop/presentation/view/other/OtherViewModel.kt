@@ -20,17 +20,23 @@ class OtherViewModel @Inject constructor(
     val recommendationList get() = _recommendationList.asStateFlow()
     private val _essayList: MutableStateFlow<List<EssayResponse>> = MutableStateFlow(listOf())
     val essayList get() = _essayList.asStateFlow()
+    private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    val loading get() = _loading.asStateFlow()
 
-    fun getRecommendation() = getRecommendationUseCase.execute()
-        .addOnSuccessListener { snapshot ->
-            val list = mutableListOf<RecommendationResponse>()
-            for(item in snapshot.documents){
-                item.toObject(RecommendationResponse::class.java).let {
-                    list.add(it!!)
+    fun getRecommendation() {
+        _loading.value = true
+        getRecommendationUseCase.execute()
+            .addOnSuccessListener { snapshot ->
+                val list = mutableListOf<RecommendationResponse>()
+                for (item in snapshot.documents) {
+                    item.toObject(RecommendationResponse::class.java).let {
+                        list.add(it!!)
+                    }
                 }
+                _recommendationList.value = list
+                _loading.value = false
             }
-            _recommendationList.value = list
-        }
+    }
 
     fun getEssay() = getEssayUseCase.execute()
         .addOnSuccessListener { snapshot ->
