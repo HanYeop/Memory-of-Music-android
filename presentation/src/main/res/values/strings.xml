@@ -104,6 +104,7 @@
     
     <string name="unlock">잠금 해제</string>
     <string name="unlock_detail">지문 또는 비밀번호를 입력하세요.</string>
+    <string name="unlock_fail">비밀번호가 일치하지 않습니다.</string>
 
     <string-array name="genre">
         <item>장르</item>

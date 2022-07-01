@@ -27,6 +27,7 @@
             android:text="@string/unlock" />
 
         <TextView
+            android:id="@+id/text_lock_body"
             android:layout_marginTop="@dimen/margin_narrow_8"
             style="@style/lock_body_text"
             android:text="@string/unlock_detail" />
@@ -39,21 +40,25 @@
             android:layout_marginTop="@dimen/margin_16">
 
             <TextView
+                android:id="@+id/password_one"
                 style="@style/lock_number_text"
                 android:text="●"
-                android:layout_marginEnd="@dimen/margin_narrow_8" />
+                android:layout_marginEnd="@dimen/margin_12" />
 
             <TextView
+                android:id="@+id/password_two"
                 style="@style/lock_number_text"
                 android:text="●"
-                android:layout_marginEnd="@dimen/margin_narrow_8" />
+                android:layout_marginEnd="@dimen/margin_12" />
 
             <TextView
+                android:id="@+id/password_three"
                 style="@style/lock_number_text"
                 android:text="●"
-                android:layout_marginEnd="@dimen/margin_narrow_8" />
+                android:layout_marginEnd="@dimen/margin_12" />
 
             <TextView
+                android:id="@+id/password_four"
                 style="@style/lock_number_text"
                 android:text="●" />
         </LinearLayout>
