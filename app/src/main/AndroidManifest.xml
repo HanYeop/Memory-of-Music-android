@@ -3,6 +3,7 @@
     package="com.hanyeop.mom">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name = "android.permission.VIBRATE"/>
 
     <application
         android:name=".di.ApplicationClass"

@@ -5,6 +5,7 @@ import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentLockSettingBinding
+import com.hanyeop.presentation.utils.PASSWORD
 import com.hanyeop.presentation.utils.PASSWORD_USE
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -33,7 +34,12 @@ class LockSettingFragment : BaseFragment<FragmentLockSettingBinding>(R.layout.fr
             switchPassword.isChecked = sharedPref.getInt(PASSWORD_USE,0) != 0
             switchPassword.setOnCheckedChangeListener { _, isChecked ->
                 if(isChecked){
-                    sharedPref.edit().putInt(PASSWORD_USE, 1).apply()
+                    if(sharedPref.getString(PASSWORD,"default") == "default"){
+                        findNavController().navigate(R.id.action_lockSettingFragment_to_passwordSettingFragment)
+                        switchPassword.isChecked = false
+                    } else{
+                        sharedPref.edit().putInt(PASSWORD_USE, 1).apply()
+                    }
                 }else{
                     sharedPref.edit().putInt(PASSWORD_USE, 0).apply()
                 }

@@ -1,49 +1,36 @@
-package com.hanyeop.presentation.view.lock
+package com.hanyeop.presentation.view.setting.lock.password
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
-import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.base.BaseActivity
-import com.hanyeop.presentation.databinding.ActivityLockBinding
+import com.hanyeop.presentation.base.BaseFragment
+import com.hanyeop.presentation.databinding.FragmentPasswordSettingBinding
 import com.hanyeop.presentation.utils.PASSWORD
-import com.hanyeop.presentation.utils.PASSWORD_USE
-import com.hanyeop.presentation.view.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
+class PasswordSettingFragment : BaseFragment<FragmentPasswordSettingBinding>(R.layout.fragment_password_setting) {
 
     @Inject
     lateinit var sharedPref: SharedPreferences
 
     private var focus = 1
     private val password = Array(5){ -1 }
+    private var firstPassword = ""
 
     override fun init() {
-        if(sharedPref.getInt(PASSWORD_USE,0) == 0){
-            startMainActivity()
-        }
         initClickListener()
-    }
-
-    private fun startMainActivity(){
-        finish()
-        val intent = Intent(this,MainActivity::class.java)
-        intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        startActivity(intent)
     }
 
     private fun initClickListener(){
         binding.apply {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
             textOne.setOnClickListener {
                 password[focus] = 1
                 changeColor()
@@ -94,17 +81,21 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
     private fun changeColor(){
         when(focus){
             1 -> {
-                binding.passwordOne.setTextColor(ContextCompat.getColor(this, R.color.subColor))
+                binding.passwordOne.setTextColor(ContextCompat.getColor(requireContext(), R.color.subColor))
             }
             2 -> {
-                binding.passwordTwo.setTextColor(ContextCompat.getColor(this, R.color.subColor))
+                binding.passwordTwo.setTextColor(ContextCompat.getColor(requireContext(), R.color.subColor))
             }
             3 -> {
-                binding.passwordThree.setTextColor(ContextCompat.getColor(this, R.color.subColor))
+                binding.passwordThree.setTextColor(ContextCompat.getColor(requireContext(), R.color.subColor))
             }
             4 -> {
-                binding.passwordFour.setTextColor(ContextCompat.getColor(this, R.color.subColor))
-                checkPassword()
+                binding.passwordFour.setTextColor(ContextCompat.getColor(requireContext(), R.color.subColor))
+                if(firstPassword == ""){
+                    setFirstPassword()
+                }else{
+                    changePassword()
+                }
                 focus = 0
             }
         }
@@ -116,16 +107,16 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
             focus--
             when (focus) {
                 1 -> {
-                    binding.passwordOne.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+                    binding.passwordOne.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
                 }
                 2 -> {
-                    binding.passwordTwo.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+                    binding.passwordTwo.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
                 }
                 3 -> {
-                    binding.passwordThree.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+                    binding.passwordThree.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
                 }
                 4 -> {
-                    binding.passwordFour.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+                    binding.passwordFour.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
                 }
             }
             password[focus] = -1
@@ -137,30 +128,35 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
         for(i in password.indices){
             password[i] = -1
         }
-        binding.passwordOne.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
-        binding.passwordTwo.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
-        binding.passwordThree.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
-        binding.passwordFour.setTextColor(ContextCompat.getColor(this, R.color.light_gray))
+        binding.passwordOne.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
+        binding.passwordTwo.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
+        binding.passwordThree.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
+        binding.passwordFour.setTextColor(ContextCompat.getColor(requireContext(), R.color.light_gray))
     }
 
-    private fun checkPassword(){
+    private fun setFirstPassword(){
+        for(i in 1 until password.size){
+            firstPassword += password[i].toString()
+        }
+        binding.textLockBody.text = resources.getString(R.string.password_setting_body_second)
+        resetColor()
+    }
+
+    private fun changePassword(){
         var str = ""
         for(i in 1 until password.size){
             str += password[i].toString()
         }
 
-        if(sharedPref.getString(PASSWORD,"default") == str) {
-            startMainActivity()
-        } else {
-            val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if(firstPassword == str){
+            sharedPref.edit().putString(PASSWORD, str).apply()
+            showToast(resources.getString(R.string.password_setting_success))
+            findNavController().navigateUp()
+        }else{
+            val vibrator = requireContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             vibrator.vibrate(500)
-
-            CoroutineScope(Dispatchers.Main).launch {
-                binding.textLockBody.text = resources.getString(R.string.unlock_fail)
-                resetColor()
-                delay(500)
-                binding.textLockBody.text = resources.getString(R.string.unlock_detail)
-            }
+            binding.textLockBody.text = resources.getString(R.string.password_setting_fail)
+            resetColor()
         }
     }
 }
