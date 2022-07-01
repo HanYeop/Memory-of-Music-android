@@ -101,6 +101,9 @@
     <string name="layout_header">레이아웃</string>
     <string name="layout_type">데이터 간략히 표시</string>
     <string name="source_text">음악 정보 제공 : maniadb</string>
+    
+    <string name="unlock">잠금 해제</string>
+    <string name="unlock_detail">지문 또는 비밀번호를 입력하세요.</string>
 
     <string-array name="genre">
         <item>장르</item>

@@ -42,6 +42,11 @@
 
     <dimen name="rating_selected_text">22dp</dimen>
 
+    <dimen name="lock_header">24dp</dimen>
+    <dimen name="lock_body">16dp</dimen>
+    <dimen name="lock_number_text">24dp</dimen>
+    <dimen name="lock_number_select_text">28dp</dimen>
+
     <dimen name="large_image_size">300dp</dimen>
     <dimen name="medium_image_size">180dp</dimen>
     <dimen name="recommendation_image_size">140dp</dimen>
