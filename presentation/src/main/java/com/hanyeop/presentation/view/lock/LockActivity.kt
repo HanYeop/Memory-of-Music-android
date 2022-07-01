@@ -5,6 +5,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.widget.Toast
+import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseActivity
@@ -17,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.concurrent.Executor
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -28,11 +31,35 @@ class LockActivity : BaseActivity<ActivityLockBinding>(R.layout.activity_lock) {
     private var focus = 1
     private val password = Array(5){ -1 }
 
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+
     override fun init() {
         if(sharedPref.getInt(PASSWORD_USE,0) == 0){
             startMainActivity()
         }
         initClickListener()
+        initBiometric()
+
+        biometricPrompt.authenticate(promptInfo)
+    }
+
+    private fun initBiometric(){
+        executor = ContextCompat.getMainExecutor(this@LockActivity)
+        biometricPrompt = BiometricPrompt(this@LockActivity, executor,
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(
+                    result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    startMainActivity()
+                }
+            })
+
+        promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("지문 인증")
+            .setNegativeButtonText("취소")
+            .build()
     }
 
     private fun startMainActivity(){
