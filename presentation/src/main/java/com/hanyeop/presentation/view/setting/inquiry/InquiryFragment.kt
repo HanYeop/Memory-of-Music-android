@@ -27,6 +27,9 @@ class InquiryFragment : BaseFragment<FragmentInquiryBinding>(R.layout.fragment_i
 
     private fun initClickListener(){
         binding.apply {
+            toolbar.setNavigationOnClickListener {
+                findNavController().popBackStack()
+            }
             btnCancel.setOnClickListener {
                 findNavController().navigateUp()
             }
