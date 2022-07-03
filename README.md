@@ -1,7 +1,9 @@
 # Memory-of-Music-android
 Clean-Architecture 음악 기록 앱
 
-## Commit Type
+## 📱 앱 소개
+
+## 📝 Commit Type
 - [ADD] : 파일, 기능 추가
 - [REMOVE] : 파일, 기능 제거
 - [UPDATE] : 파일, 기능 수정
