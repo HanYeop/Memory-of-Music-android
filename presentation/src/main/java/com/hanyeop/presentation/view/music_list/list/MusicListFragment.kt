@@ -2,8 +2,7 @@ package com.hanyeop.presentation.view.music_list.list
 
 import android.content.SharedPreferences
 import android.os.Build
-import android.util.Log
-import android.view.*
+import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
@@ -15,7 +14,7 @@ import com.hanyeop.domain.utils.Result
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragmentMain
 import com.hanyeop.presentation.databinding.FragmentMusicListBinding
-import com.hanyeop.presentation.utils.*
+import com.hanyeop.presentation.utils.LIST_TYPE
 import com.hanyeop.presentation.view.MainFragmentDirections
 import com.hanyeop.presentation.view.MainViewModel
 import com.hanyeop.presentation.view.category.CategoryDialog
@@ -36,7 +35,7 @@ class MusicListFragment
     private val musicViewModel by viewModels<MusicViewModel>()
     private val mainViewModel by activityViewModels<MainViewModel>()
     private val musicListAdapter = MusicListAdapter(this)
-    private var searchView : SearchView? = null
+    private lateinit var searchView : SearchView
     private lateinit var job : Job
 
     @Inject
@@ -61,9 +60,9 @@ class MusicListFragment
         val search = binding.toolbar.menu.findItem(R.id.menu_search)
         searchView = search.actionView as SearchView
 
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
-                searchView?.clearFocus()
+                searchView.clearFocus()
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -122,7 +121,7 @@ class MusicListFragment
         job = lifecycleScope.launchWhenStarted {
             musicViewModel.musicList.collect {
                 if(it is Result.Success){
-                    searchView?.setQuery("",false)
+                    searchView.setQuery("",false)
                     musicListAdapter.setItem(it.data)
                     musicListAdapter.order(musicViewModel.filterSort.value)
                 }else{
@@ -154,4 +153,5 @@ class MusicListFragment
         super.onResume()
         requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
     }
+
 }

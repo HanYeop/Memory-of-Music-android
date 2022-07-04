@@ -35,7 +35,7 @@ class AlbumListFragment
     private val albumViewModel by viewModels<AlbumViewModel>()
     private val mainViewModel by activityViewModels<MainViewModel>()
     private val albumListAdapter = AlbumListAdapter(this)
-    private var searchView : SearchView? = null
+    private lateinit var searchView : SearchView
     private lateinit var job : Job
 
     @Inject
@@ -58,9 +58,9 @@ class AlbumListFragment
         val search = binding.toolbar.menu.findItem(R.id.menu_search)
         searchView = search.actionView as SearchView
 
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
-                searchView?.clearFocus()
+                searchView.clearFocus()
                 return true
             }
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -118,7 +118,7 @@ class AlbumListFragment
         job = lifecycleScope.launchWhenStarted {
             albumViewModel.albumList.collect {
                 if(it is Result.Success){
-                    searchView?.setQuery("",false)
+                    searchView.setQuery("",false)
                     albumListAdapter.setItem(it.data)
                     albumListAdapter.order(albumViewModel.filterSort.value)
                 }else{
