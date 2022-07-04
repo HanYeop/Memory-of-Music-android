@@ -17,7 +17,6 @@ class MainFragment : BaseFragmentMain<FragmentMainBinding>(R.layout.fragment_mai
     override fun init() {
         initNavigation()
         initBackPressed()
-        initClickListener()
     }
 
     private fun initNavigation() {
@@ -45,9 +44,5 @@ class MainFragment : BaseFragmentMain<FragmentMainBinding>(R.layout.fragment_mai
                 Toast.makeText(requireContext(), R.string.back_btn_press, Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun initClickListener(){
-
     }
 }
