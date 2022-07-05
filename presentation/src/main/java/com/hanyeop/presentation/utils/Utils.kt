@@ -52,6 +52,13 @@ fun timeFormatter(time: Long): String{
     return dateFormat.format(date)
 }
 
+fun timeDetailFormatter(time: Long): String{
+    val date = Date(time)
+    val dateFormat = SimpleDateFormat("yyyy. MM. dd HH:mm")
+
+    return dateFormat.format(date)
+}
+
 fun showDeleteDialog(context: Context, logic: () -> Unit){
     val builder = AlertDialog.Builder(context)
     builder

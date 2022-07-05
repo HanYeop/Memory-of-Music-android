@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.hanyeop.domain.model.setting.DomainInquiry
 import com.hanyeop.domain.usecase.setting.SetInquiryUseCase
 import com.hanyeop.presentation.R
-import com.hanyeop.presentation.utils.timeFormatter
+import com.hanyeop.presentation.utils.timeDetailFormatter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,7 +31,7 @@ class SettingViewModel @Inject constructor(
                 DomainInquiry(
                     id = id.value,
                     content = content.value,
-                    time = timeFormatter(System.currentTimeMillis())
+                    time = timeDetailFormatter(System.currentTimeMillis())
                 )
             )
             _successMsg.emit(R.string.inquiry_success)
