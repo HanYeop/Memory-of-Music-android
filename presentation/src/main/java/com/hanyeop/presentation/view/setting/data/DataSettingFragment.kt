@@ -1,18 +1,18 @@
 package com.hanyeop.presentation.view.setting.data
 
 import android.content.Intent
-import androidx.core.app.ActivityCompat.finishAffinity
+import android.util.Log
 import androidx.navigation.fragment.findNavController
-import com.ebner.roomdatabasebackup.core.RoomBackup
 import com.hanyeop.data.db.MusicDatabase
 import com.hanyeop.presentation.R
 import com.hanyeop.presentation.base.BaseFragment
 import com.hanyeop.presentation.databinding.FragmentDataSettingBinding
-import com.hanyeop.presentation.utils.SECRET_PASSWORD
+import com.hanyeop.presentation.view.MainActivity
 import com.hanyeop.presentation.view.lock.LockActivity
 import dagger.hilt.android.AndroidEntryPoint
+import de.raphaelebner.roomdatabasebackup.core.RoomBackup
+import java.io.File
 import javax.inject.Inject
-import kotlin.system.exitProcess
 
 @AndroidEntryPoint
 class DataSettingFragment : BaseFragment<FragmentDataSettingBinding>(R.layout.fragment_data_setting) {
@@ -20,8 +20,13 @@ class DataSettingFragment : BaseFragment<FragmentDataSettingBinding>(R.layout.fr
     @Inject
     lateinit var database: MusicDatabase
 
+    private lateinit var fragmentActivity : MainActivity
+    private lateinit var backup : RoomBackup
+
     override fun init() {
         initClickListener()
+        fragmentActivity = (activity as MainActivity)
+        backup = fragmentActivity.backup
     }
 
     private fun initClickListener(){
@@ -39,49 +44,32 @@ class DataSettingFragment : BaseFragment<FragmentDataSettingBinding>(R.layout.fr
     }
 
     private fun roomBackup(){
-        RoomBackup()
-            .context(requireContext())
+        backup
+            .backupLocation(RoomBackup.BACKUP_FILE_LOCATION_CUSTOM_DIALOG)
+            .backupLocationCustomFile(File("${requireContext().filesDir}/databasebackup/geilesBackup.sqlite3"))
             .database(database)
             .enableLogDebug(true)
-            .backupIsEncrypted(true)
-            .customEncryptPassword(SECRET_PASSWORD)
-            .useExternalStorage(true)
-            .maxFileCount(1)
-            .apply {
-                onCompleteListener { success, _ ->
-                    if(success){
-                        showToast("백업 완료")
-                        appRestart()
-                    }
+            .maxFileCount(5).apply {
+                onCompleteListener { success, message, exitCode ->
+                    Log.d("test5", "success: $success, message: $message, exitCode: $exitCode")
+                    showToast("데이터 백업이 완료되었습니다.")
+                    if (success) restartApp(Intent(requireContext(), LockActivity::class.java))
                 }
-            }
-            .backup()
+            }.backup()
     }
 
     private fun roomRestore(){
-        RoomBackup()
-            .context(requireContext())
+        backup
+            .backupLocation(RoomBackup.BACKUP_FILE_LOCATION_CUSTOM_DIALOG)
+            .backupLocationCustomFile(File("${requireContext().filesDir}/databasebackup/geilesBackup.sqlite3"))
             .database(database)
             .enableLogDebug(true)
-            .backupIsEncrypted(true)
-            .customEncryptPassword(SECRET_PASSWORD)
-            .useExternalStorage(true)
-            .maxFileCount(1)
             .apply {
-                onCompleteListener { success, _ ->
-                    if(success) {
-                        showToast("복원 완료")
-                        appRestart()
-                    }
+                onCompleteListener { success, message, exitCode ->
+                    Log.d("test5", "success: $success, message: $message, exitCode: $exitCode")
+                    showToast("데이터 복원이 완료되었습니다.")
+                    if (success) restartApp(Intent(requireContext(), LockActivity::class.java))
                 }
-            }
-            .restore()
-    }
-
-    private fun appRestart(){
-        finishAffinity(requireActivity())
-        val intent = Intent(requireContext(), LockActivity::class.java)
-        startActivity(intent)
-        exitProcess(0)
+            }.restore()
     }
 }
