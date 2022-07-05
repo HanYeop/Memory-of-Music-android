@@ -84,8 +84,8 @@ class DataSettingFragment : BaseFragment<FragmentDataSettingBinding>(R.layout.fr
             .maxFileCount(5).apply {
                 onCompleteListener { success, message, exitCode ->
                     Log.d("test5", "success: $success, message: $message, exitCode: $exitCode")
-                    showToast("데이터 백업이 완료되었습니다.")
                     if (success) {
+                        showToast("데이터 백업이 완료되었습니다.")
                         sharedPref.edit().putString(LAST_BACKUP_TIME, timeDetailFormatter(System.currentTimeMillis())).apply()
                         Handler(Looper.getMainLooper()).postDelayed({
                             restartApp(Intent(requireContext(), LockActivity::class.java))
@@ -104,11 +104,16 @@ class DataSettingFragment : BaseFragment<FragmentDataSettingBinding>(R.layout.fr
             .apply {
                 onCompleteListener { success, message, exitCode ->
                     Log.d("test5", "success: $success, message: $message, exitCode: $exitCode")
-                    showToast("데이터 복원이 완료되었습니다.")
-                    sharedPref.edit().putString(LAST_RESTORE_TIME, timeDetailFormatter(System.currentTimeMillis())).apply()
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        restartApp(Intent(requireContext(), LockActivity::class.java))
-                    }, 500)
+                    if (success) {
+                        showToast("데이터 복원이 완료되었습니다.")
+                        sharedPref.edit().putString(
+                            LAST_RESTORE_TIME,
+                            timeDetailFormatter(System.currentTimeMillis())
+                        ).apply()
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            restartApp(Intent(requireContext(), LockActivity::class.java))
+                        }, 500)
+                    }
                 }
             }.restore()
     }
