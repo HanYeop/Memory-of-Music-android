@@ -16,3 +16,5 @@ const val LIST_TYPE = "listType"
 const val PASSWORD_USE = "passwordUse"
 const val PASSWORD = "password"
 const val FINGERPRINT_USE = "fingerprintUse"
+
+const val SECRET_PASSWORD = "secret_password_key"
