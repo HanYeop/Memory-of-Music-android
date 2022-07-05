@@ -84,4 +84,12 @@ dependencies {
 
     // Biometric
     implementation (Biometric.BIOMETRIC)
+
+    // Room
+    implementation (Room.ROOM_RUNTIME)
+    kapt (Room.ROOM_COMPILER)
+    implementation (Room.ROOM_KTX)
+
+    // Room Database Backup
+    implementation (RoomBackup.ROOM_BACKUP)
 }
