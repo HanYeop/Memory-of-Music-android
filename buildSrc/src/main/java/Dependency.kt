@@ -82,6 +82,6 @@ object Biometric{
 }
 
 object RoomBackup{
-    const val ROOM_BACKUP = "com.github.rafi0101:Android-Room-Database-Backup:1.0.0-beta06"
+    const val ROOM_BACKUP = "de.raphaelebner:roomdatabasebackup:1.0.0-beta10"
 }
 
