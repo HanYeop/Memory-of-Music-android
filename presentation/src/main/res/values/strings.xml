@@ -83,7 +83,8 @@
     <string name="data_setting">데이터 백업/복원하기</string>
     <string name="data_back_up">데이터 백업하기</string>
     <string name="data_restore">데이터 복원하기</string>
-    <string name="google_drive_id">Google Drive 계정</string>
+    <string name="data_restore_detail">백업파일을 선택해주세요.\n(크기가 0KB 이거나 백업 기능으로 백업하지 않은 파일 선택 X)</string>
+    <string name="back_up_header">데이터를 로컬 저장소에 \n백업/복원 할 수 있습니다.</string>
     <string name="data_music_delete">음악 전부 삭제하기</string>
     <string name="data_album_delete">앨범 전부 삭제하기</string>
     <string name="music_count_header">등록한 음악</string>

@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +60,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/google_drive_logo" />
+                        app:srcCompat="@drawable/database" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -74,17 +73,11 @@
                         app:layout_constraintTop_toTopOf="@+id/imageView">
 
                         <TextView
-                            android:id="@+id/text_google_drive_id_header"
+                            android:id="@+id/text_back_up_header"
                             style="@style/setting_header_text"
-                            android:text="@string/google_drive_id"
-                            android:textColor="@color/setting_color" />
+                            android:text="@string/back_up_header"
+                            android:textColor="@color/black_high_emphasis"/>
 
-                        <TextView
-                            android:id="@+id/text_google_drive_id_body"
-                            style="@style/setting_body_text"
-                            android:textSize="@dimen/setting_id_size"
-                            android:layout_width="match_parent"
-                            android:text="test555@naver.com" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,7 +97,7 @@
                     android:id="@+id/text_data_back_up_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최근 백업 시간 : "
+                    tools:text="최근 백업 시간 : "
                     android:layout_marginTop="@dimen/margin_narrow_8"
                     style="@style/setting_header_text"
                     android:layout_marginStart="@dimen/margin_16"
@@ -127,7 +120,7 @@
                     android:id="@+id/text_data_restore_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최근 복원 시간 : "
+                    tools:text="최근 복원 시간 : "
                     android:layout_marginTop="@dimen/margin_narrow_8"
                     style="@style/setting_header_text"
                     android:layout_marginStart="@dimen/margin_16"
