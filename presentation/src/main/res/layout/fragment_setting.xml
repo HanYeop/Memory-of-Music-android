@@ -147,7 +147,7 @@
                     android:text="@string/data_setting" />
 
                 <TextView
-                    android:id="@+id/text_data_delete"
+                    android:id="@+id/text_data_music_delete"
                     style="@style/setting_body_text"
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/margin_1"
@@ -157,7 +157,20 @@
                     android:paddingTop="@dimen/padding_default_10"
                     android:paddingEnd="@dimen/padding_default_10"
                     android:paddingBottom="@dimen/padding_default_10"
-                    android:text="@string/data_delete" />
+                    android:text="@string/data_music_delete" />
+
+                <TextView
+                    android:id="@+id/text_data_album_delete"
+                    style="@style/setting_body_text"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_1"
+                    android:background="@drawable/ripple_setting"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:paddingStart="@dimen/padding_20"
+                    android:paddingTop="@dimen/padding_default_10"
+                    android:paddingEnd="@dimen/padding_default_10"
+                    android:paddingBottom="@dimen/padding_default_10"
+                    android:text="@string/data_album_delete" />
 
                 <TextView
                     android:id="@+id/text_security_header"

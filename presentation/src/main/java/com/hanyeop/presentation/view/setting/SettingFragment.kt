@@ -55,10 +55,15 @@ class SettingFragment : BaseFragmentMain<FragmentSettingBinding>(R.layout.fragme
 
     private fun initClickListener(){
         binding.apply {
-            textDataDelete.setOnClickListener {
+            textDataMusicDelete.setOnClickListener {
+                showDeleteDialog(requireContext()){
+                    musicViewModel.deleteAllMusic()
+                    showToast(resources.getString(R.string.delete_success))
+                }
+            }
+            textDataAlbumDelete.setOnClickListener {
                 showDeleteDialog(requireContext()){
                     albumViewModel.deleteAllAlbum()
-                    musicViewModel.deleteAllMusic()
                     showToast(resources.getString(R.string.delete_success))
                 }
             }

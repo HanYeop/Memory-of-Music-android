@@ -84,7 +84,8 @@
     <string name="data_back_up">데이터 백업하기</string>
     <string name="data_restore">데이터 복원하기</string>
     <string name="google_drive_id">Google Drive 계정</string>
-    <string name="data_delete">데이터 전부 삭제하기</string>
+    <string name="data_music_delete">음악 전부 삭제하기</string>
+    <string name="data_album_delete">앨범 전부 삭제하기</string>
     <string name="music_count_header">등록한 음악</string>
     <string name="music_album_header">등록한 앨범</string>
     <string name="security_header">보안</string>
