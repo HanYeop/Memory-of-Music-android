@@ -48,14 +48,14 @@ Clean-Architecture 음악 기록 앱
 
   - 앱의 비즈니스 로직 포함 레이어
   - Model, UseCase, Repository interface
-  - 의존성 없이 독립적.
+  - 의존성 없이 독립적
 
 - Data
   - 서버,로컬 DB와 데이터 통신 레이어
   - DataSource, Model, Repository 구현부, Dao
   - Domain 레이어 포함
 
-## 사용한 라이브러리
+## 🎨 사용한 라이브러리
 
 | Name              | Description                                            |
 | ----------------- | ------------------------------------------------------ |
