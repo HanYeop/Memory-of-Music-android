@@ -57,22 +57,24 @@ Clean-Architecture 음악 기록 앱
 
 ## 🎨 사용한 라이브러리
 
-| Name              | Description                                            |
-| ----------------- | ------------------------------------------------------ |
-| Retrofit          | HTTP 통신을 도와주는 라이브러리                        |
-| Coroutine         | 비동기 처리 라이브러리                                 |
-| Coroutine Flow    | 비동기 데이터 스트림                                   |
-| Glide             | 이미지 로딩 라이브러리                                 |
-| Dagger Hilt       | 의존성 주입 라이브러리                                 |
-| Navigation        | 프래그먼트를 쉽게 관리할 수 있도록 도와주는 라이브러리 |
-| XMLConverter      | XML 데이터 변환 라이브러리                             |
-| SimpleRatingBar   | RatingBar 커스텀 라이브러리                            |
-| SeekbarRangedView | Seekbar 범위 설정 커스텀 라이브러리                    |
-| Firebase          | 통신을 위한 서버                                       |
-| Biometric         | 생체인증 라이브러리                                    |
-| Room              | 안드로이드 DB 라이브러리                               |
-| RoomBackup        | DB 백업, 복원 라이브러리                               |
-| BottomBar         | 바텀 네비게이션 커스텀 라이브러리                      |
+| Name              | Description                                               |
+| ----------------- | --------------------------------------------------------- |
+| Retrofit          | HTTP 통신을 도와주는 라이브러리                           |
+| ManiaDB           | 음악 정보 API                                             |
+| ViewModel         | 수명주기를 고려하여 데이터를 저장하고 관리하는 라이브러리 |
+| Coroutine         | 비동기 처리 라이브러리                                    |
+| Coroutine Flow    | 비동기 데이터 스트림                                      |
+| Glide             | 이미지 로딩 라이브러리                                    |
+| Dagger Hilt       | 의존성 주입 라이브러리                                    |
+| Navigation        | 프래그먼트를 쉽게 관리할 수 있도록 도와주는 라이브러리    |
+| XMLConverter      | XML 데이터 변환 라이브러리                                |
+| SimpleRatingBar   | RatingBar 커스텀 라이브러리                               |
+| SeekbarRangedView | Seekbar 범위 설정 커스텀 라이브러리                       |
+| Firebase          | 통신을 위한 서버                                          |
+| Biometric         | 생체인증 라이브러리                                       |
+| Room              | 안드로이드 DB 라이브러리                                  |
+| RoomBackup        | DB 백업, 복원 라이브러리                                  |
+| BottomBar         | 바텀 네비게이션 커스텀 라이브러리                         |
 
 ## 📝 Commit Type
 
