@@ -89,7 +89,7 @@
 - [CHORE] : build, manifest 수정
 - [TEST] : test 코드 작성
 
-## License
+## ✅ License
 ```
 Copyright 2022 HanYeop
 
