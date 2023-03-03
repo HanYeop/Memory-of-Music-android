@@ -1,6 +1,6 @@
 # Memory-of-Music-android
 
-![Generic badge](https://img.shields.io/badge/version-1.1-green.svg)
+![Generic badge](https://img.shields.io/badge/version-1.1.0-green.svg)
 
 들은 음악들을 기록할 수 있는 안드로이드 애플리케이션입니다.
 
