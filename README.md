@@ -1,6 +1,8 @@
 # Memory-of-Music-android
 
-Clean-Architecture 음악 기록 앱
+![Generic badge](https://img.shields.io/badge/version-1.1-green.svg)
+
+들은 음악들을 기록할 수 있는 안드로이드 애플리케이션입니다.
 
 [플레이스토어 다운로드 링크](https://play.google.com/store/apps/details?id=com.hanyeop.mom)
 
